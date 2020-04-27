@@ -4,15 +4,32 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 62.5; /*16px = 100%, 10px = 62.5%  - 1rem = 10px*/
+  color: #272828;
+  font-family: 'Oswald', sans-serif;
+}
+
+button {
+  cursor: pointer;
+}
+
+body {
+  background-color: #F7F0E9;
+  display: grid;
+  grid-template-columns: 10% 1fr 10%;
+  grid-template-rows: 30% 70%;
+  
+}
+
 #root {
+  grid-column: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-body {
-  background-color: #F7F0E9;
-}
+
 
 img-box {
   width: 50vw;
@@ -27,6 +44,93 @@ img-box-image {
 }
 
 .tituloinicio {
-  font-family: sans-serif;
+  font-family: 'Oswald', sans-serif;
   color: #272828;
+}
+
+
+
+/*PANTALLA GRYFFINDOR, HUFFLEPUFF, SLYTHERIN, RAVENCLAW (solo hay que cambiar color de border de título*/
+
+.dynamic-content {
+  grid-column: 2;
+  display: flex;
+  flex-direction: column;
+  height: 100%; 
+
+}
+
+.dynamic-content > header {
+  height: 80vh;
+  /* border: 2px solid darkgreen; */
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+
+.small-logo-box {
+  align-self: center;
+  width: 20vw;
+  height: 5vh;
+}
+
+.small-logo-box > img {
+  width: 100%;
+}
+
+/*CARDS*/
+
+.inner-content {
+  width: 80vw;
+  height: 60vh;
+  /* border: 2px solid darkred; */
+  margin: 10vh auto;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.card-box {
+  width: 20vw;
+  height: 100%;
+  background-color: #272828;
+  margin: 1rem;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 5%;
+  
+}
+
+.card-box:last-child {
+  border: 2px solid green;
+  position: relative;
+  right: 32%;
+}
+
+.card-box > img {
+  max-width: 80%;
+  height: 70%;
+  
+  
+}
+
+ul {
+  list-style: none;
+  margin-top: .5rem;
+}
+
+li {
+  margin: .2rem;
+  
+}
+
+
+.section-title {
+  font-family: 'Oswald', sans-serif;
+  border-top: 5px solid darkred;
+  border-bottom: 5px solid darkred;
+  text-align: center;
+  font-size: 3rem;
 }

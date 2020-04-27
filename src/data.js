@@ -11,7 +11,35 @@ export const anotherExample = () => {
 };  */
 import data from './data/potter/potter.js';
 
-export const characters = data.map(character => character);
+const characters = data.map(character => character);
+
+//Dividir personajes por casa
+export const gryfinddorMembers = characters.filter(character => {
+  if (character.house === 'Gryffindor') {
+    return character;
+  }
+});
+
+export const slytherinMembers = characters.filter(character => {
+  if (character.house === 'Slytherin') {
+    return character;
+  }
+});
+
+
+export const hufflepuffMembers = characters.filter(character => {
+  if (character.house === 'Hufflepuff') {
+    return character;
+  }
+});
+
+export const ravenclawMembers = characters.filter(character => {
+  if (character.house === 'Ravenclaw') {
+    return character;
+  }
+});
+
+
 
 export const names = characters.map(character => character.name);
 

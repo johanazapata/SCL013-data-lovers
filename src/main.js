@@ -1,5 +1,26 @@
 //FOR DOM MANIPULATION
 
+
+//IMPORTS
+  // CÓDIGO CON EL QUE ESTUVE JUGANDO DURANTE EL FINDE, SOLO PRÁCTICA, LO DEJÉ POR SI ALGO DE AHÍ NOS SIRVE DESPUÉS :D
+
+  import data from './data/potter/potter.js';
+  /* import {characters} from './data.js'; */
+  import {names} from './data.js';
+  import {patronus} from './data.js';
+  import {gryfinddorMembers} from './data.js';
+  import {slytherinMembers} from './data.js';
+  import {hufflepuffMembers} from './data.js';
+  import {ravenclawMembers} from './data.js';
+
+
+  /* console.log(data); //data is an array of objects, each object is a character
+  console.log(data[0].patronus); */
+  /* console.log(characters);
+  console.log(names);
+  console.log(`The ${patronus[0][1]} belongs to ${patronus[0][0]}`);*/
+
+
 const root = document.getElementById('root');
 const homepageFragment = new DocumentFragment; //aquí se agregan todos los elementos, luego este fragmento se agrega al root, así solo se actualiza una vez y podemos agregar imagen, h1 y botón al mismo tiempo
 
@@ -23,6 +44,7 @@ titulo.classList.add = "tituloinicio"
 const alohomoraBtn = document.createElement("button");
 alohomoraBtn.classList = "alohomora-button";
 alohomoraBtn.textContent = "Alohomora";
+alohomoraBtn.addEventListener("click", showGryffindor); //showHouses es la función en la que tienes que crear todos los elementos del DOM de la página de las Casas
 
 //agregando logo, h1 y botón al fragment
 homepageFragment.appendChild(logoBox);
@@ -31,42 +53,69 @@ homepageFragment.appendChild(alohomoraBtn);
 //agregando fragment al root
 root.appendChild(homepageFragment);
 
+//BORRAR CONTENIDO DEL DOM (div#root)
+function clearContent() {
+  while (root.firstChild) {
+    root.removeChild(root.firstChild);
+  }
+}
+
+//FUNCIÓN PARA MOSTRAR LOS MIEMBROS DE CADA CASA
+function showGryffindor() {
+  clearContent();
+  document.body.insertAdjacentHTML('afterbegin', `
+    <section class="dynamic-content">
+      <header>
+        <h1 class="section-title">GRYFFINDOR</h1>
+        <div class="small-logo-box">
+          <!-- <img src="./Imagenes/wizards-unite-logo.png" alt="logo-small">-->
+        </div>
+      </header>
+      
+    </section>
+  
+  `);
+
+  const dynamicContentSection = document.querySelector('.dynamic-content');
 
 
-// CÓDIGO CON EL QUE ESTUVE JUGANDO DURANTE EL FINDE, SOLO PRÁCTICA, LO DEJÉ POR SI ALGO DE AHÍ NOS SIRVE DESPUÉS :D
+   
+      dynamicContentSection.insertAdjacentHTML('beforeend', `
+      
+          <section class="inner-content">
+          </section>
+      
+      `)
+    
 
-/* import { example } from './data.js';
- */
-// import data from './data/lol/lol.js';
-// import data from './data/pokemon/pokemon.js';
-// import data from './data/rickandmorty/rickandmorty.js';
-/* import data from './data/potter/potter.js';
-import { characters } from './data.js';
-import { names } from './data.js';
-import { patronus } from './data.js';
- */
-/* console.log(data); //data is an array of objects, each object is a character
-console.log(data[0].patronus); */
-/* console.log(characters);
-console.log(names);
-console.log(`The ${patronus[0][1]} belongs to ${patronus[0][0]}`);
- */
-/* 
-let rootDiv = document.getElementById("root");
-let fragment = new DocumentFragment;
 
-let paragraph = document.createElement('p');
-paragraph.textContent = "Hi, I'm a paragraph appended to a document fragment";
-let paragraph2 = document.createElement('p');
-paragraph2.textContent = "And I'm another paragraph appended to the same document fragment!";
-let paragraph3 = document.createElement('p');
-paragraph3.textContent = "... yep, I'm a new one!";
 
-fragment.appendChild(paragraph);
-fragment.appendChild(paragraph2);
-fragment.appendChild(paragraph3);
+  const innerContentSection = document.querySelector('.inner-content');
 
-rootDiv.appendChild(fragment); */
+  gryfinddorMembers.forEach(character => {
+    innerContentSection.insertAdjacentHTML('beforeend',
+    `
+    <div class="card-box">
+        <img src = "${character.image}" alt="character-img">
+        <ul class="card-info">
+          <li>Nombre: ${character.name}</li>
+          <li>Género: ${character.gender}</li>
+          <li>Fecha de nacimiento: ${character.yearOfBirth}</li>
+          <li>Patronus: ${character.patronus}</li>
+        </ul>
+      </div>
+
+    `);
+
+  });
+
+
+}
+
+
+
+
+
 
 
 
