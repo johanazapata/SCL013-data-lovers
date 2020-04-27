@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+body {
+  background-color: #F7F0E9;
+}
+
+img-box {
+  width: 50vw;
+}
+
+img-box-image {
+  width: 100%;
+}
+
+.alohomora-button {
+  /*para editar el estilo del botón del inicio*/
+}
+
+.tituloinicio {
+  font-family: sans-serif;
+  color: #272828;
+}
