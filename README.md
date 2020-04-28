@@ -36,7 +36,13 @@ HISTORIA 6 : Crar una sección llamada "Patronus", en ella se detallara los patr
 
 ![PLANIFICACION](./src/Imagenes/PlanificacionTrello.jpg)
 
-# 5. Prototipos Iniciales
+# 5. Prototipos
 
-![PROTOTIPO 1](./src/Imagenes/PrototipoUno.jpg)
-![PROTOTIPO 2](./src/Imagenes/PrototipoDos.jpg)
+- Baja Fidelidad Desktop
+
+![PROTOTIPO BAJA 1](./src/Imagenes/PrototipoUno.jpg)
+![PROTOTIPO BAJA 2](./src/Imagenes/PrototipoDos.jpg)
+
+- Alta Fidelidad Desktop
+
+![PROTOTIPO ALTA 1](./src/Imagenes/AltaDesktop.jpg)
