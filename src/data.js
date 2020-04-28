@@ -13,6 +13,7 @@ import data from './data/potter/potter.js';
 
 const characters = data.map(character => character);
 
+
 //Dividir personajes por casa
 export const gryfinddorMembers = characters.filter(character => {
   if (character.house === 'Gryffindor') {

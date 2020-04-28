@@ -141,3 +141,12 @@ li {
   border-bottom: 5px solid darkred;
   text-align: center;
   font-size: 3rem;
+}
+
+.section-titulo{
+font-family: 'Oswald', sans-serif;
+  border-top: 5px solid #DFA63A;
+  border-bottom: 5px solid #DFA63A;
+  text-align: center;
+  font-size: 3rem;
+}
