@@ -125,7 +125,6 @@ function HogwartsHouses() {
   createMenu(); //crea estructura del menú (provisorio)
 
   const innerContentSection = document.querySelector(".inner-content");
-  const innerContentSection = document.querySelector(".inner-content");
 
   const fragment = new DocumentFragment();
   gryfinddorMembers.forEach((character) => {
