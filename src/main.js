@@ -2,23 +2,35 @@
 
 
 //IMPORTS
-  // CÓDIGO CON EL QUE ESTUVE JUGANDO DURANTE EL FINDE, SOLO PRÁCTICA, LO DEJÉ POR SI ALGO DE AHÍ NOS SIRVE DESPUÉS :D
+// CÓDIGO CON EL QUE ESTUVE JUGANDO DURANTE EL FINDE, SOLO PRÁCTICA, LO DEJÉ POR SI ALGO DE AHÍ NOS SIRVE DESPUÉS :D
 
-  import data from './data/potter/potter.js';
-  /* import {characters} from './data.js'; */
-  import {names} from './data.js';
-  import {patronus} from './data.js';
-  import {gryfinddorMembers} from './data.js';
-  import {slytherinMembers} from './data.js';
-  import {hufflepuffMembers} from './data.js';
-  import {ravenclawMembers} from './data.js';
+import data from './data/potter/potter.js';
+/* import {characters} from './data.js'; */
+import {
+  names
+} from './data.js';
+import {
+  patronus
+} from './data.js';
+import {
+  gryfinddorMembers
+} from './data.js';
+import {
+  slytherinMembers
+} from './data.js';
+import {
+  hufflepuffMembers
+} from './data.js';
+import {
+  ravenclawMembers
+} from './data.js';
 
 
-  /* console.log(data); //data is an array of objects, each object is a character
-  console.log(data[0].patronus); */
-  /* console.log(characters);
-  console.log(names);
-  console.log(`The ${patronus[0][1]} belongs to ${patronus[0][0]}`);*/
+/* console.log(data); //data is an array of objects, each object is a character
+console.log(data[0].patronus); */
+/* console.log(characters);
+console.log(names);
+console.log(`The ${patronus[0][1]} belongs to ${patronus[0][0]}`);*/
 
 
 const root = document.getElementById('root');
@@ -44,7 +56,7 @@ titulo.classList.add = "tituloinicio"
 const alohomoraBtn = document.createElement("button");
 alohomoraBtn.classList = "alohomora-button";
 alohomoraBtn.textContent = "Alohomora";
-alohomoraBtn.addEventListener("click", showGryffindor); //showHouses es la función en la que tienes que crear todos los elementos del DOM de la página de las Casas
+alohomoraBtn.addEventListener("click", HogwartsHouses); //showHouses es la función en la que tienes que crear todos los elementos del DOM de la página de las Casas
 
 //agregando logo, h1 y botón al fragment
 homepageFragment.appendChild(logoBox);
@@ -58,6 +70,51 @@ function clearContent() {
   while (root.firstChild) {
     root.removeChild(root.firstChild);
   }
+}
+function HogwartsHouses() {
+  clearContent();
+  document.body.insertAdjacentHTML('afterbegin', `
+    <section class="dynamic-content">
+      <header>
+        <h1 class="section-title">CASAS</h1>
+        <div class="small-logo-box">
+          <!-- <img src="./Imagenes/wizards-unite-logo.png" alt="logo-small">-->
+        </div>
+      </header>
+      
+    </section>
+  
+  `);
+
+  const dynamicContentSection = document.querySelector('.dynamic-content');
+
+
+
+  dynamicContentSection.insertAdjacentHTML('beforeend', `
+      
+          <section class="inner-content">
+          </section>
+      
+      `)
+
+
+
+
+  const innerContentSection = document.querySelector('.inner-content');
+
+ HogwartsShield.forEach(insignia => {
+    innerContentSection.insertAdjacentHTML('beforeend',
+      `
+    <div class="card-box">
+        <img src = "${insignia.image}" alt="character-img">
+    
+      </div>
+
+    `);
+
+  });
+
+
 }
 
 //FUNCIÓN PARA MOSTRAR LOS MIEMBROS DE CADA CASA
@@ -79,14 +136,14 @@ function showGryffindor() {
   const dynamicContentSection = document.querySelector('.dynamic-content');
 
 
-   
-      dynamicContentSection.insertAdjacentHTML('beforeend', `
+
+  dynamicContentSection.insertAdjacentHTML('beforeend', `
       
           <section class="inner-content">
           </section>
       
       `)
-    
+
 
 
 
@@ -94,7 +151,7 @@ function showGryffindor() {
 
   gryfinddorMembers.forEach(character => {
     innerContentSection.insertAdjacentHTML('beforeend',
-    `
+      `
     <div class="card-box">
         <img src = "${character.image}" alt="character-img">
         <ul class="card-info">
@@ -111,11 +168,3 @@ function showGryffindor() {
 
 
 }
-
-
-
-
-
-
-
-

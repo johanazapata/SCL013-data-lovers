@@ -5,7 +5,8 @@
 }
 
 html {
-  font-size: 62.5; /*16px = 100%, 10px = 62.5%  - 1rem = 10px*/
+  font-size: 62.5;
+  /*16px = 100%, 10px = 62.5%  - 1rem = 10px*/
   color: #272828;
   font-family: 'Oswald', sans-serif;
 }
@@ -19,7 +20,7 @@ body {
   display: grid;
   grid-template-columns: 10% 1fr 10%;
   grid-template-rows: 30% 70%;
-  
+
 }
 
 #root {
@@ -40,7 +41,14 @@ img-box-image {
 }
 
 .alohomora-button {
-  /*para editar el estilo del botón del inicio*/
+  text-decoration: none;
+  padding: 10px;
+  font-weight: 600;
+  font-size: 20px;
+  color: #272828;
+  background-color: #DFA63A;
+  border-radius: 6px;
+
 }
 
 .tituloinicio {
@@ -56,11 +64,11 @@ img-box-image {
   grid-column: 2;
   display: flex;
   flex-direction: column;
-  height: 100%; 
+  height: 100%;
 
 }
 
-.dynamic-content > header {
+.dynamic-content>header {
   height: 80vh;
   /* border: 2px solid darkgreen; */
   display: flex;
@@ -74,7 +82,7 @@ img-box-image {
   height: 5vh;
 }
 
-.small-logo-box > img {
+.small-logo-box>img {
   width: 100%;
 }
 
@@ -100,7 +108,7 @@ img-box-image {
   flex-direction: column;
   align-items: center;
   border-radius: 5%;
-  
+
 }
 
 .card-box:last-child {
@@ -109,11 +117,11 @@ img-box-image {
   right: 32%;
 }
 
-.card-box > img {
+.card-box>img {
   max-width: 80%;
   height: 70%;
-  
-  
+
+
 }
 
 ul {
@@ -123,7 +131,7 @@ ul {
 
 li {
   margin: .2rem;
-  
+
 }
 
 
@@ -133,4 +141,3 @@ li {
   border-bottom: 5px solid darkred;
   text-align: center;
   font-size: 3rem;
-}
