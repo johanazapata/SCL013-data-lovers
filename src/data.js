@@ -13,8 +13,23 @@ import data from './data/potter/potter.js';
 
 const characters = data.map(character => character);
 
+<<<<<<< HEAD
 
+=======
+export let selectedHouseVariable;
+>>>>>>> upstream/master
 //Dividir personajes por casa
+export function houseMembers(selectedHouseVariable) {
+  
+  characters.filter(character => {
+  if (character.house === selectedHouseVariable) {
+    return character;
+  }
+})};
+
+
+
+
 export const gryfinddorMembers = characters.filter(character => {
   if (character.house === 'Gryffindor') {
     return character;

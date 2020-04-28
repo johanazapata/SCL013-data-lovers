@@ -4,11 +4,16 @@
   box-sizing: border-box;
 }
 
+/*
+body -> grid  -  nav, contenido dinámico
+root -> flex  -  solo se usa para la página de inicio 
+*/
+
 html {
   font-size: 62.5;
   /*16px = 100%, 10px = 62.5%  - 1rem = 10px*/
   color: #272828;
-  font-family: 'Oswald', sans-serif;
+  font-family: "Oswald", sans-serif;
 }
 
 button {
@@ -16,11 +21,10 @@ button {
 }
 
 body {
-  background-color: #F7F0E9;
+  background-color: #f7f0e9;
   display: grid;
   grid-template-columns: 10% 1fr 10%;
   grid-template-rows: 30% 70%;
-
 }
 
 #root {
@@ -30,7 +34,13 @@ body {
   align-items: center;
 }
 
-
+nav {
+  grid-column: 1;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+}
 
 img-box {
   width: 50vw;
@@ -46,17 +56,14 @@ img-box-image {
   font-weight: 600;
   font-size: 20px;
   color: #272828;
-  background-color: #DFA63A;
+  background-color: #dfa63a;
   border-radius: 6px;
-
 }
 
 .tituloinicio {
-  font-family: 'Oswald', sans-serif;
+  font-family: "Oswald", sans-serif;
   color: #272828;
 }
-
-
 
 /*PANTALLA GRYFFINDOR, HUFFLEPUFF, SLYTHERIN, RAVENCLAW (solo hay que cambiar color de border de título*/
 
@@ -65,16 +72,14 @@ img-box-image {
   display: flex;
   flex-direction: column;
   height: 100%;
-
 }
 
-.dynamic-content>header {
+.dynamic-content > header {
   height: 80vh;
   /* border: 2px solid darkgreen; */
   display: flex;
   flex-direction: column-reverse;
 }
-
 
 .small-logo-box {
   align-self: center;
@@ -82,7 +87,7 @@ img-box-image {
   height: 5vh;
 }
 
-.small-logo-box>img {
+.small-logo-box > img {
   width: 100%;
 }
 
@@ -99,8 +104,8 @@ img-box-image {
 }
 
 .card-box {
-  width: 20vw;
-  height: 100%;
+  width: 23vw;
+  height: 130%;
   background-color: #272828;
   margin: 1rem;
   color: white;
@@ -108,7 +113,7 @@ img-box-image {
   flex-direction: column;
   align-items: center;
   border-radius: 5%;
-
+  padding-top: 2rem;
 }
 
 .card-box:last-child {
@@ -117,36 +122,32 @@ img-box-image {
   right: 32%;
 }
 
-.card-box>img {
+.card-box > img {
   max-width: 80%;
   height: 70%;
-
-
 }
 
 ul {
   list-style: none;
-  margin-top: .5rem;
+  margin-top: 0.5rem;
 }
 
 li {
-  margin: .2rem;
-
+  margin: 0.2rem;
 }
 
-
 .section-title {
-  font-family: 'Oswald', sans-serif;
+  font-family: "Oswald", sans-serif;
   border-top: 5px solid darkred;
   border-bottom: 5px solid darkred;
   text-align: center;
   font-size: 3rem;
 }
 
-.section-titulo{
-font-family: 'Oswald', sans-serif;
-  border-top: 5px solid #DFA63A;
-  border-bottom: 5px solid #DFA63A;
+.section-titulo {
+  font-family: "Oswald", sans-serif;
+  border-top: 5px solid #dfa63a;
+  border-bottom: 5px solid #dfa63a;
   text-align: center;
   font-size: 3rem;
 }
