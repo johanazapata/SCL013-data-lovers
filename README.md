@@ -2,7 +2,7 @@
 
 1. Descripción del proyecto
 
-![PROTOTIPO UNO](./src/Imagenes/wizads-unite-logo.png)
+![ENCABEZADO](./src/Imagenes/horse.jpg)
 
 "Harry Potter World" es una web app que te ayudara a conocer todos los datos necesarios del mundo magico para que puedas jugar Harry Potter: Wizards Unite. En esta web app podras conocer datos importantes de tu personaje favorito, como:
 
