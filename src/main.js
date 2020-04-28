@@ -37,7 +37,7 @@ titulo.classList.add = "tituloinicio";
 const alohomoraBtn = document.createElement("button");
 alohomoraBtn.classList = "alohomora-button";
 alohomoraBtn.textContent = "Alohomora";
-alohomoraBtn.addEventListener("click", HogwartsHouses);
+alohomoraBtn.addEventListener("click", showGryffindor);
 
 //agregando logo, h1 y botón al fragment
 homepageFragment.appendChild(logoBox);
@@ -114,46 +114,9 @@ function createBasicStructure() {
   );
 }
 
-const dynamicContentSection = document.querySelector(".dynamic-content");
-
 ///////////////////////////////////////////////////////////////////////////////////////
 /* PANTALLAS */
 ///////////////////////////////////////////////////////////////////////////////////////
-function HogwartsHouses() {
-  clearContent(); //limpia pantalla anterior
-  createBasicStructure(); //crea estructura básica que se repite en cada pantalla
-  createMenu(); //crea estructura del menú (provisorio)
-
-  const innerContentSection = document.querySelector(".inner-content");
-
-  const fragment = new DocumentFragment();
-  gryfinddorMembers.forEach((character) => {
-    const cardBox = document.createElement("div");
-    cardBox.classList = "card-box";
-    const cardBoxImg = document.createElement("img");
-    cardBoxImg.src = `${character.image}`;
-    const cardInfo = document.createElement("ul");
-    cardInfo.classList = "card-info";
-
-    const cardInfoLi1 = document.createElement("li");
-    const cardInfoLi2 = document.createElement("li");
-    const cardInfoLi3 = document.createElement("li");
-    const cardInfoLi4 = document.createElement("li");
-    cardInfoLi1.textContent = `Nombre: ${character.name}`;
-    cardInfoLi2.textContent = `Género: ${character.gender}`;
-    cardInfoLi3.textContent = `Fecha de nacimiento: ${character.yearOfBirth}`;
-    cardInfoLi4.textContent = `Patronus: ${character.patronus}`;
-    cardInfo.appendChild(cardInfoLi1);
-    cardInfo.appendChild(cardInfoLi2);
-    cardInfo.appendChild(cardInfoLi3);
-    cardInfo.appendChild(cardInfoLi4);
-    cardBox.appendChild(cardBoxImg);
-    cardBox.appendChild(cardInfo);
-    /////////////RESULTADO: TARJETA DE CADA PERSONAJE /////////////
-    fragment.appendChild(cardBox); //se pega cada tarjeta al fragmento vacío
-    innerContentSection.appendChild(fragment); //el fragmento se pega a la pantalla
-  });
-}
 
 //1. FUNCIÓN PARA MOSTRAR LA PANTALLA DE CADA CASA
 function showGryffindor() {
