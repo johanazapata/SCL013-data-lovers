@@ -1,3 +1,6 @@
+@media screen and (max-width: 400px) {
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -12,7 +15,7 @@ root -> flex  -  solo se usa para la página de inicio
 html {
   font-size: 62.5%; /*16px = 100%, 10px = 62.5%  - 1rem = 10px*/
   color: #272828;
-  font-family: 'Oswald', sans-serif;
+  font-family: "Oswald", sans-serif;
 }
 
 button {
@@ -20,11 +23,10 @@ button {
 }
 
 body {
-  background-color: #F7F0E9;
+  background-color: #f7f0e9;
   display: grid;
   grid-template-columns: 10% 1fr 10%;
   grid-template-rows: 30% 70%;
-
 }
 
 #root {
@@ -40,10 +42,7 @@ nav {
   display: flex;
   flex-direction: column;
   margin-top: 2rem;
-  
 }
-
-
 
 img-box {
   width: 50vw;
@@ -54,15 +53,19 @@ img-box-image {
 }
 
 .alohomora-button {
-  /*para editar el estilo del botón del inicio*/
+  text-decoration: none;
+  padding: 10px;
+  font-weight: 600;
+  font-size: 20px;
+  color: #272828;
+  background-color: #dfa63a;
+  border-radius: 6px;
 }
 
 .tituloinicio {
-  font-family: 'Oswald', sans-serif;
+  font-family: "Oswald", sans-serif;
   color: #272828;
 }
-
-
 
 /*PANTALLA GRYFFINDOR, HUFFLEPUFF, SLYTHERIN, RAVENCLAW (solo hay que cambiar color de border de título*/
 
@@ -70,8 +73,7 @@ img-box-image {
   grid-column: 2;
   display: flex;
   flex-direction: column;
-  height: 100%; 
-
+  height: 100%;
 }
 
 .dynamic-content > header {
@@ -80,7 +82,6 @@ img-box-image {
   display: flex;
   flex-direction: column-reverse;
 }
-
 
 .small-logo-box {
   align-self: center;
@@ -115,32 +116,25 @@ img-box-image {
   align-items: center;
   border-radius: 5%;
   padding-top: 2rem;
-  
 }
-
-
 
 .card-box > img {
   max-width: 80%;
   height: 70%;
-  
-  
 }
 
 ul {
   list-style: none;
-  margin-top: .5rem;
+  margin-top: 0.5rem;
   max-height: 100%;
 }
 
 li {
-  margin: .2rem;
-  
+  margin: 0.2rem;
 }
 
-
 .section-title {
-  font-family: 'Oswald', sans-serif;
+  font-family: "Oswald", sans-serif;
   border-top: 5px solid;
   border-bottom: 5px solid;
   text-align: center;
