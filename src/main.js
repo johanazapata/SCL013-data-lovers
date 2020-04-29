@@ -1,22 +1,10 @@
 //FOR DOM MANIPULATION
 
-  /* import data from './data/potter/potter.js'; */
-  /* import {characters} from './data.js'; */
-  import {names} from './data.js';
-  import {patronus} from './data.js';
-  import {gryffindorMembers} from './data.js';
-  import {slytherinMembers} from './data.js';
-  import {hufflepuffMembers} from './data.js';
-  import {ravenclawMembers} from './data.js';
+  import data from './data/potter/potter.js';
+  import {filterByHouse} from './data.js';
 
-
-  /* console.log(data); //data is an array of objects, each object is a character
-  console.log(data[0].patronus); */
-  /* console.log(characters);
-  console.log(names);
-  console.log(`The ${patronus[0][1]} belongs to ${patronus[0][0]}`);*/
-
-
+  const characters = data.map(character => character); //arreglo con todos los personajes
+  
 const root = document.getElementById('root');
 const homepageFragment = new DocumentFragment; //aquí se agregan todos los elementos, luego este fragmento se agrega al root, así solo se actualiza una vez y podemos agregar imagen, h1 y botón al mismo tiempo
 
@@ -41,7 +29,8 @@ const alohomoraBtn = document.createElement("button");
 alohomoraBtn.classList = "alohomora-button";
 alohomoraBtn.textContent = "Alohomora";
 alohomoraBtn.addEventListener("click", () => {
-  return showHouseMembers(gryffindorMembers);
+  let houseMembers = filterByHouse(characters, "Gryffindor");
+  return showHouseMembers(houseMembers);
 });
 
 //agregando logo, h1 y botón al fragment
@@ -54,7 +43,7 @@ root.appendChild(homepageFragment);
 
 
 
-//MENÚ 
+//MENÚ PROVISORIO
 //1. Casas, 2. Gryffindor, 3. Hufflepuff, 4. Slytherin
 //5. Ravenclaw 6. Varitas 7. Material, 8.  Núcleo, 9. Patronus
 function createMenu() {
@@ -70,21 +59,25 @@ function createMenu() {
 
   menuBox.childNodes[1].textContent = "Gryffindor";
   menuBox.childNodes[1].addEventListener("click", () => {
+    let gryffindorMembers = filterByHouse(characters, "Gryffindor");
     return showHouseMembers(gryffindorMembers);
   });
 
   menuBox.childNodes[2].textContent = "Hufflepuff";
   menuBox.childNodes[2].addEventListener("click", () => {
+    let hufflepuffMembers = filterByHouse(characters, "Hufflepuff");
     return showHouseMembers(hufflepuffMembers);
   });
 
   menuBox.childNodes[3].textContent = "Slytherin";
   menuBox.childNodes[3].addEventListener("click", () => {
+    let slytherinMembers = filterByHouse(characters, "Slytherin");
     return showHouseMembers(slytherinMembers);
   });
 
   menuBox.childNodes[4].textContent = "Ravenclaw";
   menuBox.childNodes[4].addEventListener("click", () => {
+    let ravenclawMembers = filterByHouse(characters, "Ravenclaw");
     return showHouseMembers(ravenclawMembers);
   });
 
