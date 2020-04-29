@@ -13,8 +13,7 @@ root -> flex  -  solo se usa para la página de inicio
 */
 
 html {
-  font-size: 62.5%;
-  /*16px = 100%, 10px = 62.5%  - 1rem = 10px*/
+  font-size: 62.5%; /*16px = 100%, 10px = 62.5%  - 1rem = 10px*/
   color: #272828;
   font-family: "Oswald", sans-serif;
 }
@@ -119,12 +118,6 @@ img-box-image {
   padding-top: 2rem;
 }
 
-.card-box:last-child {
-  border: 2px solid green;
-  position: relative;
-  right: 32%;
-}
-
 .card-box > img {
   max-width: 80%;
   height: 70%;
@@ -133,6 +126,7 @@ img-box-image {
 ul {
   list-style: none;
   margin-top: 0.5rem;
+  max-height: 100%;
 }
 
 li {
@@ -141,16 +135,29 @@ li {
 
 .section-title {
   font-family: "Oswald", sans-serif;
-  border-top: 5px solid darkred;
-  border-bottom: 5px solid darkred;
+  border-top: 5px solid;
+  border-bottom: 5px solid;
   text-align: center;
   font-size: 3rem;
 }
 
-.section-titulo {
-  font-family: "Oswald", sans-serif;
-  border-top: 5px solid #dfa63a;
-  border-bottom: 5px solid #dfa63a;
-  text-align: center;
-  font-size: 3rem;
+/*Colores de borde superior e inferior de título según sección*/
+.gryffindor-color {
+  border-top-color: darkred;
+  border-bottom-color: darkred;
+}
+
+.hufflepuff-color {
+  border-top-color: yellow;
+  border-bottom-color: yellow;
+}
+
+.slytherin-color {
+  border-top-color: darkgreen;
+  border-bottom-color: darkgreen;
+}
+
+.ravenclaw-color {
+  border-top-color: darkblue;
+  border-bottom-color: darkblue;
 }

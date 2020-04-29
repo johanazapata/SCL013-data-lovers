@@ -1,19 +1,9 @@
 //FOR DOM MANIPULATION
 
 import data from "./data/potter/potter.js";
-/* import {characters} from './data.js'; */
-import { names } from "./data.js";
-import { patronus } from "./data.js";
-import { gryfinddorMembers } from "./data.js";
-import { slytherinMembers } from "./data.js";
-import { hufflepuffMembers } from "./data.js";
-import { ravenclawMembers } from "./data.js";
+import { filterByHouse } from "./data.js";
 
-/* console.log(data); //data is an array of objects, each object is a character
-  console.log(data[0].patronus); */
-/* console.log(characters);
-  console.log(names);
-  console.log(`The ${patronus[0][1]} belongs to ${patronus[0][0]}`);*/
+const characters = data.map((character) => character); //arreglo con todos los personajes
 
 const root = document.getElementById("root");
 const homepageFragment = new DocumentFragment(); //aquí se agregan todos los elementos, luego este fragmento se agrega al root, así solo se actualiza una vez y podemos agregar imagen, h1 y botón al mismo tiempo
@@ -37,7 +27,10 @@ titulo.classList.add = "tituloinicio";
 const alohomoraBtn = document.createElement("button");
 alohomoraBtn.classList = "alohomora-button";
 alohomoraBtn.textContent = "Alohomora";
-alohomoraBtn.addEventListener("click", showGryffindor);
+alohomoraBtn.addEventListener("click", () => {
+  let houseMembers = filterByHouse(characters, "Gryffindor");
+  return showHouseMembers(houseMembers);
+});
 
 //agregando logo, h1 y botón al fragment
 homepageFragment.appendChild(logoBox);
@@ -47,34 +40,47 @@ homepageFragment.appendChild(alohomoraBtn);
 root.appendChild(homepageFragment);
 
 //MENÚ PROVISORIO
+//1. Casas, 2. Gryffindor, 3. Hufflepuff, 4. Slytherin
+//5. Ravenclaw 6. Varitas 7. Material, 8.  Núcleo, 9. Patronus
 function createMenu() {
   const menuBox = document.createElement("nav");
 
+  //se crea cada uno de las opciones del menú
   for (let i = 0; i < 9; i++) {
     const menuItem = document.createElement("button");
     menuBox.appendChild(menuItem);
   }
-  //1. Casas, 2. Gryffindor, 3. Hufflepuff, 4. Slytherin, 5. Ravenclaw, 6. Material, 7. Núcleo, 8. Patronus
+
   menuBox.childNodes[0].textContent = "Casas";
-  menuBox.childNodes[0].value = "houses";
 
   menuBox.childNodes[1].textContent = "Gryffindor";
-  menuBox.childNodes[1].value = "Gryffindor";
-  menuBox.childNodes[1].addEventListener("click", showGryffindor);
+  menuBox.childNodes[1].addEventListener("click", () => {
+    let gryffindorMembers = filterByHouse(characters, "Gryffindor");
+    return showHouseMembers(gryffindorMembers);
+  });
 
   menuBox.childNodes[2].textContent = "Hufflepuff";
-  menuBox.childNodes[2].value = "Hufflepuff";
+  menuBox.childNodes[2].addEventListener("click", () => {
+    let hufflepuffMembers = filterByHouse(characters, "Hufflepuff");
+    return showHouseMembers(hufflepuffMembers);
+  });
 
   menuBox.childNodes[3].textContent = "Slytherin";
-  menuBox.childNodes[3].value = "Slytherin";
+  menuBox.childNodes[3].addEventListener("click", () => {
+    let slytherinMembers = filterByHouse(characters, "Slytherin");
+    return showHouseMembers(slytherinMembers);
+  });
 
   menuBox.childNodes[4].textContent = "Ravenclaw";
-  menuBox.childNodes[4].value = "Ravenclaw";
+  menuBox.childNodes[4].addEventListener("click", () => {
+    let ravenclawMembers = filterByHouse(characters, "Ravenclaw");
+    return showHouseMembers(ravenclawMembers);
+  });
 
   menuBox.childNodes[5].textContent = "Material";
   menuBox.childNodes[6].textContent = "Núcleo";
   menuBox.childNodes[7].textContent = "Patronus";
-
+  //RESULTADO: Menú creado y linkeado a cada pantalla
   return document.body.appendChild(menuBox);
 }
 
@@ -100,13 +106,14 @@ function createBasicStructure() {
     `
     <section class="dynamic-content">
       <header>
-        <h1 class="section-title">GRYFFINDOR</h1>
+        <h1 class="section-title"></h1>
         <div class="small-logo-box">
           <!-- <img src="./Imagenes/wizards-unite-logo.png" alt="logo-small">-->
         </div>
       </header>
         <section class="inner-content">
-          </section>
+
+        </section>
       
     </section>
   
@@ -119,15 +126,32 @@ function createBasicStructure() {
 ///////////////////////////////////////////////////////////////////////////////////////
 
 //1. FUNCIÓN PARA MOSTRAR LA PANTALLA DE CADA CASA
-function showGryffindor() {
-  clearContent(); //limpia pantalla anterior
-  createBasicStructure(); //crea estructura básica que se repite en cada pantalla
-  createMenu(); //crea estructura del menú (provisorio)
+function showHouseMembers(houseMembers) {
+  clearContent(); //1. limpia pantalla anterior
+  createBasicStructure(); //2. crea estructura básica que se repite en cada pantalla
+  createMenu(); //3. crea estructura del menú (provisorio)
 
   const innerContentSection = document.querySelector(".inner-content");
+  const sectionTitle = document.querySelector(".section-title");
 
+  //4. modifica el color del título según la casa
+  if (houseMembers[0].house === "Gryffindor") {
+    sectionTitle.classList += " gryffindor-color";
+    sectionTitle.textContent = "GRYFFINDOR";
+  } else if (houseMembers[0].house === "Hufflepuff") {
+    sectionTitle.classList += " hufflepuff-color";
+    sectionTitle.textContent = "HUFFLEPUFF";
+  } else if (houseMembers[0].house === "Slytherin") {
+    sectionTitle.classList += " slytherin-color";
+    sectionTitle.textContent = "SLYTHERIN";
+  } else {
+    sectionTitle.classList += " ravenclaw-color";
+    sectionTitle.textContent = "RAVENCLAW";
+  }
+
+  //5. crea una tarjeta con información de cada personaje
   const fragment = new DocumentFragment();
-  gryfinddorMembers.forEach((character) => {
+  houseMembers.forEach((character) => {
     const cardBox = document.createElement("div");
     cardBox.classList = "card-box";
     const cardBoxImg = document.createElement("img");
@@ -135,22 +159,21 @@ function showGryffindor() {
     const cardInfo = document.createElement("ul");
     cardInfo.classList = "card-info";
 
-    const cardInfoLi1 = document.createElement("li");
-    const cardInfoLi2 = document.createElement("li");
-    const cardInfoLi3 = document.createElement("li");
-    const cardInfoLi4 = document.createElement("li");
-    cardInfoLi1.textContent = `Nombre: ${character.name}`;
-    cardInfoLi2.textContent = `Género: ${character.gender}`;
-    cardInfoLi3.textContent = `Fecha de nacimiento: ${character.yearOfBirth}`;
-    cardInfoLi4.textContent = `Patronus: ${character.patronus}`;
-    cardInfo.appendChild(cardInfoLi1);
-    cardInfo.appendChild(cardInfoLi2);
-    cardInfo.appendChild(cardInfoLi3);
-    cardInfo.appendChild(cardInfoLi4);
+    //6. se crean 4 elementos de lista para la información de cada personaje
+    for (let i = 0; i < 5; i++) {
+      let cardInfoLi = document.createElement("li");
+      cardInfo.appendChild(cardInfoLi);
+    }
+    //cardInfo equivale a la lista, childNodes[x] a cada elemento
+    cardInfo.childNodes[0].textContent = `Nombre: ${character.name}`;
+    cardInfo.childNodes[1].textContent = `Género: ${character.gender}`;
+    cardInfo.childNodes[2].textContent = `Fecha de nacimiento: ${character.yearOfBirth}`;
+    cardInfo.childNodes[3].textContent = `Patronus: ${character.patronus}`;
+
     cardBox.appendChild(cardBoxImg);
     cardBox.appendChild(cardInfo);
-    /////////////RESULTADO: TARJETA DE CADA PERSONAJE /////////////
-    fragment.appendChild(cardBox); //se pega cada tarjeta al fragmento vacío
-    innerContentSection.appendChild(fragment); //el fragmento se pega a la pantalla
+    //RESULTADO: TARJETA DE CADA PERSONAJE (cardBox)
+    fragment.appendChild(cardBox); //7. se pega cada tarjeta al fragmento vacío
   });
+  innerContentSection.appendChild(fragment); //8. el fragmento se pega a la pantalla (el DOM se actualiza una sola vez)
 }
