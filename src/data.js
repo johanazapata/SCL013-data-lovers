@@ -7,6 +7,11 @@ export function filterByHouse(dataToFilter, condition) {
   return membersByHouse;
 }
 
+
+
+
+
+
 /* export const names = characters.map(character => character.name);
 
 const hasPatronus = characters.filter(character => character.patronus);
