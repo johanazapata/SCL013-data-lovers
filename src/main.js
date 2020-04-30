@@ -41,7 +41,7 @@ root.appendChild(homepageFragment);
 //MENÚ PROVISORIO
 //1. Casas, 2. Gryffindor, 3. Hufflepuff, 4. Slytherin
 //5. Ravenclaw 6. Varitas 7. Material, 8.  Núcleo, 9. Patronus
-function createMenu() {
+/* function createMenu() {
   const menuBox = document.createElement("nav");
 
   //se crea cada uno de las opciones del menú
@@ -82,7 +82,7 @@ function createMenu() {
   //RESULTADO: Menú creado y linkeado a cada pantalla
   return document.body.appendChild(menuBox);
 }
-
+ */
 ///////////////////////////////////////////////////////////////////////////////////////
 /* HELPERS (FUNC. PARA COSAS PEQUEÑAS REPETITIVAS) */
 //////////////////////////////////////////////////////////////////////////////////////
@@ -103,7 +103,7 @@ function createBasicStructure() {
   document.body.insertAdjacentHTML(
     "afterbegin",
     `
-    <section class="dynamic-content">
+    <section id="general-section" class="dynamic-content">
       <header>
         <h1 class="section-title"></h1>
         <div class="small-logo-box">
@@ -128,7 +128,7 @@ function createBasicStructure() {
 function showHouseMembers(houseMembers) {
   clearContent(); //1. limpia pantalla anterior
   createBasicStructure(); //2. crea estructura básica que se repite en cada pantalla
-  createMenu(); //3. crea estructura del menú (provisorio)
+  MenuPrincipal(); //3. crea estructura del menú (provisorio)
 
   const innerContentSection = document.querySelector(".inner-content");
   const sectionTitle = document.querySelector(".section-title");
@@ -175,4 +175,70 @@ function showHouseMembers(houseMembers) {
     fragment.appendChild(cardBox); //7. se pega cada tarjeta al fragmento vacío
   });
   innerContentSection.appendChild(fragment); //8. el fragmento se pega a la pantalla (el DOM se actualiza una sola vez)
+}
+
+function MenuPrincipal() {
+  document.getElementById("general-section").insertAdjacentHTML(
+    "afterbegin",
+    `
+<nav>
+  <div class="item">
+    <input type="checkbox" id="check1" />
+    <label for="check1">Casas</label>
+    <ul>
+      <li id="Gryffindor"><a href="">Gryffindor</a></li>
+      <li></li>
+      <li id="Slytherin"><a href="">Slytherin</a></li>
+      <li></li>
+      <li id="Hufflepuff"><a href="">Hufflepuff</a></li>
+      <li></li>
+      <li id="Ravenclaw"><a href="">Ravenclaw</a></li>
+      <li></li>
+    </ul>
+  </div>
+  <div class="item">
+    <input type="checkbox" id="check2"/>
+    <label for="check2">Varitas</label>
+    <ul>
+      <li><a href="">Material</a></li>
+      <li></li>
+      <li><a href="">Núcleo</a></li>
+      <li></li>
+    </ul>
+  </div>
+
+  <div class="item">
+    <input type="checkbox" id="check3" />
+    <label for="check3">Patronus</label>
+  </div>
+</nav>
+`
+  );
+  const Gryffindor = document.getElementById("Gryffindor");
+  Gryffindor.addEventListener("click", (event) => {
+    let gryffindorMembers = filterByHouse(charactersData, "Gryffindor");
+    event.preventDefault();
+    return showHouseMembers(gryffindorMembers);
+  });
+
+  const Slytherin = document.getElementById("Slytherin");
+  Slytherin.addEventListener("click", (event) => {
+    event.preventDefault();
+    let slytherinMembers = filterByHouse(charactersData, "Slytherin");
+    return showHouseMembers(slytherinMembers);
+  });
+
+  const Hufflepuff = document.getElementById("Hufflepuff");
+  Hufflepuff.addEventListener("click", (event) => {
+    event.preventDefault();
+    let hufflepuffMembers = filterByHouse(charactersData, "Hufflepuff");
+    return showHouseMembers(hufflepuffMembers);
+  });
+
+  const Ravenclaw = document.getElementById("Ravenclaw");
+  Ravenclaw.addEventListener("click", (event) => {
+    event.preventDefault();
+    let ravenclawMembers = filterByHouse(charactersData, "Ravenclaw");
+    return showHouseMembers(ravenclawMembers);
+  });
 }
