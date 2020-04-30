@@ -3,6 +3,7 @@
 import charactersData from "./data/potter/potter.js";
 import { filterByHouse } from "./data.js";
 
+
 const root = document.getElementById("root");
 const homepageFragment = new DocumentFragment(); //aquí se agregan todos los elementos, luego este fragmento se agrega al root, así solo se actualiza una vez y podemos agregar imagen, h1 y botón al mismo tiempo
 
@@ -53,25 +54,25 @@ root.appendChild(homepageFragment);
 
   menuBox.childNodes[1].textContent = "Gryffindor";
   menuBox.childNodes[1].addEventListener("click", () => {
-    let gryffindorMembers = filterByHouse(characters, "Gryffindor");
+    let gryffindorMembers = filterByHouse(charactersData, "Gryffindor");
     return showHouseMembers(gryffindorMembers);
   });
 
   menuBox.childNodes[2].textContent = "Hufflepuff";
   menuBox.childNodes[2].addEventListener("click", () => {
-    let hufflepuffMembers = filterByHouse(characters, "Hufflepuff");
+    let hufflepuffMembers = filterByHouse(charactersData, "Hufflepuff");
     return showHouseMembers(hufflepuffMembers);
   });
 
   menuBox.childNodes[3].textContent = "Slytherin";
   menuBox.childNodes[3].addEventListener("click", () => {
-    let slytherinMembers = filterByHouse(characters, "Slytherin");
+    let slytherinMembers = filterByHouse(charactersData, "Slytherin");
     return showHouseMembers(slytherinMembers);
   });
 
   menuBox.childNodes[4].textContent = "Ravenclaw";
   menuBox.childNodes[4].addEventListener("click", () => {
-    let ravenclawMembers = filterByHouse(characters, "Ravenclaw");
+    let ravenclawMembers = filterByHouse(charactersData, "Ravenclaw");
     return showHouseMembers(ravenclawMembers);
   });
 
