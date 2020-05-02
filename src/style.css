@@ -189,7 +189,7 @@ nav {
   list-style: none;
   overflow: hidden;
   max-height: 0;
-  transition: all 1s linear;
+  transition: all 1, 5s linear;
 }
 
 .item input {
@@ -213,6 +213,6 @@ nav {
 
 .item input:checked ~ ul {
   height: auto;
-  max-height: 200px;
+  max-height: 400px;
   transform: all;
 }

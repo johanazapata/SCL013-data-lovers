@@ -2,6 +2,7 @@
 
 import charactersData from "./data/potter/potter.js";
 import { filterByHouse } from "./data.js";
+import { filterByWood } from "./data.js";
 
 const root = document.getElementById("root");
 const homepageFragment = new DocumentFragment(); //aquí se agregan todos los elementos, luego este fragmento se agrega al root, así solo se actualiza una vez y podemos agregar imagen, h1 y botón al mismo tiempo
@@ -37,51 +38,6 @@ homepageFragment.appendChild(alohomoraBtn);
 //agregando fragment al root
 root.appendChild(homepageFragment);
 
-//MENÚ PROVISORIO
-//1. Casas, 2. Gryffindor, 3. Hufflepuff, 4. Slytherin
-//5. Ravenclaw 6. Varitas 7. Material, 8.  Núcleo, 9. Patronus
-/* function createMenu() {
-  const menuBox = document.createElement("nav");
-
-  //se crea cada uno de las opciones del menú
-  for (let i = 0; i < 9; i++) {
-    const menuItem = document.createElement("button");
-    menuBox.appendChild(menuItem);
-  }
-
-  menuBox.childNodes[0].textContent = "Casas";
-
-  menuBox.childNodes[1].textContent = "Gryffindor";
-  menuBox.childNodes[1].addEventListener("click", () => {
-    let gryffindorMembers = filterByHouse(characters, "Gryffindor");
-    return showHouseMembers(gryffindorMembers);
-  });
-
-  menuBox.childNodes[2].textContent = "Hufflepuff";
-  menuBox.childNodes[2].addEventListener("click", () => {
-    let hufflepuffMembers = filterByHouse(characters, "Hufflepuff");
-    return showHouseMembers(hufflepuffMembers);
-  });
-
-  menuBox.childNodes[3].textContent = "Slytherin";
-  menuBox.childNodes[3].addEventListener("click", () => {
-    let slytherinMembers = filterByHouse(characters, "Slytherin");
-    return showHouseMembers(slytherinMembers);
-  });
-
-  menuBox.childNodes[4].textContent = "Ravenclaw";
-  menuBox.childNodes[4].addEventListener("click", () => {
-    let ravenclawMembers = filterByHouse(characters, "Ravenclaw");
-    return showHouseMembers(ravenclawMembers);
-  });
-
-  menuBox.childNodes[5].textContent = "Material";
-  menuBox.childNodes[6].textContent = "Núcleo";
-  menuBox.childNodes[7].textContent = "Patronus";
-  //RESULTADO: Menú creado y linkeado a cada pantalla
-  return document.body.appendChild(menuBox);
-}
- */
 ///////////////////////////////////////////////////////////////////////////////////////
 /* HELPERS (FUNC. PARA COSAS PEQUEÑAS REPETITIVAS) */
 //////////////////////////////////////////////////////////////////////////////////////
@@ -180,11 +136,16 @@ function MenuPrincipal() {
   document.getElementById("general-section").insertAdjacentHTML(
     "afterbegin",
     `
-<nav>
+  <nav>
   <div class="item">
     <input type="checkbox" id="check1" />
-    <label for="check1">Casas</label>
+    <label for="check1">MENU</label>
     <ul>
+    <div>
+      <input type="checkbox" id="check2"/>
+      <label for="check2" id="casas">CASAS</label>
+      <li></li>
+       <ul>
       <li id="Gryffindor"><a href="">Gryffindor</a></li>
       <li></li>
       <li id="Slytherin"><a href="">Slytherin</a></li>
@@ -193,24 +154,25 @@ function MenuPrincipal() {
       <li></li>
       <li id="Ravenclaw"><a href="">Ravenclaw</a></li>
       <li></li>
-    </ul>
-  </div>
-  <div class="item">
-    <input type="checkbox" id="check2"/>
-    <label for="check2">Varitas</label>
-    <ul>
-      <li><a href="">Material</a></li>
+      </ul>
+ </div>
+     <div>
+      <input type="checkbox" id="check3"/>
+      <label for="check3">VARITAS</label>
       <li></li>
-      <li><a href="">Núcleo</a></li>
+       <ul>
+      <li id="Madera"><a href="">Madera</a></li>
       <li></li>
-    </ul>
-  </div>
-
-  <div class="item">
-    <input type="checkbox" id="check3" />
-    <label for="check3">Patronus</label>
-  </div>
-</nav>
+      <li id="Nucleo"><a href="">Núcleo</a></li>
+      <li></li>
+      </ul>
+ </div>
+ <div>
+    <input type="checkbox" id="check4"/>
+    <label for="check4">PATRONUS</label>
+    <li></li> 
+     </div> 
+</nav>  
 `
   );
   const Gryffindor = document.getElementById("Gryffindor");
