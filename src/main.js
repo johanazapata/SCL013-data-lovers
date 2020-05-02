@@ -138,7 +138,7 @@ function MenuPrincipal() {
     `
   <nav>
   <div id="menuToggle">
-    <input type="checkbox" id="check1" />
+    <input type="checkbox" id="check1"/>
     <label for="check1"class="bar1"></label>
     <label for="check1"class="bar2"></label>
     <label for="check1"class="bar3"></label>
@@ -146,38 +146,38 @@ function MenuPrincipal() {
     <div>
       <input type="checkbox" id="check2"/>
       <label for="check2" id="casas">CASAS</label>
-      <li></li>
+      
        <ul>
       <li id="Gryffindor"><a href="">Gryffindor</a></li>
-      <li></li>
+      
       <li id="Slytherin"><a href="">Slytherin</a></li>
-      <li></li>
+      
       <li id="Hufflepuff"><a href="">Hufflepuff</a></li>
-      <li></li>
+      
       <li id="Ravenclaw"><a href="">Ravenclaw</a></li>
-      <li></li>
+     
       </ul>
  </div>
      <div>
       <input type="checkbox" id="check3"/>
       <label for="check3">VARITAS</label>
-      <li></li>
+     
        <ul>
       <li id="Madera"><a href="">Madera</a></li>
-      <li></li>
+      
       <li id="Nucleo"><a href="">Núcleo</a></li>
-      <li></li>
+     
       </ul>
  </div>
  <div>
     <input type="checkbox" id="check4"/>
     <label for="check4">PATRONUS</label>
-    <li></li> 
+    
      </div> 
 </nav>  
 `
   );
-}
+
 const Gryffindor = document.getElementById("Gryffindor");
 Gryffindor.addEventListener("click", (event) => {
   let gryffindorMembers = filterByHouse(charactersData, "Gryffindor");
@@ -187,6 +187,7 @@ Gryffindor.addEventListener("click", (event) => {
 
 const Slytherin = document.getElementById("Slytherin");
 Slytherin.addEventListener("click", (event) => {
+  console.log("ALOHA");
   event.preventDefault();
   let slytherinMembers = filterByHouse(charactersData, "Slytherin");
   return showHouseMembers(slytherinMembers);
@@ -205,3 +206,5 @@ Ravenclaw.addEventListener("click", (event) => {
   let ravenclawMembers = filterByHouse(charactersData, "Ravenclaw");
   return showHouseMembers(ravenclawMembers);
 });
+
+}
