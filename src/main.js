@@ -3,7 +3,6 @@
 import charactersData from "./data/potter/potter.js";
 import { filterByHouse } from "./data.js";
 
-
 const root = document.getElementById("root");
 const homepageFragment = new DocumentFragment(); //aquí se agregan todos los elementos, luego este fragmento se agrega al root, así solo se actualiza una vez y podemos agregar imagen, h1 y botón al mismo tiempo
 
@@ -137,11 +136,18 @@ function MenuPrincipal() {
   document.getElementById("general-section").insertAdjacentHTML(
     "afterbegin",
     `
-<nav>
-  <div class="item">
+  <nav>
+  <div id="menuToggle">
     <input type="checkbox" id="check1" />
-    <label for="check1">Casas</label>
+    <label for="check1"class="bar1"></label>
+    <label for="check1"class="bar2"></label>
+    <label for="check1"class="bar3"></label>
     <ul>
+    <div>
+      <input type="checkbox" id="check2"/>
+      <label for="check2" id="casas">CASAS</label>
+      <li></li>
+       <ul>
       <li id="Gryffindor"><a href="">Gryffindor</a></li>
       <li></li>
       <li id="Slytherin"><a href="">Slytherin</a></li>
@@ -150,51 +156,52 @@ function MenuPrincipal() {
       <li></li>
       <li id="Ravenclaw"><a href="">Ravenclaw</a></li>
       <li></li>
-    </ul>
-  </div>
-  <div class="item">
-    <input type="checkbox" id="check2"/>
-    <label for="check2">Varitas</label>
-    <ul>
-      <li><a href="">Material</a></li>
+      </ul>
+ </div>
+     <div>
+      <input type="checkbox" id="check3"/>
+      <label for="check3">VARITAS</label>
       <li></li>
-      <li><a href="">Núcleo</a></li>
+       <ul>
+      <li id="Madera"><a href="">Madera</a></li>
       <li></li>
-    </ul>
-  </div>
-
-  <div class="item">
-    <input type="checkbox" id="check3" />
-    <label for="check3">Patronus</label>
-  </div>
-</nav>
+      <li id="Nucleo"><a href="">Núcleo</a></li>
+      <li></li>
+      </ul>
+ </div>
+ <div>
+    <input type="checkbox" id="check4"/>
+    <label for="check4">PATRONUS</label>
+    <li></li> 
+     </div> 
+</nav>  
 `
   );
-  const Gryffindor = document.getElementById("Gryffindor");
-  Gryffindor.addEventListener("click", (event) => {
-    let gryffindorMembers = filterByHouse(charactersData, "Gryffindor");
-    event.preventDefault();
-    return showHouseMembers(gryffindorMembers);
-  });
-
-  const Slytherin = document.getElementById("Slytherin");
-  Slytherin.addEventListener("click", (event) => {
-    event.preventDefault();
-    let slytherinMembers = filterByHouse(charactersData, "Slytherin");
-    return showHouseMembers(slytherinMembers);
-  });
-
-  const Hufflepuff = document.getElementById("Hufflepuff");
-  Hufflepuff.addEventListener("click", (event) => {
-    event.preventDefault();
-    let hufflepuffMembers = filterByHouse(charactersData, "Hufflepuff");
-    return showHouseMembers(hufflepuffMembers);
-  });
-
-  const Ravenclaw = document.getElementById("Ravenclaw");
-  Ravenclaw.addEventListener("click", (event) => {
-    event.preventDefault();
-    let ravenclawMembers = filterByHouse(charactersData, "Ravenclaw");
-    return showHouseMembers(ravenclawMembers);
-  });
 }
+const Gryffindor = document.getElementById("Gryffindor");
+Gryffindor.addEventListener("click", (event) => {
+  let gryffindorMembers = filterByHouse(charactersData, "Gryffindor");
+  event.preventDefault();
+  return showHouseMembers(gryffindorMembers);
+});
+
+const Slytherin = document.getElementById("Slytherin");
+Slytherin.addEventListener("click", (event) => {
+  event.preventDefault();
+  let slytherinMembers = filterByHouse(charactersData, "Slytherin");
+  return showHouseMembers(slytherinMembers);
+});
+
+const Hufflepuff = document.getElementById("Hufflepuff");
+Hufflepuff.addEventListener("click", (event) => {
+  event.preventDefault();
+  let hufflepuffMembers = filterByHouse(charactersData, "Hufflepuff");
+  return showHouseMembers(hufflepuffMembers);
+});
+
+const Ravenclaw = document.getElementById("Ravenclaw");
+Ravenclaw.addEventListener("click", (event) => {
+  event.preventDefault();
+  let ravenclawMembers = filterByHouse(charactersData, "Ravenclaw");
+  return showHouseMembers(ravenclawMembers);
+});
