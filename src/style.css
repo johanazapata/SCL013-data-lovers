@@ -67,8 +67,7 @@ img-box-image {
   color: #272828;
 }
 
-/*PANTALLA GRYFFINDOR, HUFFLEPUFF, SLYTHERIN, RAVENCLAW (solo hay que cambiar color de border de título*/
-
+/*0. ESTRUCTURA BÁSICA DE TODAS LAS PANTALLAS*/
 .dynamic-content {
   grid-column: 2;
   display: flex;
@@ -78,7 +77,6 @@ img-box-image {
 
 .dynamic-content > header {
   height: 80vh;
-  /* border: 2px solid darkgreen; */
   display: flex;
   flex-direction: column-reverse;
 }
@@ -93,7 +91,14 @@ img-box-image {
   width: 100%;
 }
 
-/*CARDS*/
+.section-title {
+  font-family: "Oswald", sans-serif;
+  border-top: 5px solid;
+  border-bottom: 5px solid;
+  text-align: center;
+  font-size: 3rem;
+  /*color de borde cambia según sección*/
+}
 
 .inner-content {
   width: 80vw;
@@ -103,43 +108,6 @@ img-box-image {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
-}
-
-.card-box {
-  width: 23vw;
-  height: 130%;
-  background-color: #272828;
-  margin: 1rem;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-radius: 5%;
-  padding-top: 2rem;
-}
-
-.card-box > img {
-  max-width: 80%;
-  height: 70%;
-}
-
-ul {
-  list-style: none;
-  margin-top: 0.5rem;
-  max-height: 100%;
-  font-size: 1.5rem;
-}
-
-li {
-  margin: 0.2rem;
-}
-
-.section-title {
-  font-family: "Oswald", sans-serif;
-  border-top: 5px solid;
-  border-bottom: 5px solid;
-  text-align: center;
-  font-size: 3rem;
 }
 
 /*Colores de borde superior e inferior de título según sección*/
@@ -162,6 +130,41 @@ li {
   border-top-color: darkblue;
   border-bottom-color: darkblue;
 }
+
+/*///////////////////////////////////*/
+/*1. PANTALLAS DE MIEMBROS DE CADA CASA - 3 columnas */
+
+/*1.a. CARDS*/
+.card-box {
+  width: 23vw;
+  height: 130%;
+  background-color: #272828;
+  margin: 1rem;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 20px;
+  padding-top: 2rem;
+}
+
+.card-box > img {
+  max-width: 80%;
+  height: 70%;
+}
+
+ul {
+  list-style: none;
+  margin-top: 0.5rem;
+  max-height: 100%;
+  font-size: 2rem;
+}
+
+li {
+  margin: 0.2rem;
+}
+
+
 
 /*Código Menú nuevo*/
 nav {
@@ -216,4 +219,51 @@ nav {
   height: auto;
   max-height: 200px;
   transform: all;
+}
+
+
+/*//////////////////////////////////////*/
+/*MEDIA QUERIES - TABLET, MOBILE*/
+
+/*TABLET - 2 columnas */
+
+@media screen and (max-width: 768px) {
+
+  /*0. Estructura básica*/
+  .inner-content {
+    width: 80vw;
+    font-size: 1.5rem;
+
+  }
+
+  /*1. Pantallas de miembros de cada casa*/
+  .card-box {
+    width: 30vw;
+  }
+
+  ul {
+    font-size: 1.5rem;
+  }
+
+}
+
+/*MOBILE - 1 columna */
+@media screen and (max-width: 425px) {
+
+  /*0. Estructura básica*/
+  .inner-content {
+    width: 80vw;
+    font-size: 1.5rem;
+
+  }
+
+  /*1. Pantallas de miembros de cada casa*/
+  .card-box {
+    width: 80vw;
+
+  }
+
+  ul {
+    font-size: inherit;
+  }
 }
