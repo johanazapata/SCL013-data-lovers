@@ -180,8 +180,8 @@ function MenuPrincipal() {
   document.getElementById("general-section").insertAdjacentHTML(
     "afterbegin",
     `
-  <nav>
-  <div id="menuToggle">
+<nav>
+ <div class="item">
     <input type="checkbox" id="check1" />
     <label for="check1"class="bar1"></label>
     <label for="check1"class="bar2"></label>
@@ -221,31 +221,32 @@ function MenuPrincipal() {
 </nav>  
 `
   );
+
+  const Gryffindor = document.getElementById("Gryffindor");
+  Gryffindor.addEventListener("click", (event) => {
+    let gryffindorMembers = filterByHouse(charactersData, "Gryffindor");
+    event.preventDefault();
+    return showHouseMembers(gryffindorMembers);
+  });
+
+  const Slytherin = document.getElementById("Slytherin");
+  Slytherin.addEventListener("click", (event) => {
+    event.preventDefault();
+    let slytherinMembers = filterByHouse(charactersData, "Slytherin");
+    return showHouseMembers(slytherinMembers);
+  });
+
+  const Hufflepuff = document.getElementById("Hufflepuff");
+  Hufflepuff.addEventListener("click", (event) => {
+    event.preventDefault();
+    let hufflepuffMembers = filterByHouse(charactersData, "Hufflepuff");
+    return showHouseMembers(hufflepuffMembers);
+  });
+
+  const Ravenclaw = document.getElementById("Ravenclaw");
+  Ravenclaw.addEventListener("click", (event) => {
+    event.preventDefault();
+    let ravenclawMembers = filterByHouse(charactersData, "Ravenclaw");
+    return showHouseMembers(ravenclawMembers);
+  });
 }
-const Gryffindor = document.getElementById("Gryffindor");
-Gryffindor.addEventListener("click", (event) => {
-  let gryffindorMembers = filterByHouse(charactersData, "Gryffindor");
-  event.preventDefault();
-  return showHouseMembers(gryffindorMembers);
-});
-
-const Slytherin = document.getElementById("Slytherin");
-Slytherin.addEventListener("click", (event) => {
-  event.preventDefault();
-  let slytherinMembers = filterByHouse(charactersData, "Slytherin");
-  return showHouseMembers(slytherinMembers);
-});
-
-const Hufflepuff = document.getElementById("Hufflepuff");
-Hufflepuff.addEventListener("click", (event) => {
-  event.preventDefault();
-  let hufflepuffMembers = filterByHouse(charactersData, "Hufflepuff");
-  return showHouseMembers(hufflepuffMembers);
-});
-
-const Ravenclaw = document.getElementById("Ravenclaw");
-Ravenclaw.addEventListener("click", (event) => {
-  event.preventDefault();
-  let ravenclawMembers = filterByHouse(charactersData, "Ravenclaw");
-  return showHouseMembers(ravenclawMembers);
-});
