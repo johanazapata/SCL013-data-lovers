@@ -37,51 +37,7 @@ homepageFragment.appendChild(alohomoraBtn);
 //agregando fragment al root
 root.appendChild(homepageFragment);
 
-//MENÚ PROVISORIO
-//1. Casas, 2. Gryffindor, 3. Hufflepuff, 4. Slytherin
-//5. Ravenclaw 6. Varitas 7. Material, 8.  Núcleo, 9. Patronus
-/* function createMenu() {
-  const menuBox = document.createElement("nav");
 
-  //se crea cada uno de las opciones del menú
-  for (let i = 0; i < 9; i++) {
-    const menuItem = document.createElement("button");
-    menuBox.appendChild(menuItem);
-  }
-
-  menuBox.childNodes[0].textContent = "Casas";
-
-  menuBox.childNodes[1].textContent = "Gryffindor";
-  menuBox.childNodes[1].addEventListener("click", () => {
-    let gryffindorMembers = filterByHouse(charactersData, "Gryffindor");
-    return showHouseMembers(gryffindorMembers);
-  });
-
-  menuBox.childNodes[2].textContent = "Hufflepuff";
-  menuBox.childNodes[2].addEventListener("click", () => {
-    let hufflepuffMembers = filterByHouse(charactersData, "Hufflepuff");
-    return showHouseMembers(hufflepuffMembers);
-  });
-
-  menuBox.childNodes[3].textContent = "Slytherin";
-  menuBox.childNodes[3].addEventListener("click", () => {
-    let slytherinMembers = filterByHouse(charactersData, "Slytherin");
-    return showHouseMembers(slytherinMembers);
-  });
-
-  menuBox.childNodes[4].textContent = "Ravenclaw";
-  menuBox.childNodes[4].addEventListener("click", () => {
-    let ravenclawMembers = filterByHouse(charactersData, "Ravenclaw");
-    return showHouseMembers(ravenclawMembers);
-  });
-
-  menuBox.childNodes[5].textContent = "Material";
-  menuBox.childNodes[6].textContent = "Núcleo";
-  menuBox.childNodes[7].textContent = "Patronus";
-  //RESULTADO: Menú creado y linkeado a cada pantalla
-  return document.body.appendChild(menuBox);
-}
- */
 ///////////////////////////////////////////////////////////////////////////////////////
 /* HELPERS (FUNC. PARA COSAS PEQUEÑAS REPETITIVAS) */
 //////////////////////////////////////////////////////////////////////////////////////
