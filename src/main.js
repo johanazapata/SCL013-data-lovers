@@ -4,7 +4,6 @@ import charactersData from "./data/potter/potter.js";
 import { filterByHouse } from "./data.js";
 import { filterByWood } from "./data.js";
 
-
 const root = document.getElementById("root");
 const homepageFragment = new DocumentFragment(); //aquí se agregan todos los elementos, luego este fragmento se agrega al root, así solo se actualiza una vez y podemos agregar imagen, h1 y botón al mismo tiempo
 
@@ -39,8 +38,6 @@ homepageFragment.appendChild(alohomoraBtn);
 //agregando fragment al root
 root.appendChild(homepageFragment);
 
-<<<<<<< HEAD
-=======
 //MENÚ PROVISORIO
 //1. Casas, 2. Gryffindor, 3. Hufflepuff, 4. Slytherin
 //5. Ravenclaw 6. Varitas 7. Material, 8.  Núcleo, 9. Patronus
@@ -86,7 +83,6 @@ root.appendChild(homepageFragment);
   return document.body.appendChild(menuBox);
 }
  */
->>>>>>> f9f73b75742f43a2289a15f43b42ae26ee895a2e
 ///////////////////////////////////////////////////////////////////////////////////////
 /* HELPERS (FUNC. PARA COSAS PEQUEÑAS REPETITIVAS) */
 //////////////////////////////////////////////////////////////////////////////////////
