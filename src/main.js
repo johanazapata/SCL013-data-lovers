@@ -2,7 +2,6 @@
 
 import charactersData from "./data/potter/potter.js";
 import { filterByHouse } from "./data.js";
-import { filterByWood } from "./data.js";
 
 const root = document.getElementById("root");
 const homepageFragment = new DocumentFragment(); //aquí se agregan todos los elementos, luego este fragmento se agrega al root, así solo se actualiza una vez y podemos agregar imagen, h1 y botón al mismo tiempo
@@ -182,9 +181,11 @@ function MenuPrincipal() {
     "afterbegin",
     `
   <nav>
-  <div class="item">
+  <div id="menuToggle">
     <input type="checkbox" id="check1" />
-    <label for="check1">MENU</label>
+    <label for="check1"class="bar1"></label>
+    <label for="check1"class="bar2"></label>
+    <label for="check1"class="bar3"></label>
     <ul>
     <div>
       <input type="checkbox" id="check2"/>
