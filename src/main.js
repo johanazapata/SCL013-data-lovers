@@ -130,10 +130,24 @@ function showHouseMembers(houseMembers) {
     cardInfo.childNodes[0].textContent = `Nombre: ${character.name}`;
     cardInfo.childNodes[1].textContent = `Género: ${character.gender}`;
     cardInfo.childNodes[2].textContent = `Fecha de nacimiento: ${character.yearOfBirth}`;
-    cardInfo.childNodes[3].textContent = `Patronus: ${character.patronus}`;
-    cardInfo.childNodes[4].textContent = `Varita: (madera) ${Object.entries(character.wand)[0][1]} (núcleo) ${Object.entries(character.wand)[1][1]}`;
+    //por si el personaje no tiene patronus
+      if (character.patronus === "") {
+        cardInfo.childNodes[3].textContent = `Patronus: Información no disponible`;
+      } else {
+        cardInfo.childNodes[3].textContent = `Patronus: ${character.patronus}`;
+      }
+    
 
-    console.log(Object.entries(character.wand)[0][1]);
+    //por si el personaje 1) no tiene varita, 2) solo tiene madera 3) tiene madera y núcleo
+      if (Object.entries(character.wand)[0][1] === "" && Object.entries(character.wand)[1][1] === "") {
+        cardInfo.childNodes[4].textContent = `Varita: Información no disponible`;
+      } else if (Object.entries(character.wand)[0][1] && Object.entries(character.wand)[1][1] === "") {
+        cardInfo.childNodes[4].textContent = `Varita: ${Object.entries(character.wand)[0][1]}`;
+      } else {
+        cardInfo.childNodes[4].textContent = `Varita: ${Object.entries(character.wand)[0][1]} con núcleo de ${Object.entries(character.wand)[1][1]}`;
+      }
+
+      
     cardFront.appendChild(cardImg);
     cardBack.appendChild(cardInfo);
     card.appendChild(cardFront);
