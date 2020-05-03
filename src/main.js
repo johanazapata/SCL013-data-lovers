@@ -131,7 +131,9 @@ function showHouseMembers(houseMembers) {
     cardInfo.childNodes[1].textContent = `Género: ${character.gender}`;
     cardInfo.childNodes[2].textContent = `Fecha de nacimiento: ${character.yearOfBirth}`;
     cardInfo.childNodes[3].textContent = `Patronus: ${character.patronus}`;
+    cardInfo.childNodes[4].textContent = `Varita: (madera) ${Object.entries(character.wand)[0][1]} (núcleo) ${Object.entries(character.wand)[1][1]}`;
 
+    console.log(Object.entries(character.wand)[0][1]);
     cardFront.appendChild(cardImg);
     cardBack.appendChild(cardInfo);
     card.appendChild(cardFront);

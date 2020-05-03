@@ -192,18 +192,21 @@ img-box-image {
   transform: rotateY(180deg);
 }
 
-ul {
+.card-back > ul {
   list-style: none;
   margin-top: 0.5rem;
   max-height: 100%;
   font-size: 2rem;
-  text-align: center;
+  padding-left: 4rem;
+  /* text-align: center; */
 
 }
 
-li {
+.card-back > ul > li {
   margin: 0.2rem;
 }
+
+
 
 
 
