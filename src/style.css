@@ -296,6 +296,10 @@ nav {
     width: 30vw;
   }
 
+  .card {
+    width: 100%;
+  }
+
   ul {
     font-size: 1.5rem;
   }
@@ -316,6 +320,10 @@ nav {
   .card-box {
     width: 80vw;
 
+  }
+
+  .card {
+    width: 100%;
   }
 
   ul {
