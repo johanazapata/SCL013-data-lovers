@@ -106,12 +106,20 @@ function showHouseMembers(houseMembers) {
   //5. crea una tarjeta con información de cada personaje
   const fragment = new DocumentFragment();
   houseMembers.forEach((character) => {
-    const cardBox = document.createElement("div");
-    cardBox.classList = "card-box";
-    const cardBoxImg = document.createElement("img");
-    cardBoxImg.src = `${character.image}`;
+    const cardContainer = document.createElement("div");
+    cardContainer.classList = "card-box";
+    const cardImg = document.createElement("img");
+    cardImg.src = `${character.image}`;
     const cardInfo = document.createElement("ul");
     cardInfo.classList = "card-info";
+
+    const card = document.createElement("div");
+    card.classList = "card";
+    const cardFront = document.createElement("div");
+    cardFront.classList = "card-front";
+    const cardBack = document.createElement("div");
+    cardBack.classList = "card-back";
+
 
     //6. se crean 4 elementos de lista para la información de cada personaje
     for (let i = 0; i < 5; i++) {
@@ -124,10 +132,14 @@ function showHouseMembers(houseMembers) {
     cardInfo.childNodes[2].textContent = `Fecha de nacimiento: ${character.yearOfBirth}`;
     cardInfo.childNodes[3].textContent = `Patronus: ${character.patronus}`;
 
-    cardBox.appendChild(cardBoxImg);
-    cardBox.appendChild(cardInfo);
+    cardFront.appendChild(cardImg);
+    cardBack.appendChild(cardInfo);
+    card.appendChild(cardFront);
+    card.appendChild(cardBack);
+    cardContainer.appendChild(card);
+
     //RESULTADO: TARJETA DE CADA PERSONAJE (cardBox)
-    fragment.appendChild(cardBox); //7. se pega cada tarjeta al fragmento vacío
+    fragment.appendChild(cardContainer); //7. se pega cada tarjeta al fragmento vacío
   });
   innerContentSection.appendChild(fragment); //8. el fragmento se pega a la pantalla (el DOM se actualiza una sola vez)
 }
