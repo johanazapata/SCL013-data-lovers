@@ -129,7 +129,15 @@ function showHouseMembers(houseMembers) {
     //cardInfo equivale a la lista, childNodes[x] a cada elemento
     cardInfo.childNodes[0].textContent = `Nombre: ${character.name}`;
     cardInfo.childNodes[1].textContent = `Género: ${character.gender}`;
-    cardInfo.childNodes[2].textContent = `Fecha de nacimiento: ${character.yearOfBirth}`;
+
+    //por si el personaje no tiene año de nacimiento
+      if (character.yearOfBirth === "") {
+        cardInfo.childNodes[2].textContent = `Año de nacimiento: Información no disponible`;
+      } else {
+        cardInfo.childNodes[2].textContent = `Año de nacimiento: ${character.yearOfBirth}`;
+      }
+
+
     //por si el personaje no tiene patronus
       if (character.patronus === "") {
         cardInfo.childNodes[3].textContent = `Patronus: Información no disponible`;
