@@ -37,7 +37,6 @@ homepageFragment.appendChild(alohomoraBtn);
 //agregando fragment al root
 root.appendChild(homepageFragment);
 
-
 ///////////////////////////////////////////////////////////////////////////////////////
 /* HELPERS (FUNC. PARA COSAS PEQUEÑAS REPETITIVAS) */
 //////////////////////////////////////////////////////////////////////////////////////
@@ -58,13 +57,19 @@ function createBasicStructure() {
   document.body.insertAdjacentHTML(
     "afterbegin",
     `
-    <section id="general-section" class="dynamic-content">
-      <header>
-        <h1 class="section-title"></h1>
-        <div class="small-logo-box">
-          <!-- <img src="./Imagenes/wizards-unite-logo.png" alt="logo-small">-->
-        </div>
+    <nav id="navbar"></nav>
+    <header>
+        
+  <div class="small-logo-box">
+          <img src="./Imagenes/wizards-unite-logo.png" alt="logo-small">
+        </div>     
+        
       </header>
+
+    <section id="general-section" class="dynamic-content">
+    
+    
+      <h1 class="section-title"></h1>
         <section class="inner-content">
 
         </section>
@@ -106,12 +111,19 @@ function showHouseMembers(houseMembers) {
   //5. crea una tarjeta con información de cada personaje
   const fragment = new DocumentFragment();
   houseMembers.forEach((character) => {
-    const cardBox = document.createElement("div");
-    cardBox.classList = "card-box";
-    const cardBoxImg = document.createElement("img");
-    cardBoxImg.src = `${character.image}`;
+    const cardContainer = document.createElement("div");
+    cardContainer.classList = "card-box";
+    const cardImg = document.createElement("img");
+    cardImg.src = `${character.image}`;
     const cardInfo = document.createElement("ul");
     cardInfo.classList = "card-info";
+
+    const card = document.createElement("div");
+    card.classList = "card";
+    const cardFront = document.createElement("div");
+    cardFront.classList = "card-front";
+    const cardBack = document.createElement("div");
+    cardBack.classList = "card-back";
 
     //6. se crean 4 elementos de lista para la información de cada personaje
     for (let i = 0; i < 5; i++) {
@@ -121,24 +133,58 @@ function showHouseMembers(houseMembers) {
     //cardInfo equivale a la lista, childNodes[x] a cada elemento
     cardInfo.childNodes[0].textContent = `Nombre: ${character.name}`;
     cardInfo.childNodes[1].textContent = `Género: ${character.gender}`;
-    cardInfo.childNodes[2].textContent = `Fecha de nacimiento: ${character.yearOfBirth}`;
-    cardInfo.childNodes[3].textContent = `Patronus: ${character.patronus}`;
 
-    cardBox.appendChild(cardBoxImg);
-    cardBox.appendChild(cardInfo);
+    //por si el personaje no tiene año de nacimiento
+    if (character.yearOfBirth === "") {
+      cardInfo.childNodes[2].textContent = `Año de nacimiento: Información no disponible`;
+    } else {
+      cardInfo.childNodes[2].textContent = `Año de nacimiento: ${character.yearOfBirth}`;
+    }
+
+    //por si el personaje no tiene patronus
+    if (character.patronus === "") {
+      cardInfo.childNodes[3].textContent = `Patronus: Información no disponible`;
+    } else {
+      cardInfo.childNodes[3].textContent = `Patronus: ${character.patronus}`;
+    }
+
+    //por si el personaje 1) no tiene varita, 2) solo tiene madera 3) tiene madera y núcleo
+    if (
+      Object.entries(character.wand)[0][1] === "" &&
+      Object.entries(character.wand)[1][1] === ""
+    ) {
+      cardInfo.childNodes[4].textContent = `Varita: Información no disponible`;
+    } else if (
+      Object.entries(character.wand)[0][1] &&
+      Object.entries(character.wand)[1][1] === ""
+    ) {
+      cardInfo.childNodes[4].textContent = `Varita: ${
+        Object.entries(character.wand)[0][1]
+      }`;
+    } else {
+      cardInfo.childNodes[4].textContent = `Varita: ${
+        Object.entries(character.wand)[0][1]
+      } con núcleo de ${Object.entries(character.wand)[1][1]}`;
+    }
+
+    cardFront.appendChild(cardImg);
+    cardBack.appendChild(cardInfo);
+    card.appendChild(cardFront);
+    card.appendChild(cardBack);
+    cardContainer.appendChild(card);
+
     //RESULTADO: TARJETA DE CADA PERSONAJE (cardBox)
-    fragment.appendChild(cardBox); //7. se pega cada tarjeta al fragmento vacío
+    fragment.appendChild(cardContainer); //7. se pega cada tarjeta al fragmento vacío
   });
   innerContentSection.appendChild(fragment); //8. el fragmento se pega a la pantalla (el DOM se actualiza una sola vez)
 }
 
 function MenuPrincipal() {
-  document.getElementById("general-section").insertAdjacentHTML(
+  document.getElementById("navbar").insertAdjacentHTML(
     "afterbegin",
     `
-<nav>
- <div class="item">
-    <input type="checkbox" id="check1" />
+  <div id="menuToggle">
+    <input type="checkbox" id="check1"/>
     <label for="check1"class="bar1"></label>
     <label for="check1"class="bar2"></label>
     <label for="check1"class="bar3"></label>
@@ -146,35 +192,34 @@ function MenuPrincipal() {
     <div>
       <input type="checkbox" id="check2"/>
       <label for="check2" id="casas">CASAS</label>
-      <li></li>
+      
        <ul>
       <li id="Gryffindor"><a href="">Gryffindor</a></li>
-      <li></li>
+      
       <li id="Slytherin"><a href="">Slytherin</a></li>
-      <li></li>
+      
       <li id="Hufflepuff"><a href="">Hufflepuff</a></li>
-      <li></li>
+      
       <li id="Ravenclaw"><a href="">Ravenclaw</a></li>
-      <li></li>
+     
       </ul>
  </div>
      <div>
       <input type="checkbox" id="check3"/>
       <label for="check3">VARITAS</label>
-      <li></li>
+     
        <ul>
       <li id="Madera"><a href="">Madera</a></li>
-      <li></li>
+      
       <li id="Nucleo"><a href="">Núcleo</a></li>
-      <li></li>
+     
       </ul>
  </div>
  <div>
     <input type="checkbox" id="check4"/>
     <label for="check4">PATRONUS</label>
-    <li></li> 
+    
      </div> 
-</nav>  
 `
   );
 
@@ -187,30 +232,11 @@ function MenuPrincipal() {
 
   const Slytherin = document.getElementById("Slytherin");
   Slytherin.addEventListener("click", (event) => {
+    console.log("ALOHA");
     event.preventDefault();
     let slytherinMembers = filterByHouse(charactersData, "Slytherin");
     return showHouseMembers(slytherinMembers);
   });
-
-  const Hufflepuff = document.getElementById("Hufflepuff");
-  Hufflepuff.addEventListener("click", (event) => {
-    event.preventDefault();
-    let hufflepuffMembers = filterByHouse(charactersData, "Hufflepuff");
-    return showHouseMembers(hufflepuffMembers);
-  });
-
-  const Ravenclaw = document.getElementById("Ravenclaw");
-  Ravenclaw.addEventListener("click", (event) => {
-    event.preventDefault();
-    let ravenclawMembers = filterByHouse(charactersData, "Ravenclaw");
-    return showHouseMembers(ravenclawMembers);
-  });
-}
-
-function Escudos(Casas) {
-  clearContent(); //1. limpia pantalla anterior
-  createBasicStructure(); //2. crea estructura básica que se repite en cada pantalla
-  MenuPrincipal(); //3. crea estructura del menú
 
   const innerContentSection = document.querySelector(".inner-content");
   const sectionTitle = document.querySelector(".section-title");
@@ -236,15 +262,8 @@ function Escudos(Casas) {
     return showHouseMembers(slytherinMembers);
   });
 
-  const Escudo3 = document.getElementById("Hufflepuff");
-  Escudo3.addEventListener("click", (event) => {
-    event.preventDefault();
-    let hufflepuffMembers = filterByHouse(charactersData, "Hufflepuff");
-    return showHouseMembers(hufflepuffMembers);
-  });
-
-  const Escudo2 = document.getElementById("Ravenclaw");
-  Escudo2.addEventListener("click", (event) => {
+  const Ravenclaw = document.getElementById("Ravenclaw");
+  Ravenclaw.addEventListener("click", (event) => {
     event.preventDefault();
     let ravenclawMembers = filterByHouse(charactersData, "Ravenclaw");
     return showHouseMembers(ravenclawMembers);
