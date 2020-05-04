@@ -120,6 +120,11 @@ header {
 }
 
 /*Colores de borde superior e inferior de título según sección*/
+.titulo-dorado {
+  border-top-color: #DFA63A;
+  border-bottom-color: #DFA63A;
+}
+
 .gryffindor-color {
   border-top-color: darkred;
   border-bottom-color: darkred;
@@ -281,6 +286,8 @@ nav {
   margin: 6px 0;
   transition: 0.7s;
 }
+
+
 
 @media screen and (min-width: 768px) {
   nav ul {

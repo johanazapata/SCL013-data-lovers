@@ -189,7 +189,7 @@ function MenuPrincipal() {
     <label for="check1"class="bar3"></label>
     <ul>
     <div>
-      <input type="checkbox" id="check2"/>
+      <input type="checkbox" id="check2" value="not-checked"/>
       <label for="check2" id="casas">CASAS</label>
       
        <ul>
@@ -249,16 +249,39 @@ function MenuPrincipal() {
     return showHouseMembers(ravenclawMembers);
   });
 
-  const Casas = document.getElementById("casas");
-  Casas.addEventListener("click", () => {
-    Casas();
-  });
+  /* const casas = document.getElementById("casas");
+      casas.addEventListener("click", () => {
+        console.log(casas.classList);
+        if (casas.classList = "no-clickeado") {
+          casas.classList = "clickeado";
+          Casas();
+
+        } 
+        
+      }); */
+      const casasCheckbox = document.querySelector("#check2");
+      if (casasCheckbox.checked === false) {
+        casasCheckbox.checked = true;
+        console.log(casasCheckbox.checked);
+      }
+
+      if (casasCheckbox.checked === true) {
+        casasCheckbox.addEventListener("click", () => Casas());
+      }
+
+        
+
 }
 
 function Casas() {
   clearContent(); //1. limpia pantalla anterior
   createBasicStructure(); //2. crea estructura básica que se repite en cada pantalla
   MenuPrincipal(); //3. crea estructura del menú (provisorio)
+
+  const sectionTitle = document.querySelector(".section-title");
+  sectionTitle.classList += " titulo-dorado";
+  sectionTitle.textContent = "CASAS";
+
   document.querySelector(".inner-content").insertAdjacentHTML(
     "afterbegin",
     `
@@ -270,6 +293,10 @@ function Casas() {
   </div>
 `
   );
+
+
+
+
   const EscudoGry = document.getElementById("Gryffindor");
   EscudoGry.addEventListener("click", (event) => {
     let gryffindorMembers = filterByHouse(charactersData, "Gryffindor");
