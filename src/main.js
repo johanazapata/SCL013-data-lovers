@@ -182,6 +182,7 @@ function MenuPrincipal() {
   document.getElementById("navbar").insertAdjacentHTML(
     "afterbegin",
     `
+
   <div class="item">
     <input type="checkbox" id="check1"/>
     <label for="check1"class="bar1"></label>
@@ -219,6 +220,7 @@ function MenuPrincipal() {
     <label for="check4">PATRONUS</label>
     
      </div> 
+  
 `
   );
 
@@ -259,18 +261,15 @@ function MenuPrincipal() {
         } 
         
       }); */
-      const casasCheckbox = document.querySelector("#check2");
-      if (casasCheckbox.checked === false) {
-        casasCheckbox.checked = true;
-        console.log(casasCheckbox.checked);
-      }
+  const casasCheckbox = document.querySelector("#check2");
+  if (casasCheckbox.checked === false) {
+    casasCheckbox.checked = true;
+    console.log(casasCheckbox.checked);
+  }
 
-      if (casasCheckbox.checked === true) {
-        casasCheckbox.addEventListener("click", () => Casas());
-      }
-
-        
-
+  if (casasCheckbox.checked === true) {
+    casasCheckbox.addEventListener("click", () => Casas());
+  }
 }
 
 function Casas() {
@@ -286,39 +285,35 @@ function Casas() {
     "afterbegin",
     `
   <div class="grilla">
-    <img src = "./Imagenes/Casa Gryffindor.jpg" class="grid-item" id="EscudoGry">
-    <img src = "./Imagenes/Casa Ravenclaw.jpg" class="grid-item" id="EscudoRaven">
-    <img src = "./Imagenes/Casa Hufflepuff.jpg" class="grid-item" id="EscudoHuffle">
-    <img src = "./Imagenes/Casa Slytherin.jpg" class="grid-item"id="EscudoSly">
+    <img src = "./Imagenes/House Gry.jpg" class="grid-item" id="EscudoGry">
+    <img src = "./Imagenes/House Raven.jpg" class="grid-item" id="EscudoRaven">
+    <img src = "./Imagenes/House Huff.jpg" class="grid-item" id="EscudoHuffle">
+    <img src = "./Imagenes/House Sly.jpg" class="grid-item"id="EscudoSly">
   </div>
 `
   );
-
-
-
-
-  const EscudoGry = document.getElementById("Gryffindor");
+  const EscudoGry = document.getElementById("EscudoGry");
   EscudoGry.addEventListener("click", (event) => {
     let gryffindorMembers = filterByHouse(charactersData, "Gryffindor");
     event.preventDefault();
     return showHouseMembers(gryffindorMembers);
   });
 
-  const EscudoRaven = document.getElementById("Ravenclaw");
+  const EscudoRaven = document.getElementById("EscudoRaven");
   EscudoRaven.addEventListener("click", (event) => {
     event.preventDefault();
     let ravenclawMembers = filterByHouse(charactersData, "Ravenclaw");
     return showHouseMembers(ravenclawMembers);
   });
 
-  const EscudoHuffle = document.getElementById("Hufflepuff");
+  const EscudoHuffle = document.getElementById("EscudoHuffle");
   EscudoHuffle.addEventListener("click", (event) => {
     event.preventDefault();
     let hufflepuffwMembers = filterByHouse(charactersData, "Hufflepuff");
     return showHouseMembers(hufflepuffwMembers);
   });
 
-  const EscudoSly = document.getElementById("Slytherin");
+  const EscudoSly = document.getElementById("EscudoSly");
   EscudoSly.addEventListener("click", (event) => {
     event.preventDefault();
     let slytherinMembers = filterByHouse(charactersData, "Slytherin");

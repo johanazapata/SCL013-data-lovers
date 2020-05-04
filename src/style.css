@@ -46,7 +46,7 @@ nav {
 }
 
 img-box {
-  width: 50vw;
+  width: 20vw;
 }
 
 img-box-image {
@@ -101,7 +101,9 @@ header {
   border-top: 5px solid;
   border-bottom: 5px solid;
   text-align: center;
-  font-size: 4rem;
+  font-size: 3rem;
+  width: 100%;
+
   /* margin-top: -5rem; */
   /*color de borde cambia según sección*/
 }
@@ -118,8 +120,8 @@ header {
 
 /*Colores de borde superior e inferior de título según sección*/
 .titulo-dorado {
-  border-top-color: #DFA63A;
-  border-bottom-color: #DFA63A;
+  border-top-color: #dfa63a;
+  border-bottom-color: #dfa63a;
 }
 
 .gryffindor-color {
@@ -148,7 +150,7 @@ header {
 /*1.a. CARDS*/
 .card-box {
   width: 23vw;
-  height: 130%;
+  height: 100%;
   margin: 1rem;
   color: white;
   display: flex;
@@ -160,7 +162,7 @@ header {
 
 .card {
   width: 23vw;
-  height: 130%;
+  height: 100%;
   /* background-color: #272828; */
   position: relative;
   transform-style: preserve-3d;
@@ -215,22 +217,45 @@ header {
 }
 
 /*Código Menú nuevo*/
+.item {
+  display: inline-block;
+  margin-left: 13rem;
+  margin-top: auto;
+  width: 170px;
+}
+.bar1,
+.bar2,
+.bar3 {
+  width: 45px;
+  height: 5px;
+  background-color: #333;
+  margin: 6px 0;
+  transition: 0.7s;
+  display: inline-block;
+}
 
 nav {
-  width: 150px;
+  display: inline-block;
   height: auto;
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 170xp auto;
+  font-family: "Oswald";
+  margin: 100xp auto;
+  position: relative;
+}
+
+nav ul {
+  padding: 0;
+  margin: 0;
+  text-align: center;
 }
 
 .item label {
   display: block;
-  padding: 10xp;
+  padding: 5xp;
   background-color: #434343;
   font-size: 25px;
   cursor: pointer;
   color: white;
-  border-bottom: solid 2px #f7f0e9;
+  border-bottom: solid 1px #f7f0e9;
 }
 
 .item label:hover {
@@ -252,12 +277,14 @@ nav {
 .item ul li a {
   width: 100;
   height: 30px;
-  padding: 10px;
+  padding: 7px;
   display: block;
   text-decoration: none;
   background-color: #f7f0e9;
   color: #434343;
   border-bottom: solid 2px #dfa63a;
+  font-size: medium;
+  text-align: center;
 }
 
 .item ul li a:hover {
@@ -270,18 +297,6 @@ nav {
   transform: all;
 }
 
-.bar1,
-.bar2,
-.bar3 {
-  width: 35px;
-  height: 5px;
-  background-color: #333;
-  margin: 6px 0;
-  transition: 0.7s;
-}
-
-
-
 @media screen and (min-width: 768px) {
   nav {
     display: run-in;
@@ -289,11 +304,12 @@ nav {
 }
 
 .grilla {
-  display: center;
+  display: inline-flex;
   text-align: center;
-  width: 100%;
+  width: 25% 25% 25% 25%;
   grid-column-start: 1;
   grid-column-end: 4;
+  height: 60vh;
 }
 
 /*//////////////////////////////////////*/
