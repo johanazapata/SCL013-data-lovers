@@ -215,12 +215,6 @@ header {
   margin: 0.2rem;
 }
 
-
-
-
-
-
-
 /*Código Menú nuevo*/
 
 nav {
@@ -285,7 +279,21 @@ nav {
   height: 5px;
   background-color: #333;
   margin: 6px 0;
-  transition: 0.4s;
+  transition: 0.7s;
+}
+
+@media screen and (min-width: 768px) {
+  nav ul {
+    display: run-in;
+  }
+}
+
+.grilla {
+  display: center;
+  text-align: center;
+  width: 100%;
+  grid-column-start: 1;
+  grid-column-end: 4;
 }
 
 

@@ -26,8 +26,7 @@ const alohomoraBtn = document.createElement("button");
 alohomoraBtn.classList = "alohomora-button";
 alohomoraBtn.textContent = "Alohomora";
 alohomoraBtn.addEventListener("click", () => {
-  let houseMembers = filterByHouse(charactersData, "Gryffindor");
-  return showHouseMembers(houseMembers);
+  return Casas();
 });
 
 //agregando logo, h1 y botón al fragment
@@ -36,7 +35,6 @@ homepageFragment.appendChild(titulo);
 homepageFragment.appendChild(alohomoraBtn);
 //agregando fragment al root
 root.appendChild(homepageFragment);
-
 
 ///////////////////////////////////////////////////////////////////////////////////////
 /* HELPERS (FUNC. PARA COSAS PEQUEÑAS REPETITIVAS) */
@@ -63,18 +61,13 @@ function createBasicStructure() {
         
   <div class="small-logo-box">
           <img src="./Imagenes/wizards-unite-logo.png" alt="logo-small">
-        </div>
-        
+        </div>     
         
       </header>
 
-
-
-
     <section id="general-section" class="dynamic-content">
     
-      
-
+    
       <h1 class="section-title"></h1>
         <section class="inner-content">
 
@@ -131,7 +124,6 @@ function showHouseMembers(houseMembers) {
     const cardBack = document.createElement("div");
     cardBack.classList = "card-back";
 
-
     //6. se crean 4 elementos de lista para la información de cada personaje
     for (let i = 0; i < 5; i++) {
       let cardInfoLi = document.createElement("li");
@@ -142,31 +134,38 @@ function showHouseMembers(houseMembers) {
     cardInfo.childNodes[1].textContent = `Género: ${character.gender}`;
 
     //por si el personaje no tiene año de nacimiento
-      if (character.yearOfBirth === "") {
-        cardInfo.childNodes[2].textContent = `Año de nacimiento: Información no disponible`;
-      } else {
-        cardInfo.childNodes[2].textContent = `Año de nacimiento: ${character.yearOfBirth}`;
-      }
-
+    if (character.yearOfBirth === "") {
+      cardInfo.childNodes[2].textContent = `Año de nacimiento: Información no disponible`;
+    } else {
+      cardInfo.childNodes[2].textContent = `Año de nacimiento: ${character.yearOfBirth}`;
+    }
 
     //por si el personaje no tiene patronus
-      if (character.patronus === "") {
-        cardInfo.childNodes[3].textContent = `Patronus: Información no disponible`;
-      } else {
-        cardInfo.childNodes[3].textContent = `Patronus: ${character.patronus}`;
-      }
-    
+    if (character.patronus === "") {
+      cardInfo.childNodes[3].textContent = `Patronus: Información no disponible`;
+    } else {
+      cardInfo.childNodes[3].textContent = `Patronus: ${character.patronus}`;
+    }
 
     //por si el personaje 1) no tiene varita, 2) solo tiene madera 3) tiene madera y núcleo
-      if (Object.entries(character.wand)[0][1] === "" && Object.entries(character.wand)[1][1] === "") {
-        cardInfo.childNodes[4].textContent = `Varita: Información no disponible`;
-      } else if (Object.entries(character.wand)[0][1] && Object.entries(character.wand)[1][1] === "") {
-        cardInfo.childNodes[4].textContent = `Varita: ${Object.entries(character.wand)[0][1]}`;
-      } else {
-        cardInfo.childNodes[4].textContent = `Varita: ${Object.entries(character.wand)[0][1]} con núcleo de ${Object.entries(character.wand)[1][1]}`;
-      }
+    if (
+      Object.entries(character.wand)[0][1] === "" &&
+      Object.entries(character.wand)[1][1] === ""
+    ) {
+      cardInfo.childNodes[4].textContent = `Varita: Información no disponible`;
+    } else if (
+      Object.entries(character.wand)[0][1] &&
+      Object.entries(character.wand)[1][1] === ""
+    ) {
+      cardInfo.childNodes[4].textContent = `Varita: ${
+        Object.entries(character.wand)[0][1]
+      }`;
+    } else {
+      cardInfo.childNodes[4].textContent = `Varita: ${
+        Object.entries(character.wand)[0][1]
+      } con núcleo de ${Object.entries(character.wand)[1][1]}`;
+    }
 
-      
     cardFront.appendChild(cardImg);
     cardBack.appendChild(cardInfo);
     card.appendChild(cardFront);
@@ -183,7 +182,7 @@ function MenuPrincipal() {
   document.getElementById("navbar").insertAdjacentHTML(
     "afterbegin",
     `
-  <div id="menuToggle">
+  <div class="item">
     <input type="checkbox" id="check1"/>
     <label for="check1"class="bar1"></label>
     <label for="check1"class="bar2"></label>
@@ -223,33 +222,79 @@ function MenuPrincipal() {
 `
   );
 
-const Gryffindor = document.getElementById("Gryffindor");
-Gryffindor.addEventListener("click", (event) => {
-  let gryffindorMembers = filterByHouse(charactersData, "Gryffindor");
-  event.preventDefault();
-  return showHouseMembers(gryffindorMembers);
-});
+  const Gryffindor = document.getElementById("Gryffindor");
+  Gryffindor.addEventListener("click", (event) => {
+    let gryffindorMembers = filterByHouse(charactersData, "Gryffindor");
+    event.preventDefault();
+    return showHouseMembers(gryffindorMembers);
+  });
 
-const Slytherin = document.getElementById("Slytherin");
-Slytherin.addEventListener("click", (event) => {
-  console.log("ALOHA");
-  event.preventDefault();
-  let slytherinMembers = filterByHouse(charactersData, "Slytherin");
-  return showHouseMembers(slytherinMembers);
-});
+  const Slytherin = document.getElementById("Slytherin");
+  Slytherin.addEventListener("click", (event) => {
+    event.preventDefault();
+    let slytherinMembers = filterByHouse(charactersData, "Slytherin");
+    return showHouseMembers(slytherinMembers);
+  });
+  const Hufflepuff = document.getElementById("Hufflepuff");
+  Hufflepuff.addEventListener("click", (event) => {
+    event.preventDefault();
+    let hufflepuffMembers = filterByHouse(charactersData, "Hufflepuff");
+    return showHouseMembers(hufflepuffMembers);
+  });
 
-const Hufflepuff = document.getElementById("Hufflepuff");
-Hufflepuff.addEventListener("click", (event) => {
-  event.preventDefault();
-  let hufflepuffMembers = filterByHouse(charactersData, "Hufflepuff");
-  return showHouseMembers(hufflepuffMembers);
-});
+  const Ravenclaw = document.getElementById("Ravenclaw");
+  Ravenclaw.addEventListener("click", (event) => {
+    event.preventDefault();
+    let ravenclawMembers = filterByHouse(charactersData, "Ravenclaw");
+    return showHouseMembers(ravenclawMembers);
+  });
 
-const Ravenclaw = document.getElementById("Ravenclaw");
-Ravenclaw.addEventListener("click", (event) => {
-  event.preventDefault();
-  let ravenclawMembers = filterByHouse(charactersData, "Ravenclaw");
-  return showHouseMembers(ravenclawMembers);
-});
+  const Casas = document.getElementById("casas");
+  Casas.addEventListener("click", () => {
+    Casas();
+  });
+}
 
+function Casas() {
+  clearContent(); //1. limpia pantalla anterior
+  createBasicStructure(); //2. crea estructura básica que se repite en cada pantalla
+  MenuPrincipal(); //3. crea estructura del menú (provisorio)
+  document.querySelector(".inner-content").insertAdjacentHTML(
+    "afterbegin",
+    `
+  <div class="grilla">
+    <img src = "./Imagenes/Casa Gryffindor.jpg" class="grid-item" id="EscudoGry">
+    <img src = "./Imagenes/Casa Ravenclaw.jpg" class="grid-item" id="EscudoRaven">
+    <img src = "./Imagenes/Casa Hufflepuff.jpg" class="grid-item" id="EscudoHuffle">
+    <img src = "./Imagenes/Casa Slytherin.jpg" class="grid-item"id="EscudoSly">
+  </div>
+`
+  );
+  const EscudoGry = document.getElementById("Gryffindor");
+  EscudoGry.addEventListener("click", (event) => {
+    let gryffindorMembers = filterByHouse(charactersData, "Gryffindor");
+    event.preventDefault();
+    return showHouseMembers(gryffindorMembers);
+  });
+
+  const EscudoRaven = document.getElementById("Ravenclaw");
+  EscudoRaven.addEventListener("click", (event) => {
+    event.preventDefault();
+    let ravenclawMembers = filterByHouse(charactersData, "Ravenclaw");
+    return showHouseMembers(ravenclawMembers);
+  });
+
+  const EscudoHuffle = document.getElementById("Hufflepuff");
+  EscudoHuffle.addEventListener("click", (event) => {
+    event.preventDefault();
+    let hufflepuffwMembers = filterByHouse(charactersData, "Hufflepuff");
+    return showHouseMembers(hufflepuffwMembers);
+  });
+
+  const EscudoSly = document.getElementById("Slytherin");
+  EscudoSly.addEventListener("click", (event) => {
+    event.preventDefault();
+    let slytherinMembers = filterByHouse(charactersData, "Slytherin");
+    return showHouseMembers(slytherinMembers);
+  });
 }
