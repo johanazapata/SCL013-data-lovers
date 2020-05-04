@@ -81,18 +81,15 @@ img-box-image {
 header {
   grid-row: 1;
   grid-column: 2;
-  max-height: 80vh;
+  max-height: 70vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  
 }
-
 
 .small-logo-box {
   width: 20vw;
   height: 100%;
-  
 }
 
 .small-logo-box > img {
@@ -156,7 +153,6 @@ header {
   padding-top: 2rem;
 }
 
-
 .card {
   width: 23vw;
   height: 130%;
@@ -164,7 +160,6 @@ header {
   position: relative;
   transform-style: preserve-3d;
   transition: all 1s ease;
-  
 }
 
 .card:hover {
@@ -208,7 +203,6 @@ header {
   padding-right: 2rem;
   padding-top: 4rem;
   /* text-align: center; */
-
 }
 
 .card-back > ul > li {
@@ -271,7 +265,6 @@ nav {
   transform: all;
 }
 
-
 .bar1,
 .bar2,
 .bar3 {
@@ -283,7 +276,7 @@ nav {
 }
 
 @media screen and (min-width: 768px) {
-  nav ul {
+  nav {
     display: run-in;
   }
 }
@@ -296,19 +289,16 @@ nav {
   grid-column-end: 4;
 }
 
-
 /*//////////////////////////////////////*/
 /*MEDIA QUERIES - TABLET, MOBILE*/
 
 /*TABLET - 2 columnas */
 
 @media screen and (max-width: 768px) {
-
   /*0. Estructura básica*/
   .inner-content {
     width: 80vw;
     font-size: 1.5rem;
-
   }
 
   .section-title {
@@ -331,18 +321,15 @@ nav {
   ul {
     font-size: 1.5rem;
   }
-
 }
 
 /*MOBILE - 1 columna */
 @media screen and (max-width: 425px) {
-
   /*0. Estructura básica*/
 
   .inner-content {
     width: 80vw;
     font-size: 1.5rem;
-
   }
 
   .section-title {
@@ -357,11 +344,9 @@ nav {
     margin-top: 0;
   }
 
-
   /*1. Pantallas de miembros de cada casa*/
   .card-box {
     width: 80vw;
-
   }
 
   .card {
@@ -373,3 +358,6 @@ nav {
   }
 }
 
+#toggle {
+  display: none;
+}

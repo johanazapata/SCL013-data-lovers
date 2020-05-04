@@ -191,7 +191,7 @@ function MenuPrincipal() {
     <div>
       <input type="checkbox" id="check2"/>
       <label for="check2" id="casas">CASAS</label>
-      
+
        <ul>
       <li id="Gryffindor"><a href="">Gryffindor</a></li>
       
@@ -249,9 +249,9 @@ function MenuPrincipal() {
     return showHouseMembers(ravenclawMembers);
   });
 
-  const Casas = document.getElementById("casas");
-  Casas.addEventListener("click", () => {
-    Casas();
+  const casas = document.getElementById("casas");
+  casas.addEventListener("click", () => {
+    casas();
   });
 }
 
