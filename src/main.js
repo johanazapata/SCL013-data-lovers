@@ -58,6 +58,7 @@ function createBasicStructure() {
   document.body.insertAdjacentHTML(
     "afterbegin",
     `
+    <nav id="navbar"></nav>
     <header>
         
   <div class="small-logo-box">
@@ -179,10 +180,9 @@ function showHouseMembers(houseMembers) {
 }
 
 function MenuPrincipal() {
-  document.getElementById("general-section").insertAdjacentHTML(
+  document.getElementById("navbar").insertAdjacentHTML(
     "afterbegin",
     `
-  <nav>
   <div id="menuToggle">
     <input type="checkbox" id="check1"/>
     <label for="check1"class="bar1"></label>
@@ -220,7 +220,6 @@ function MenuPrincipal() {
     <label for="check4">PATRONUS</label>
     
      </div> 
-</nav>  
 `
   );
 
