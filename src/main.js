@@ -58,13 +58,23 @@ function createBasicStructure() {
   document.body.insertAdjacentHTML(
     "afterbegin",
     `
-    <section id="general-section" class="dynamic-content">
-      <header>
-        <h1 class="section-title"></h1>
-        <div class="small-logo-box">
-          <!-- <img src="./Imagenes/wizards-unite-logo.png" alt="logo-small">-->
+    <header>
+        
+  <div class="small-logo-box">
+          <img src="./Imagenes/wizards-unite-logo.png" alt="logo-small">
         </div>
+        
+        
       </header>
+
+
+
+
+    <section id="general-section" class="dynamic-content">
+    
+      
+
+      <h1 class="section-title"></h1>
         <section class="inner-content">
 
         </section>

@@ -26,7 +26,8 @@ body {
   background-color: #f7f0e9;
   display: grid;
   grid-template-columns: 10% 1fr 10%;
-  grid-template-rows: 30% 70%;
+  grid-template-rows: 20% 80%;
+  height: 100vh;
 }
 
 #root {
@@ -73,18 +74,23 @@ img-box-image {
   display: flex;
   flex-direction: column;
   height: 100%;
+  grid-row: 2;
 }
 
-.dynamic-content > header {
-  height: 80vh;
+header {
+  grid-row: 1;
+  grid-column: 2;
+  max-height: 80vh;
   display: flex;
-  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
 }
+
 
 .small-logo-box {
-  align-self: center;
   width: 20vw;
-  height: 5vh;
+  height: 14vh;
+  
 }
 
 .small-logo-box > img {
@@ -96,7 +102,8 @@ img-box-image {
   border-top: 5px solid;
   border-bottom: 5px solid;
   text-align: center;
-  font-size: 3rem;
+  font-size: 4rem;
+  margin-top: -5rem;
   /*color de borde cambia según sección*/
 }
 
