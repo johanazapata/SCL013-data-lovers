@@ -250,3 +250,47 @@ function MenuPrincipal() {
     return showHouseMembers(ravenclawMembers);
   });
 }
+
+function Escudos(Casas) {
+  clearContent(); //1. limpia pantalla anterior
+  createBasicStructure(); //2. crea estructura básica que se repite en cada pantalla
+  MenuPrincipal(); //3. crea estructura del menú
+
+  const innerContentSection = document.querySelector(".inner-content");
+  const sectionTitle = document.querySelector(".section-title");
+  `
+  <div class="grilla">
+    <img src = "./Imagenes/Casa Gryffindor.jpg" class="grid-item" id="Escudo1">
+    <img src = "./Imagenes/Casa Ravenclaw.jpg" class="grid-item" id="Escudo2">
+    <img src = "./Imagenes/Casa Hufflepuff.jpg" class="grid-item" id="Escudo3">
+    <img src = "./Imagenes/Casa Slytherin.jpg" class="grid-item"id="Escudo4">
+  </div>
+`;
+
+  const Escudo1 = document.getElementById("Gryffindor");
+  Escudo1.addEventListener("click", (event) => {
+    let gryffindorMembers = filterByHouse(charactersData, "Gryffindor");
+    event.preventDefault();
+    return showHouseMembers(gryffindorMembers);
+  });
+  const Escudo4 = document.getElementById("Slytherin");
+  Escudo4.addEventListener("click", (event) => {
+    event.preventDefault();
+    let slytherinMembers = filterByHouse(charactersData, "Slytherin");
+    return showHouseMembers(slytherinMembers);
+  });
+
+  const Escudo3 = document.getElementById("Hufflepuff");
+  Escudo3.addEventListener("click", (event) => {
+    event.preventDefault();
+    let hufflepuffMembers = filterByHouse(charactersData, "Hufflepuff");
+    return showHouseMembers(hufflepuffMembers);
+  });
+
+  const Escudo2 = document.getElementById("Ravenclaw");
+  Escudo2.addEventListener("click", (event) => {
+    event.preventDefault();
+    let ravenclawMembers = filterByHouse(charactersData, "Ravenclaw");
+    return showHouseMembers(ravenclawMembers);
+  });
+}
