@@ -4,6 +4,7 @@ import charactersData from "./data/potter/potter.js";
 import { filterByHouse } from "./data.js";
 import { filterWandByWood } from "./data.js";
 import { filterWandByCore } from "./data.js";
+import { filterByPatronus } from "./data.js";
 
 const root = document.getElementById("root");
 const homepageFragment = new DocumentFragment(); //aquí se agregan todos los elementos, luego este fragmento se agrega al root, así solo se actualiza una vez y podemos agregar imagen, h1 y botón al mismo tiempo
@@ -90,7 +91,6 @@ function showHouseMembers(houseMembers) {
   clearContent(); //1. limpia pantalla anterior
   createBasicStructure(); //2. crea estructura básica que se repite en cada pantalla
   MenuPrincipal(); //3. crea estructura del menú (provisorio)
-
   const innerContentSection = document.querySelector(".inner-content");
   const sectionTitle = document.querySelector(".section-title");
 
@@ -156,7 +156,7 @@ function showHouseMembers(houseMembers) {
     ) {
       cardInfo.childNodes[4].textContent = `Varita: Información no disponible`;
     } else if (
-      filterWandByWood(character) === "" &&
+      filterWandByWood(character) &&
       filterWandByCore(character) === ""
     ) {
       cardInfo.childNodes[4].textContent = `Varita: ${
@@ -211,9 +211,9 @@ function MenuPrincipal() {
       <label for="check3">VARITAS</label>
      
        <ul>
-      <li id="Madera"><a href="">Madera</a></li>
+      <li id="madera"><a href="">Madera</a></li>
       
-      <li id="Nucleo"><a href="">Núcleo</a></li>
+      <li id="nucleo"><a href="">Núcleo</a></li>
      
       </ul>
  </div>
@@ -258,6 +258,27 @@ function MenuPrincipal() {
     event.preventDefault();
     showWands();
   });
+
+  //lleva a VARITAS, pero no despliega las opciones en el menú :P
+  const wandsWood = document.querySelector("#madera");
+  wandsWood.addEventListener("click", (event) => {
+      event.preventDefault();
+      showWandsWood();
+  });
+
+  //estas dos están bien conectadas pero el menú no se despliega para seleccionarlas
+  const wandsCore = document.querySelector("#nucleo");
+  wandsCore.addEventListener("click", () => {
+      showWandsCore();
+  });
+
+  const patronus = document.querySelector("#check4");
+  patronus.addEventListener("click", (event) => {
+    event.preventDefault();
+    showPatronus();
+  })
+
+
 
   /* const casas = document.getElementById("casas");
       casas.addEventListener("click", () => {
@@ -329,7 +350,9 @@ function Casas() {
   });
 }
 
+/*///////////////////////PANTALLA DE VARITAS///////////////////////////////////*/
 
+//VARITAS
 function showWands() {
   clearContent();
   createBasicStructure();
@@ -358,7 +381,7 @@ function showWands() {
   `;
   };
 
-
+//VARITAS > MATERIAL
 function showWandsWood() {
   clearContent();
   createBasicStructure();
@@ -369,12 +392,32 @@ function showWandsWood() {
   sectionTitle.textContent = "MATERIAL";
 }
 
+//VARITAS > NÚCLEO
 function showWandsCore() {
   clearContent();
   createBasicStructure();
   MenuPrincipal();
+  
 
   const sectionTitle = document.querySelector(".section-title");
   sectionTitle.classList += " titulo-dorado";
   sectionTitle.textContent = "NÚCLEO";
+}
+
+
+
+
+//PANTALLA DE PATRONUS
+function showPatronus() {
+  clearContent();
+  createBasicStructure();
+  MenuPrincipal();
+
+
+  const sectionTitle = document.querySelector(".section-title");
+  sectionTitle.classList += " titulo-dorado";
+  sectionTitle.textContent = "PATRONUS";
+
+
+  //filterByPatronus(charactersData)); = cada uno de los patronus patronus[0] = name y patronus[1] = patronus
 }
