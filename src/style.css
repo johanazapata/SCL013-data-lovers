@@ -239,7 +239,7 @@ nav {
   height: auto;
   font-family: "Oswald";
   margin: 100xp auto;
-  z-index: 2;
+  z-index: 3;
 }
 
 nav ul {
