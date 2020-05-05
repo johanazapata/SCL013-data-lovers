@@ -101,14 +101,9 @@ header {
   border-top: 5px solid;
   border-bottom: 5px solid;
   text-align: center;
-<<<<<<< HEAD
-  font-size: 4rem;
- 
-=======
   font-size: 3rem;
   width: 100%;
 
->>>>>>> 53173eea6044140caa8b6d3f1110b220cb40d51a
   /* margin-top: -5rem; */
   /*color de borde cambia según sección*/
 }
@@ -166,6 +161,7 @@ header {
 }
 
 .card {
+  background-color: #434343;
   width: 23vw;
   height: 100%;
   /* background-color: #272828; */
@@ -316,6 +312,10 @@ nav ul {
   grid-column-end: 4;
   height: 60vh;
 }
+
+/*PANTALLA DE VARITAS*/
+
+
 
 /*//////////////////////////////////////*/
 /*MEDIA QUERIES - TABLET, MOBILE*/

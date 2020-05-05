@@ -9,6 +9,15 @@ export function filterByHouse(dataToFilter, condition) {
   return membersByHouse;
 }
 
+export function filterWandByWood(dataToFilter) {
+  return Object.entries(dataToFilter.wand)[0][1];
+  
+}
+
+export function filterWandByCore(dataToFilter) {
+  return Object.entries(dataToFilter.wand)[1][1];
+}
+
 /* export const names = characters.map(character => character.name);
 
 const hasPatronus = characters.filter(character => character.patronus);

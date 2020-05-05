@@ -2,6 +2,8 @@
 
 import charactersData from "./data/potter/potter.js";
 import { filterByHouse } from "./data.js";
+import { filterWandByWood } from "./data.js";
+import { filterWandByCore } from "./data.js";
 
 const root = document.getElementById("root");
 const homepageFragment = new DocumentFragment(); //aquí se agregan todos los elementos, luego este fragmento se agrega al root, así solo se actualiza una vez y podemos agregar imagen, h1 y botón al mismo tiempo
@@ -149,21 +151,21 @@ function showHouseMembers(houseMembers) {
 
     //por si el personaje 1) no tiene varita, 2) solo tiene madera 3) tiene madera y núcleo
     if (
-      Object.entries(character.wand)[0][1] === "" &&
-      Object.entries(character.wand)[1][1] === ""
+      filterWandByWood(character) === "" &&
+      filterWandByCore(character) === ""
     ) {
       cardInfo.childNodes[4].textContent = `Varita: Información no disponible`;
     } else if (
-      Object.entries(character.wand)[0][1] &&
-      Object.entries(character.wand)[1][1] === ""
+      filterWandByWood(character) === "" &&
+      filterWandByCore(character) === ""
     ) {
       cardInfo.childNodes[4].textContent = `Varita: ${
-        Object.entries(character.wand)[0][1]
+        filterWandByWood(character)
       }`;
     } else {
       cardInfo.childNodes[4].textContent = `Varita: ${
-        Object.entries(character.wand)[0][1]
-      } con núcleo de ${Object.entries(character.wand)[1][1]}`;
+        filterWandByWood(character)
+      } con núcleo de ${filterWandByCore(character)}`;
     }
 
     cardFront.appendChild(cardImg);
@@ -251,6 +253,12 @@ function MenuPrincipal() {
     return showHouseMembers(ravenclawMembers);
   });
 
+  const wands = document.getElementById("check3");
+  wands.addEventListener("click", (event) => {
+    event.preventDefault();
+    showWands();
+  });
+
   /* const casas = document.getElementById("casas");
       casas.addEventListener("click", () => {
         console.log(casas.classList);
@@ -261,49 +269,11 @@ function MenuPrincipal() {
         } 
         
       }); */
-<<<<<<< HEAD
-      const casasCheckbox = document.querySelector("#check2");
-      const varitasCheckbox = document.querySelector("#check3");
-      const sectionTitle = document.querySelector("section-title");
-      if (casasCheckbox.checked === false && sectionTitle != "GRYFFINDOR") {
-        casasCheckbox.checked = true;
-        console.log(casasCheckbox.checked);
-      } else {
-        casasCheckbox.checked = false;
-        console.log(casasCheckbox.checked);
-      }
-
-      casasCheckbox.addEventListener("click", () => {
-            casasCheckbox.checked = false;
-            Casas();
-          });
-
-     
-
-     /*  varitasCheckbox.addEventListener("click", () => {
-        if (casasCheckbox)
-        varitasCheckbox.checked = true;
-
-
-
-      }); */
-
-     /*  if (varitasCheckbox.checked === true && casasCheckbox.checked === false) {
-        casasCheckbox.checked = false;
-        varitasCheckbox.checked = true;
-        varitasCheckbox.addEventListener("click", () => Casas());
-        console.log(`Casas: ${casasCheckbox.checked}, Varitas: ${varitasCheckbox.checked}`);
-      }
-      console.log(`Casas: ${casasCheckbox.checked}, Varitas: ${varitasCheckbox.checked}`); */
-
-        
-=======
   const casasCheckbox = document.querySelector("#check2");
   if (casasCheckbox.checked === false) {
     casasCheckbox.checked = true;
     console.log(casasCheckbox.checked);
   }
->>>>>>> 53173eea6044140caa8b6d3f1110b220cb40d51a
 
   if (casasCheckbox.checked === true) {
     casasCheckbox.addEventListener("click", () => Casas());
@@ -357,4 +327,54 @@ function Casas() {
     let slytherinMembers = filterByHouse(charactersData, "Slytherin");
     return showHouseMembers(slytherinMembers);
   });
+}
+
+
+function showWands() {
+  clearContent();
+  createBasicStructure();
+  MenuPrincipal();
+
+  const sectionTitle = document.querySelector(".section-title");
+  sectionTitle.classList += " titulo-dorado";
+  sectionTitle.textContent = "VARITAS";
+
+  document.querySelector(".inner-content").innerHTML = `
+  <div class="card-box">
+    
+    <div class="card">    
+       <h5 class="material-card-title">MATERIAL</h5>
+    </div>
+  </div>
+
+  <div class="card-box">
+    
+    <div class="card">
+       <h5 class="core-card-title">NÚCLEO</h5>
+    </div>
+  </div>
+
+  
+  `;
+  };
+
+
+function showWandsWood() {
+  clearContent();
+  createBasicStructure();
+  MenuPrincipal();
+
+  const sectionTitle = document.querySelector(".section-title");
+  sectionTitle.classList += " titulo-dorado";
+  sectionTitle.textContent = "MATERIAL";
+}
+
+function showWandsCore() {
+  clearContent();
+  createBasicStructure();
+  MenuPrincipal();
+
+  const sectionTitle = document.querySelector(".section-title");
+  sectionTitle.classList += " titulo-dorado";
+  sectionTitle.textContent = "NÚCLEO";
 }
