@@ -189,7 +189,7 @@ function MenuPrincipal() {
     <label for="check1"class="bar3"></label>
     <ul>
     <div>
-      <input type="checkbox" id="check2" value="not-checked"/>
+      <input type="checkbox" id="check2"/>
       <label for="check2" id="casas">CASAS</label>
       
        <ul>
@@ -260,14 +260,38 @@ function MenuPrincipal() {
         
       }); */
       const casasCheckbox = document.querySelector("#check2");
-      if (casasCheckbox.checked === false) {
+      const varitasCheckbox = document.querySelector("#check3");
+      const sectionTitle = document.querySelector("section-title");
+      if (casasCheckbox.checked === false && sectionTitle != "GRYFFINDOR") {
         casasCheckbox.checked = true;
+        console.log(casasCheckbox.checked);
+      } else {
+        casasCheckbox.checked = false;
         console.log(casasCheckbox.checked);
       }
 
-      if (casasCheckbox.checked === true) {
-        casasCheckbox.addEventListener("click", () => Casas());
+      casasCheckbox.addEventListener("click", () => {
+            casasCheckbox.checked = false;
+            Casas();
+          });
+
+     
+
+     /*  varitasCheckbox.addEventListener("click", () => {
+        if (casasCheckbox)
+        varitasCheckbox.checked = true;
+
+
+
+      }); */
+
+     /*  if (varitasCheckbox.checked === true && casasCheckbox.checked === false) {
+        casasCheckbox.checked = false;
+        varitasCheckbox.checked = true;
+        varitasCheckbox.addEventListener("click", () => Casas());
+        console.log(`Casas: ${casasCheckbox.checked}, Varitas: ${varitasCheckbox.checked}`);
       }
+      console.log(`Casas: ${casasCheckbox.checked}, Varitas: ${varitasCheckbox.checked}`); */
 
         
 
