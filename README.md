@@ -61,6 +61,7 @@ Estas fueron algunas de las respuestas obtenidas durante este proceso:
 
 # Usuario 2
 
+- Nombre: Carolina
 - Tipo de usuario: No ha jugado Wizard’s Unite, pero le gusta Harry Potter y es UX
 - Feedback: le parece cómoda la estructura del sitio, en un principio no entendía la elección de los colores, pero cuando supo que era por el sitio web oficial, los encontró adecuados. Dice que hay problemas con el menú y que la frase del lateral es demasiado pequeña.
 
