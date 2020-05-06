@@ -413,7 +413,7 @@ function showPatronus() {
         <ul class="card-info">
           <h1>${character[1]}</h1>
           <li>Pertenece a: ${character[0]}</li>
-          <li>Descripción blablabla</li>
+          <li>${character[2]}</li>
         </ul>
       </div>
     </div>
