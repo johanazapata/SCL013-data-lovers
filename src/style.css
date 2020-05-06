@@ -217,15 +217,6 @@ header {
 }
 
 /*Código Menú nuevo*/
-
-/*Menu Hamburguesa*/
-.menu-lateral {
-  display: table;
-  width: 100%;
-  margin-left: 0px;
-  padding-left: 0px;
-}
-
 /*Menu Hamburguesa*/
 .nav--top {
   position: absolute;
