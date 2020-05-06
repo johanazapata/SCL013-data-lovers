@@ -54,7 +54,7 @@ function clearContent() {
 //1.b. Variable donde posteriormente se guarda la función para borrar el contenido de .inner-content
 let clearInnerContent;
 
-//2. Generar "marco" o estructura básica que se repite en todas las páginas (título entre línea, contenedor para ingresar el contenido dinámico, como personajes, varitas, patronus)
+//2. Generar "marco" o estructura básica que se repite en todas las páginas (título entre líneas, contenedor para ingresar el contenido dinámico, como personajes, varitas, patronus)
 function createBasicStructure() {
   document.body.innerHTML =
     `
@@ -108,13 +108,13 @@ function MenuPrincipal() {
       <label for="check2" id="casas">CASAS</label>
 
        <ul>
-      <li id="Gryffindor"><a href="">Gryffindor</a></li>
+      <li id="Gryffindor">Gryffindor</li>
       
-      <li id="Slytherin"><a href="">Slytherin</a></li>
+      <li id="Slytherin">Slytherin</li>
       
-      <li id="Hufflepuff"><a href="">Hufflepuff</a></li>
+      <li id="Hufflepuff">Hufflepuff</li>
       
-      <li id="Ravenclaw"><a href="">Ravenclaw</a></li>
+      <li id="Ravenclaw">Ravenclaw</li>
      
       </ul>
  </div>
@@ -123,9 +123,9 @@ function MenuPrincipal() {
       <label for="check3">VARITAS</label>
      
        <ul>
-      <li id="madera"><a href="">Madera</a></li>
+      <li id="madera">Madera</li>
       
-      <li id="nucleo"><a href="">Núcleo</a></li>
+      <li id="nucleo">Núcleo</li>
      
       </ul>
  </div>
@@ -147,36 +147,32 @@ function MenuPrincipal() {
   });
 
   const Slytherin = document.getElementById("Slytherin");
-  Slytherin.addEventListener("click", (event) => {
-    event.preventDefault();
+  Slytherin.addEventListener("click", () => {
     let slytherinMembers = filterByHouse(charactersData, "Slytherin");
     return showHouseMembers(slytherinMembers);
   });
   const Hufflepuff = document.getElementById("Hufflepuff");
-  Hufflepuff.addEventListener("click", (event) => {
-    event.preventDefault();
+  Hufflepuff.addEventListener("click", () => {
     let hufflepuffMembers = filterByHouse(charactersData, "Hufflepuff");
     return showHouseMembers(hufflepuffMembers);
   });
 
   const Ravenclaw = document.getElementById("Ravenclaw");
-  Ravenclaw.addEventListener("click", (event) => {
-    event.preventDefault();
+  Ravenclaw.addEventListener("click", () => {
     let ravenclawMembers = filterByHouse(charactersData, "Ravenclaw");
     return showHouseMembers(ravenclawMembers);
   });
 
   //lleva a VARITAS, pero no despliega las opciones en el menú :P
-  const wands = document.getElementById("check3");
+  /* const wands = document.getElementById("check3");
   wands.addEventListener("click", (event) => {
     event.preventDefault();
     showWands();
-  });
+  }); */
 
   
   const wandsWood = document.querySelector("#madera");
-  wandsWood.addEventListener("click", (event) => {
-    event.preventDefault();
+  wandsWood.addEventListener("click", () => {
     showWandsWood();
   });
 
@@ -187,8 +183,7 @@ function MenuPrincipal() {
   });
 
   const patronus = document.querySelector("#check4");
-  patronus.addEventListener("click", (event) => {
-    event.preventDefault();
+  patronus.addEventListener("click", () => {
     showPatronus();
   })
 

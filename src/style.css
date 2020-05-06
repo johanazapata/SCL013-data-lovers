@@ -277,7 +277,7 @@ nav ul {
   display: none;
 }
 
-.item ul li a {
+.item ul li {
   width: 100;
   height: 30px;
   padding: 7px;
@@ -288,11 +288,13 @@ nav ul {
   border-bottom: solid 2px #dfa63a;
   font-size: medium;
   text-align: center;
+  cursor: pointer;
 }
 
-.item ul li a:hover {
+.item ul li:hover {
   background-color: rgb(241, 186, 83);
 }
+
 
 .item input:checked ~ ul {
   height: auto;
