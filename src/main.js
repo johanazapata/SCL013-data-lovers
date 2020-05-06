@@ -54,7 +54,7 @@ function clearContent() {
 //1.b. Variable donde posteriormente se guarda la función para borrar el contenido de .inner-content
 let clearInnerContent;
 
-//2. Generar "marco" o estructura básica que se repite en todas las páginas (título entre línea, contenedor para ingresar el contenido dinámico, como personajes, varitas, patronus)
+//2. Generar "marco" o estructura básica que se repite en todas las páginas (título entre líneas, contenedor para ingresar el contenido dinámico, como personajes, varitas, patronus)
 function createBasicStructure() {
   document.body.innerHTML = `
     <nav id="navbar"></nav>
@@ -104,13 +104,13 @@ function MenuPrincipal() {
       <label for="check2" id="casas">CASAS</label>
 
        <ul>
-      <li id="Gryffindor"><a href="">Gryffindor</a></li>
+      <li id="Gryffindor">Gryffindor</li>
       
-      <li id="Slytherin"><a href="">Slytherin</a></li>
+      <li id="Slytherin">Slytherin</li>
       
-      <li id="Hufflepuff"><a href="">Hufflepuff</a></li>
+      <li id="Hufflepuff">Hufflepuff</li>
       
-      <li id="Ravenclaw"><a href="">Ravenclaw</a></li>
+      <li id="Ravenclaw">Ravenclaw</li>
      
       </ul>
  </div>
@@ -119,9 +119,9 @@ function MenuPrincipal() {
       <label for="check3">VARITAS</label>
 
        <ul>
-      <li id="Madera"><a href="">Madera</a></li>
+      <li id="madera">Madera</li>
       
-      <li id="Nucleo"><a href="">Núcleo</a></li>
+      <li id="nucleo">Núcleo</li>
      
       </ul>
  </div>
@@ -141,35 +141,31 @@ function MenuPrincipal() {
   });
 
   const Slytherin = document.getElementById("Slytherin");
-  Slytherin.addEventListener("click", (event) => {
-    event.preventDefault();
+  Slytherin.addEventListener("click", () => {
     let slytherinMembers = filterByHouse(charactersData, "Slytherin");
     return showHouseMembers(slytherinMembers);
   });
   const Hufflepuff = document.getElementById("Hufflepuff");
-  Hufflepuff.addEventListener("click", (event) => {
-    event.preventDefault();
+  Hufflepuff.addEventListener("click", () => {
     let hufflepuffMembers = filterByHouse(charactersData, "Hufflepuff");
     return showHouseMembers(hufflepuffMembers);
   });
 
   const Ravenclaw = document.getElementById("Ravenclaw");
-  Ravenclaw.addEventListener("click", (event) => {
-    event.preventDefault();
+  Ravenclaw.addEventListener("click", () => {
     let ravenclawMembers = filterByHouse(charactersData, "Ravenclaw");
     return showHouseMembers(ravenclawMembers);
   });
 
   //lleva a VARITAS, pero no despliega las opciones en el menú :P
-  const wands = document.getElementById("check3");
+  /* const wands = document.getElementById("check3");
   wands.addEventListener("click", (event) => {
     event.preventDefault();
     showWands();
-  });
+  }); */
 
   const wandsWood = document.querySelector("#madera");
-  wandsWood.addEventListener("click", (event) => {
-    event.preventDefault();
+  wandsWood.addEventListener("click", () => {
     showWandsWood();
   });
 
@@ -180,8 +176,7 @@ function MenuPrincipal() {
   });
 
   const patronus = document.querySelector("#check4");
-  patronus.addEventListener("click", (event) => {
-    event.preventDefault();
+  patronus.addEventListener("click", () => {
     showPatronus();
   });
 }
@@ -242,7 +237,7 @@ function showHouseMembers(houseMembers) {
   //MenuPrincipal(); //3. crea estructura del menú (provisorio)
   const innerContentSection = document.querySelector(".inner-content");
   const sectionTitle = document.querySelector(".section-title");
-
+  
   //4. modifica el color del título según la casa
   if (houseMembers[0].house === "Gryffindor") {
     sectionTitle.classList = "section-title gryffindor-color";
@@ -363,6 +358,27 @@ function showWandsWood() {
   const sectionTitle = document.querySelector(".section-title");
   sectionTitle.classList = "section-title titulo-dorado";
   sectionTitle.textContent = "MATERIAL";
+  const innerContent = document.querySelector(".inner-content");
+  const woodData = filterWandByWood(charactersData);
+  console.log(woodData[0]);
+
+  woodData.forEach(wand => {
+    innerContent.innerHTML += `
+    <div class="card-box">
+      <div class="card">
+      <div class="card-front">
+        <img src="http://hp-api.herokuapp.com/images/harry.jpg">
+      </div>
+      <div class="card-back">
+        <ul class="card-info">
+          <h1>${wand[1]}</h1>
+          <li>Pertenece a: ${wand[0]}</li>
+        </ul>
+      </div>
+    </div>
+  
+  `;
+  });
 }
 
 //4. FUNCIÓN PARA MOSTRAR LA PANTALLA DE VARITAS > NÚCLEO
@@ -380,6 +396,41 @@ function showPatronus() {
   const sectionTitle = document.querySelector(".section-title");
   sectionTitle.classList = "section-title titulo-dorado";
   sectionTitle.textContent = "PATRONUS";
-
+  console.log(filterByPatronus(charactersData));
+  const patronusData = filterByPatronus(charactersData);
   //filterByPatronus(charactersData)); = cada uno de los patronus patronus[0] = name y patronus[1] = patronus
+  const innerContent = document.querySelector(".inner-content");
+
+  patronusData.forEach(character => {
+    console.log(character[1]);
+    innerContent.innerHTML += `
+    <div class="card-box">
+      <div class="card">
+      <div class="card-front">
+        <img src="http://hp-api.herokuapp.com/images/harry.jpg">
+      </div>
+      <div class="card-back">
+        <ul class="card-info">
+          <h1>${character[1]}</h1>
+          <li>Pertenece a: ${character[0]}</li>
+          <li>Descripción blablabla</li>
+        </ul>
+      </div>
+    </div>
+  
+  `;
+
+
+  })
+  
+
+
+
+
+
+
+
+
+
+
 }

@@ -19,7 +19,6 @@ export default [
       descripcion:
         "El Patronus de Harry tiene la forma de Animagus al igual que el Patronus de su padre. Aprendió a conjurarlo a una edad excepcionalmente temprana.",
     },
-
     hogwartsStudent: true,
     hogwartsStaff: false,
     actor: "Daniel Radcliffe",

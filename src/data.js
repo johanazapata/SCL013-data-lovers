@@ -11,7 +11,15 @@ export function filterByHouse(dataToFilter, condition) {
 
 //Filtrar por el material/madera de la varita
 export function filterWandByWood(dataToFilter) {
-  return Object.entries(dataToFilter.wand)[0][1];
+  const wandsAndOwner = dataToFilter.map(character => {
+    const wand = Object.entries(character.wand)[0][1];
+    const owner = character.name;
+    const allWands = [owner, wand];
+    return allWands;
+  }
+  );
+
+  return wandsAndOwner;
   
 }
 
@@ -20,14 +28,14 @@ export function filterWandByCore(dataToFilter) {
   return Object.entries(dataToFilter.wand)[1][1];
 }
 
-//Filtrar por el patronus. El resultado es un array con muchos array [nombre, patronus]
+//Filtrar por el patronus. El resultado es un array con muchos array [nombre, patronus, descripción]
 export function filterByPatronus(dataToFilter) {
     const hasPatronus = dataToFilter.filter(character => character.patronus);
     const patronus = hasPatronus.map(character => {
       return [character.name, character.patronus];
     })
 
-    return patronus; // patronus = [ ['harry', 'ciervo'], ['hermione', 'nutria'] ];
+    return patronus; // patronus = [ ['harry', 'ciervo', 'descripción'], ['hermione', 'nutria', 'descripción'] ];
 }
 
 
