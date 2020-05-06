@@ -182,7 +182,6 @@ function MenuPrincipal() {
   document.getElementById("navbar").insertAdjacentHTML(
     "afterbegin",
     `
-
 <input type="checkbox" class="checkbox__hack" id="checkbox__hack">
 <label for="checkbox__hack" class="checkbox-hack__label"></label>
 <nav class="nav--top">
@@ -219,7 +218,6 @@ function MenuPrincipal() {
     <label for="check4">PATRONUS</label>
     
      </div> 
-  
 `
   );
 
