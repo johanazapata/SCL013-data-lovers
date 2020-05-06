@@ -226,30 +226,21 @@ header {
 
 /*Menu Hamburguesa*/
 .item {
-  width: 200px;
+  display: inline-block;
+  margin-left: 13rem;
+  margin-top: auto;
+  width: 170px;
 }
-.nav--top {
-  position: absolute;
-  top: 10px;
-  left: 100px;
-  z-index: 10;
-  width: 3em;
-  height: 3em;
-  color: black;
-  overflow: hidden;
-  cursor: pointer;
-}
-.nav--top:after {
-  content: "☰";
-  font-size: 2em;
-  width: 1em;
-  line-height: 1;
-  text-align: center;
-  position: absolute;
-  top: 25%;
-  left: 25%;
-  margin-top: -6px;
-  margin-left: -4px;
+
+.bar1,
+.bar2,
+.bar3 {
+  width: 45px;
+  height: 5px;
+  background-color: #333;
+  margin: 6px 0;
+  transition: 0.7s;
+  display: inline-block;
 }
 
 .nav--top__list {
@@ -360,6 +351,8 @@ nav ul {
   grid-column-end: 4;
   height: 60vh;
 }
+
+/*PANTALLA DE VARITAS*/
 
 /*//////////////////////////////////////*/
 /*MEDIA QUERIES - TABLET, MOBILE*/
