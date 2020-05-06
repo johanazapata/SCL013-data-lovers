@@ -49,7 +49,6 @@ HISTORIA 6 : Crar una sección llamada "Patronus", en ella se detallara los patr
 ![PROTOTIPO ALTA 2](./src/Imagenes/Prototipo2.jpg)
 ![PROTOTIPO ALTA 3](./src/Imagenes/Prototipo3.jpg)
 ![PROTOTIPO ALTA 4](./src/Imagenes/Prototipo4.jpg)
-![PROTOTIPO ALTA 5](./src/Imagenes/Prototipo5.jpg)
 
 Para detallar los avances de nuestro prototipo revisar <A HREF="https://www.figma.com/proto/ZRcPkq8uFijjGaQK1YJ0sw/Pantalla-de-inicio?node-id=23%3A169&scaling=scale-down"> AQUI </A>.
 
