@@ -217,13 +217,13 @@ header {
 }
 
 /*Código Menú nuevo*/
-.menu-lateral {
+/* .menu-lateral {
   display: table;
   width: 100%;
   margin-left: 0px;
   padding-left: 0px;
-}
-
+} */
+/* 
 /*Menu Hamburguesa*/
 .item {
   display: inline-block;
@@ -342,8 +342,7 @@ nav ul {
     width: 100%;
   }
 }
-
-.grilla {
+*/ .grilla {
   display: inline-flex;
   text-align: center;
   width: 25% 25% 25% 25%;
