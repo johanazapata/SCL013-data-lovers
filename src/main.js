@@ -94,15 +94,12 @@ function MenuPrincipal() {
     "afterbegin",
     `
 
-  <div class="item">
-    
-    <input type="checkbox" id="check1"/>
-    <label for="check1"class="bar1"></label>
-    <label for="check1"class="bar2"></label>
-    <label for="check1"class="bar3"></label>
-    
-    <ul>
-    <div>
+<input type="checkbox" class="checkbox__hack" id="checkbox__hack">
+<label for="checkbox__hack" class="checkbox-hack__label"></label>
+<nav class="nav--top">
+<ul class="menu-lateral nav--top__list">
+<ul>
+    <div class="item">
       <input type="checkbox" id="check2"/>
       <label for="check2" id="casas">CASAS</label>
 
@@ -122,9 +119,9 @@ function MenuPrincipal() {
       <label for="check3">VARITAS</label>
 
        <ul>
-      <li id="madera"><a href="">Madera</a></li>
+      <li id="Madera"><a href="">Madera</a></li>
       
-      <li id="nucleo"><a href="">Núcleo</a></li>
+      <li id="Nucleo"><a href="">Núcleo</a></li>
      
       </ul>
  </div>
