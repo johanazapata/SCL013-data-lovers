@@ -16,7 +16,8 @@ export default [
     },
     patronus: {
       name: "ciervo",
-      description: "ciervito de harry",
+      descripcion:
+        "El Patronus de Harry tiene la forma de Animagus al igual que el Patronus de su padre. Aprendió a conjurarlo a una edad excepcionalmente temprana.",
     },
     hogwartsStudent: true,
     hogwartsStaff: false,
@@ -39,7 +40,11 @@ export default [
       core: " Fibra de Corazón de Dragón",
       length: 10,
     },
-    patronus: "nutria",
+    patronus: {
+      name: "nutria",
+      descripcion:
+        "Visto en la última reunión del Ejército de Dumbledore en 1996. Aparentemente es el único hechizo con el que Hermione tuvo problemas, como se dijo en 1997 mientras escapaba del Ministerio de Magia.",
+    },
     hogwartsStudent: true,
     hogwartsStaff: false,
     actor: "Emma Watson",
@@ -61,7 +66,11 @@ export default [
       core: "Cola de Unicornio",
       length: 14,
     },
-    patronus: "Jack Russell terrier",
+    patronus: {
+      name: "Jack Russell terrier",
+      descripcion:
+        " El Patronus de Ron toma la figura de un perro, concretamente un Jack Russell. Es posible que la autora eligiera éste porque son perros aficionados a cazar nutrias, y el Patronus de Hermione es una nutria",
+    },
     hogwartsStudent: true,
     hogwartsStaff: false,
     actor: "Rupert Grint",
@@ -105,7 +114,11 @@ export default [
       core: "Fibra de Corazón de Dragon",
       length: 9.5,
     },
-    patronus: "gato atigrado",
+    patronus: {
+      name: "gato atigrado",
+      descripcion:
+        "Justo antes de la Batalla de Hogwarts, envió a su Patronus para alertar a los otros Jefes de Casa de que el Castillo de Hogwarts pronto sería atacado por Lord Voldemort y sus seguidores",
+    },
     hogwartsStudent: false,
     hogwartsStaff: true,
     actor: "Dame Maggie Smith",
@@ -149,7 +162,11 @@ export default [
       core: "",
       length: "",
     },
-    patronus: "cisne",
+    patronus: {
+      name: "cisne",
+      descripcion:
+        "Su Patronus tomó la forma de un cisne. Defensa Contra las Artes Oscuras: Considerando que entrenó con el ED, ​​Cho debería dominar la magia defensiva, sus habilidades mejoradas por el hecho de que luchó y sobrevivió la Segunda Guerra Mágica",
+    },
     hogwartsStudent: true,
     hogwartsStaff: false,
     actor: "Katie Leung",
@@ -171,7 +188,11 @@ export default [
       core: "Nervio de Corazón de Dragón",
       length: 11,
     },
-    patronus: "cierva",
+    patronus: {
+      name: "cierva",
+      descripcion:
+        "Actuó como guía de Harry a través del bosque hasta donde estaba escondida la Espada de Godric Gryffindor. El Patronus de Snape reflejaba el de Lily debido a su tácito amor por ella que comenzó cuando eran niños pequeños.",
+    },
     hogwartsStudent: false,
     hogwartsStaff: true,
     actor: "Alan Rickman",
@@ -237,7 +258,11 @@ export default [
       core: "",
       length: "",
     },
-    patronus: "liebre",
+    patronus: {
+      name: "liebre",
+      descripcion:
+        "Su patronus es una liebre. . En su quinto año salva a Harry de los torposoplos con sus espectrogafas. En su sexto año, es capturada por los mortífagos y sobrevive a la batalla de Hogwarts.",
+    },
     hogwartsStudent: true,
     hogwartsStaff: false,
     actor: "Evanna Lynch",
@@ -259,7 +284,11 @@ export default [
       core: "",
       length: "",
     },
-    patronus: "caballo",
+    patronus: {
+      name: "caballo",
+      descripcion:
+        "El patronus de Ginny calza con su personalidad: de espíritu libre y fuerte.",
+    },
     hogwartsStudent: true,
     hogwartsStaff: false,
     actor: "Bonnie Wright",
@@ -281,7 +310,11 @@ export default [
       core: "Fibra de Corazon de Dragón",
       length: 11,
     },
-    patronus: "perro",
+    patronus: {
+      name: "perro",
+      descripcion:
+        "El patronus del animago es el mismo que su animal de transformación.",
+    },
     hogwartsStudent: false,
     hogwartsStaff: false,
     actor: "Gary Oldman",
@@ -303,7 +336,11 @@ export default [
       core: "Pelo de Cola de Unicornio",
       length: 10.25,
     },
-    patronus: "lobo",
+    patronus: {
+      name: "lobo",
+      descripcion:
+        "Remus a menudo disfrazó deliberadamente la forma de su Patronus porque sentía que revelaría demasiado sobre su condición, siendo un hombre lobo",
+    },
     hogwartsStudent: false,
     hogwartsStaff: true,
     actor: "David Thewlis",
@@ -325,7 +362,11 @@ export default [
       length: "",
       length: "",
     },
-    patronus: "comadreja",
+    patronus: {
+      name: "comadreja",
+      descripcion:
+        "Visto por primera vez cuando envió un mensaje sobre la llegada de Rufus Scrimgeour en el decimoséptimo cumpleaños de Harry. Más tarde visto cuando Arthur envió un Patronus a 12 Grimmauld Place para informar a Harry, Ron y Hermione que la familia Weasley estaba a salvo.",
+    },
     hogwartsStudent: false,
     hogwartsStaff: false,
     actor: "Mark Williams",
@@ -413,7 +454,11 @@ export default [
       core: "",
       length: "",
     },
-    patronus: "lince",
+    patronus: {
+      name: "lince",
+      descripcion:
+        "Su patronus es un lince, pero no se especifica su raza, y como se piensa que Kingsley tiene origen Africano, se puede determinar que es un lince caracal, el famoso Lince Africano",
+    },
     hogwartsStudent: false,
     hogwartsStaff: false,
     actor: "George Harris",
@@ -435,7 +480,11 @@ export default [
       core: "Fibra de Corazón de Dragon",
       length: 8,
     },
-    patronus: "gato persa",
+    patronus: {
+      name: "gato persa",
+      descripcion:
+        "Mientras interrogaba a los nacidos de muggles en un juicio, había emitido un Patronus para alejar a los Dementores de los fiscales. Su animal favorito, como lo demuestran los muchos platos con gatos en su oficina. Pudo lanzar el Patronus debido a su afinidad con la influencia malvada del medallón Horrocrux",
+    },
     hogwartsStudent: false,
     hogwartsStaff: true,
     actor: "Imelda Staunton",

@@ -217,146 +217,11 @@ header {
 }
 
 /*Código Menú nuevo*/
-/* .menu-lateral {
-  display: table;
-  width: 100%;
-  margin-left: 0px;
-  padding-left: 0px;
-} */
-/* 
-/*Menu Hamburguesa*/
-.item {
-  display: inline-block;
-  margin-left: 13rem;
-  margin-top: auto;
-  width: 170px;
-}
-
-.bar1,
-.bar2,
-.bar3 {
-  width: 45px;
-  height: 5px;
-  background-color: #333;
-  margin: 6px 0;
-  transition: 0.7s;
-  display: inline-block;
-}
-
-.nav--top__list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  padding-top: 3em;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: transparent;
-  z-index: -1;
-  height: 300px;
-}
-
-.checkbox__hack {
-  display: none;
-}
-
-.checkbox__hack:checked ~ .nav--top {
-  overflow: visible;
-}
-.checkbox__hack:checked ~ .nav--top::after {
-  content: "X";
-}
-
-.checkbox-hack__label {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 100;
-  width: 100%;
-  height: 52.8px;
-  color: white;
-  overflow: visible;
-  cursor: pointer;
-  margin: 0;
-  z-index: 100;
-}
-
-nav ul {
-  padding: 0;
-  margin: 0;
-  text-align: center;
-}
-
-.item label {
-  font-family: "Oswald";
-  display: block;
-  padding: 5xp;
-  background-color: #434343;
-  font-size: 25px;
-  cursor: pointer;
-  color: white;
-  border-bottom: solid 1px #f7f0e9;
-}
-
-.item label:hover {
-  background-color: rgb(241, 186, 83);
-}
-
-.item ul {
-  width: 100%;
-  list-style: none;
-  overflow: hidden;
-  max-height: 0;
-  transition: all 1s linear;
-}
-
-.item input {
-  display: none;
-}
-
-.item ul li {
-  width: 100;
-  height: 30px;
-  padding: 7px;
-  display: block;
-  text-decoration: none;
-  background-color: #f7f0e9;
-  color: #434343;
-  border-bottom: solid 2px #dfa63a;
-  font-size: medium;
-  text-align: center;
-  cursor: pointer;
-}
-
-.item ul li:hover {
-  background-color: rgb(241, 186, 83);
-}
-
-
-.item input:checked ~ ul {
-  height: auto;
-  max-height: 400px;
-  transform: all;
-}
-.menu-lateral {
-  display: table;
-  width: 500%;
-  margin-left: 0px;
-  padding-left: 0px;
-}
-
-/*PATRONUS*/
-
-ul > h1 {
-  text-align: center;
-  text-transform: uppercase;
-}
-
 /*Menu Hamburguesa*/
 .nav--top {
   position: absolute;
   top: 10px;
-  left: 50px;
+  left: 100px;
   z-index: 10;
   width: 3em;
   height: 3em;
@@ -376,7 +241,6 @@ ul > h1 {
   margin-top: -6px;
   margin-left: -4px;
 }
-
 .nav--top__list {
   list-style: none;
   margin: 0;
@@ -386,9 +250,9 @@ ul > h1 {
   top: 0;
   left: 0;
   background-color: transparent;
-  width: 70vw;
   z-index: -1;
-  height: 300px;
+  height: 100px;
+  width: 70vw;
 }
 
 .checkbox__hack {
@@ -415,11 +279,17 @@ ul > h1 {
   margin: 0;
   z-index: 100;
 }
-
 nav ul {
   padding: 0;
   margin: 0;
   text-align: center;
+}
+
+.item {
+  display: inline-block;
+  margin-left: 2rem;
+  margin-top: auto;
+  width: 170px;
 }
 
 .item label {
@@ -450,7 +320,7 @@ nav ul {
 }
 
 .item ul li a {
-  width: 100;
+  width: 100%;
   height: 30px;
   padding: 7px;
   display: block;
@@ -468,16 +338,19 @@ nav ul {
 
 .item input:checked ~ ul {
   height: auto;
-  max-height: 600px;
+  max-height: 400px;
   transform: all;
 }
+
 @media screen and (min-width: 500px) {
   .nav--top__list {
     float: none;
     width: 100%;
   }
 }
-*/ .grilla {
+
+/*Sección Casas*/
+.grilla {
   display: inline-flex;
   text-align: center;
   width: 25% 25% 25% 25%;

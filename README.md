@@ -47,6 +47,8 @@ HISTORIA 6 : Crar una sección llamada "Patronus", en ella se detallara los patr
 
 ![PROTOTIPO ALTA 1](./src/Imagenes/AltaDesktop.jpg)
 
+Para detallar protoripo revisar <A HREF="http://www.miservidor.es/mifichero.htm"> AQUI </A>.
+
 # 5. Test de Usabilidad: Testimonios
 
 Testeamos nuestro prototipo inicial de Alta Fidelidad en un total de 8 personas, la intención era conocer sus impresiones y sugerencias acerca de nuestra app.
