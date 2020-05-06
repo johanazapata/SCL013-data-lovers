@@ -345,6 +345,13 @@ nav ul {
   padding-left: 0px;
 }
 
+/*PATRONUS*/
+
+ul > h1 {
+  text-align: center;
+  text-transform: uppercase;
+}
+
 /*Menu Hamburguesa*/
 .nav--top {
   position: absolute;

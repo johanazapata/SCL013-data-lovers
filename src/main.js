@@ -237,7 +237,7 @@ function showHouseMembers(houseMembers) {
   //MenuPrincipal(); //3. crea estructura del menú (provisorio)
   const innerContentSection = document.querySelector(".inner-content");
   const sectionTitle = document.querySelector(".section-title");
-
+  
   //4. modifica el color del título según la casa
   if (houseMembers[0].house === "Gryffindor") {
     sectionTitle.classList = "section-title gryffindor-color";
@@ -358,6 +358,27 @@ function showWandsWood() {
   const sectionTitle = document.querySelector(".section-title");
   sectionTitle.classList = "section-title titulo-dorado";
   sectionTitle.textContent = "MATERIAL";
+  const innerContent = document.querySelector(".inner-content");
+  const woodData = filterWandByWood(charactersData);
+  console.log(woodData[0]);
+
+  woodData.forEach(wand => {
+    innerContent.innerHTML += `
+    <div class="card-box">
+      <div class="card">
+      <div class="card-front">
+        <img src="http://hp-api.herokuapp.com/images/harry.jpg">
+      </div>
+      <div class="card-back">
+        <ul class="card-info">
+          <h1>${wand[1]}</h1>
+          <li>Pertenece a: ${wand[0]}</li>
+        </ul>
+      </div>
+    </div>
+  
+  `;
+  });
 }
 
 //4. FUNCIÓN PARA MOSTRAR LA PANTALLA DE VARITAS > NÚCLEO
@@ -375,6 +396,41 @@ function showPatronus() {
   const sectionTitle = document.querySelector(".section-title");
   sectionTitle.classList = "section-title titulo-dorado";
   sectionTitle.textContent = "PATRONUS";
-
+  console.log(filterByPatronus(charactersData));
+  const patronusData = filterByPatronus(charactersData);
   //filterByPatronus(charactersData)); = cada uno de los patronus patronus[0] = name y patronus[1] = patronus
+  const innerContent = document.querySelector(".inner-content");
+
+  patronusData.forEach(character => {
+    console.log(character[1]);
+    innerContent.innerHTML += `
+    <div class="card-box">
+      <div class="card">
+      <div class="card-front">
+        <img src="http://hp-api.herokuapp.com/images/harry.jpg">
+      </div>
+      <div class="card-back">
+        <ul class="card-info">
+          <h1>${character[1]}</h1>
+          <li>Pertenece a: ${character[0]}</li>
+          <li>Descripción blablabla</li>
+        </ul>
+      </div>
+    </div>
+  
+  `;
+
+
+  })
+  
+
+
+
+
+
+
+
+
+
+
 }

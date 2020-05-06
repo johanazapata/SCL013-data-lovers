@@ -14,7 +14,10 @@ export default [
       core: "Pluma de fénix",
       length: 11,
     },
-    patronus: "ciervo",
+    patronus: {
+      name: "ciervo",
+      description: "ciervito de harry",
+    },
     hogwartsStudent: true,
     hogwartsStaff: false,
     actor: "Daniel Radcliffe",
