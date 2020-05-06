@@ -56,8 +56,7 @@ let clearInnerContent;
 
 //2. Generar "marco" o estructura básica que se repite en todas las páginas (título entre líneas, contenedor para ingresar el contenido dinámico, como personajes, varitas, patronus)
 function createBasicStructure() {
-  document.body.innerHTML =
-    `
+  document.body.innerHTML = `
     <nav id="navbar"></nav>
     <header>
         
@@ -80,30 +79,27 @@ function createBasicStructure() {
   `;
 
   //función que permite borrar el contenido dinámico que se coloca en .inner-content
-  clearInnerContent = function() {
+  clearInnerContent = function () {
     const innerContent = document.querySelector(".inner-content");
     while (innerContent.firstChild) {
       innerContent.removeChild(innerContent.firstChild);
     }
-  }
+  };
 }
 
-//3. Función para crear el menú con sus respectivas opciones 
+//3. Función para crear el menú con sus respectivas opciones
 
 function MenuPrincipal() {
   document.getElementById("navbar").insertAdjacentHTML(
     "afterbegin",
     `
 
-  <div class="item">
-    
-    <input type="checkbox" id="check1"/>
-    <label for="check1"class="bar1"></label>
-    <label for="check1"class="bar2"></label>
-    <label for="check1"class="bar3"></label>
-    
-    <ul>
-    <div>
+<input type="checkbox" class="checkbox__hack" id="checkbox__hack">
+<label for="checkbox__hack" class="checkbox-hack__label"></label>
+<nav class="nav--top">
+<ul class="menu-lateral nav--top__list">
+<ul>
+    <div class="item">
       <input type="checkbox" id="check2"/>
       <label for="check2" id="casas">CASAS</label>
 
@@ -118,26 +114,30 @@ function MenuPrincipal() {
      
       </ul>
  </div>
-     <div>
+    <div class="item">
       <input type="checkbox" id="check3"/>
       <label for="check3">VARITAS</label>
-     
+
        <ul>
+<<<<<<< HEAD
       <li id="madera">Madera</li>
       
       <li id="nucleo">Núcleo</li>
+=======
+      <li id="Madera"><a href="">Madera</a></li>
+      
+      <li id="Nucleo"><a href="">Núcleo</a></li>
+>>>>>>> a6d2ab67cf92fe0bafa43610ba51c4a726e81ed8
      
       </ul>
  </div>
- <div>
+<div class="item">
     <input type="checkbox" id="check4"/>
     <label for="check4">PATRONUS</label>
     
      </div> 
-  
 `
   );
-
 
   const Gryffindor = document.getElementById("Gryffindor");
   Gryffindor.addEventListener("click", (event) => {
@@ -170,7 +170,6 @@ function MenuPrincipal() {
     showWands();
   }); */
 
-  
   const wandsWood = document.querySelector("#madera");
   wandsWood.addEventListener("click", () => {
     showWandsWood();
@@ -185,11 +184,8 @@ function MenuPrincipal() {
   const patronus = document.querySelector("#check4");
   patronus.addEventListener("click", () => {
     showPatronus();
-  })
-
-
+  });
 }
-
 
 ///////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////* PANTALLAS */////////////////////////////////////////
@@ -197,17 +193,14 @@ function MenuPrincipal() {
 
 //0. FUNCIÓN PARA MOSTRAR LA PANTALLA DE LOS ESCUDOS
 function Casas() {
-  
   createBasicStructure(); //2. crea una sola vez la estructura básica que se repite en cada pantalla (esta estructura se mantiene en el resto de las pantallas)
   MenuPrincipal(); //3. crea una sola vez la estructura del menú
-
 
   const sectionTitle = document.querySelector(".section-title");
   sectionTitle.classList += " titulo-dorado";
   sectionTitle.textContent = "CASAS";
 
-  document.querySelector(".inner-content").innerHTML =
-    `
+  document.querySelector(".inner-content").innerHTML = `
   <div class="grilla">
     <img src = "./Imagenes/House Gry.jpg" class="grid-item" id="EscudoGry">
     <img src = "./Imagenes/House Raven.jpg" class="grid-item" id="EscudoRaven">
@@ -243,7 +236,6 @@ function Casas() {
     return showHouseMembers(slytherinMembers);
   });
 }
-
 
 //1. FUNCIÓN PARA MOSTRAR LA PANTALLA DE CADA CASA (la única con createElement XD)
 function showHouseMembers(houseMembers) {
@@ -317,13 +309,13 @@ function showHouseMembers(houseMembers) {
       filterWandByWood(character) &&
       filterWandByCore(character) === ""
     ) {
-      cardInfo.childNodes[4].textContent = `Varita: ${
-        filterWandByWood(character)
-      }`;
+      cardInfo.childNodes[4].textContent = `Varita: ${filterWandByWood(
+        character
+      )}`;
     } else {
-      cardInfo.childNodes[4].textContent = `Varita: ${
-        filterWandByWood(character)
-      } con núcleo de ${filterWandByCore(character)}`;
+      cardInfo.childNodes[4].textContent = `Varita: ${filterWandByWood(
+        character
+      )} con núcleo de ${filterWandByCore(character)}`;
     }
 
     cardFront.appendChild(cardImg);
@@ -337,8 +329,6 @@ function showHouseMembers(houseMembers) {
   });
   innerContentSection.appendChild(fragment); //8. el fragmento se pega a la pantalla (el DOM se actualiza una sola vez)
 }
-
-
 
 //2. FUNCIÓN PARA MOSTRAR LA PANTALLA DE VARITAS (opciones: Material - Núcleo)
 function showWands() {
@@ -365,7 +355,7 @@ function showWands() {
 
   
   `;
-  };
+}
 
 //3. FUNCIÓN PARA MOSTRAR LA PANTALLA DE VARITAS > MATERIAL
 function showWandsWood() {
@@ -385,16 +375,12 @@ function showWandsCore() {
   sectionTitle.textContent = "NÚCLEO";
 }
 
-
-
-
 //5. FUNCIÓN PARA MOSTRAR LA PANTALLA DE PATRONUS
 function showPatronus() {
   clearInnerContent(); //se borra el contenido anterior que está en .inner-content
   const sectionTitle = document.querySelector(".section-title");
   sectionTitle.classList = "section-title titulo-dorado";
   sectionTitle.textContent = "PATRONUS";
-
 
   //filterByPatronus(charactersData)); = cada uno de los patronus patronus[0] = name y patronus[1] = patronus
 }
