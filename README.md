@@ -47,7 +47,7 @@ HISTORIA 6 : Crar una sección llamada "Patronus", en ella se detallara los patr
 
 ![PROTOTIPO ALTA 1](./src/Imagenes/AltaDesktop.jpg)
 
-Para detallar protoripo revisar <A HREF="http://www.miservidor.es/mifichero.htm"> AQUI </A>.
+Para detallar los avances de nuestro prototipo revisar <A HREF="https://www.figma.com/proto/ZRcPkq8uFijjGaQK1YJ0sw/Pantalla-de-inicio?node-id=23%3A169&scaling=scale-down"> AQUI </A>.
 
 # 5. Test de Usabilidad: Testimonios
 
