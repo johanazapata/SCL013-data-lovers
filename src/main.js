@@ -119,15 +119,9 @@ function MenuPrincipal() {
       <label for="check3">VARITAS</label>
 
        <ul>
-<<<<<<< HEAD
       <li id="madera">Madera</li>
       
       <li id="nucleo">Núcleo</li>
-=======
-      <li id="Madera"><a href="">Madera</a></li>
-      
-      <li id="Nucleo"><a href="">Núcleo</a></li>
->>>>>>> a6d2ab67cf92fe0bafa43610ba51c4a726e81ed8
      
       </ul>
  </div>
