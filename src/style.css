@@ -222,7 +222,9 @@ header {
   margin-left: 13rem;
   margin-top: auto;
   width: 170px;
+  
 }
+
 .bar1,
 .bar2,
 .bar3 {
@@ -232,6 +234,7 @@ header {
   margin: 6px 0;
   transition: 0.7s;
   display: inline-block;
+  
 }
 
 nav {

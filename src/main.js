@@ -29,6 +29,7 @@ const alohomoraBtn = document.createElement("button");
 alohomoraBtn.classList = "alohomora-button";
 alohomoraBtn.textContent = "Alohomora";
 alohomoraBtn.addEventListener("click", () => {
+  clearContent(); //1. limpia pantalla de inicio que está en div#root
   return Casas();
 });
 
@@ -40,24 +41,22 @@ homepageFragment.appendChild(alohomoraBtn);
 root.appendChild(homepageFragment);
 
 ///////////////////////////////////////////////////////////////////////////////////////
-/* HELPERS (FUNC. PARA COSAS PEQUEÑAS REPETITIVAS) */
+/////////////////* HELPERS (FUNC. PARA COSAS PEQUEÑAS REPETITIVAS) *//////////////////
 //////////////////////////////////////////////////////////////////////////////////////
 
-//1. Borrar contenido del DOM (div#root y body)
+//1.a. Borrar contenido del DOM (div#root es página de inicio)
 function clearContent() {
   while (root.firstChild) {
     root.removeChild(root.firstChild);
   }
-
-  while (document.body.firstChild) {
-    document.body.removeChild(document.body.firstChild);
-  }
 }
+
+//1.b. Variable donde posteriormente se guarda la función para borrar el contenido de .inner-content
+let clearInnerContent;
 
 //2. Generar "marco" o estructura básica que se repite en todas las páginas (título entre línea, contenedor para ingresar el contenido dinámico, como personajes, varitas, patronus)
 function createBasicStructure() {
-  document.body.insertAdjacentHTML(
-    "afterbegin",
+  document.body.innerHTML =
     `
     <nav id="navbar"></nav>
     <header>
@@ -78,34 +77,198 @@ function createBasicStructure() {
       
     </section>
   
-  `
-  );
+  `;
+
+  //función que permite borrar el contenido dinámico que se coloca en .inner-content
+  clearInnerContent = function() {
+    const innerContent = document.querySelector(".inner-content");
+    while (innerContent.firstChild) {
+      innerContent.removeChild(innerContent.firstChild);
+    }
+  }
 }
 
+//3. Función para crear el menú con sus respectivas opciones 
+
+function MenuPrincipal() {
+  document.getElementById("navbar").insertAdjacentHTML(
+    "afterbegin",
+    `
+
+  <div class="item">
+    
+    <input type="checkbox" id="check1"/>
+    <label for="check1"class="bar1"></label>
+    <label for="check1"class="bar2"></label>
+    <label for="check1"class="bar3"></label>
+    
+    <ul>
+    <div>
+      <input type="checkbox" id="check2"/>
+      <label for="check2" id="casas">CASAS</label>
+
+       <ul>
+      <li id="Gryffindor"><a href="">Gryffindor</a></li>
+      
+      <li id="Slytherin"><a href="">Slytherin</a></li>
+      
+      <li id="Hufflepuff"><a href="">Hufflepuff</a></li>
+      
+      <li id="Ravenclaw"><a href="">Ravenclaw</a></li>
+     
+      </ul>
+ </div>
+     <div>
+      <input type="checkbox" id="check3"/>
+      <label for="check3">VARITAS</label>
+     
+       <ul>
+      <li id="madera"><a href="">Madera</a></li>
+      
+      <li id="nucleo"><a href="">Núcleo</a></li>
+     
+      </ul>
+ </div>
+ <div>
+    <input type="checkbox" id="check4"/>
+    <label for="check4">PATRONUS</label>
+    
+     </div> 
+  
+`
+  );
+
+
+  const Gryffindor = document.getElementById("Gryffindor");
+  Gryffindor.addEventListener("click", (event) => {
+    let gryffindorMembers = filterByHouse(charactersData, "Gryffindor");
+    event.preventDefault();
+    return showHouseMembers(gryffindorMembers);
+  });
+
+  const Slytherin = document.getElementById("Slytherin");
+  Slytherin.addEventListener("click", (event) => {
+    event.preventDefault();
+    let slytherinMembers = filterByHouse(charactersData, "Slytherin");
+    return showHouseMembers(slytherinMembers);
+  });
+  const Hufflepuff = document.getElementById("Hufflepuff");
+  Hufflepuff.addEventListener("click", (event) => {
+    event.preventDefault();
+    let hufflepuffMembers = filterByHouse(charactersData, "Hufflepuff");
+    return showHouseMembers(hufflepuffMembers);
+  });
+
+  const Ravenclaw = document.getElementById("Ravenclaw");
+  Ravenclaw.addEventListener("click", (event) => {
+    event.preventDefault();
+    let ravenclawMembers = filterByHouse(charactersData, "Ravenclaw");
+    return showHouseMembers(ravenclawMembers);
+  });
+
+  //lleva a VARITAS, pero no despliega las opciones en el menú :P
+  const wands = document.getElementById("check3");
+  wands.addEventListener("click", (event) => {
+    event.preventDefault();
+    showWands();
+  });
+
+  
+  const wandsWood = document.querySelector("#madera");
+  wandsWood.addEventListener("click", (event) => {
+    event.preventDefault();
+    showWandsWood();
+  });
+
+  //estas dos están bien conectadas pero el menú no se despliega para seleccionarlas
+  const wandsCore = document.querySelector("#nucleo");
+  wandsCore.addEventListener("click", () => {
+    showWandsCore();
+  });
+
+  const patronus = document.querySelector("#check4");
+  patronus.addEventListener("click", (event) => {
+    event.preventDefault();
+    showPatronus();
+  })
+
+
+}
+
+
 ///////////////////////////////////////////////////////////////////////////////////////
-/* PANTALLAS */
+/////////////////////////////////* PANTALLAS */////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////
 
-//1. FUNCIÓN PARA MOSTRAR LA PANTALLA DE CADA CASA
+//0. FUNCIÓN PARA MOSTRAR LA PANTALLA DE LOS ESCUDOS
+function Casas() {
+  
+  createBasicStructure(); //2. crea una sola vez la estructura básica que se repite en cada pantalla (esta estructura se mantiene en el resto de las pantallas)
+  MenuPrincipal(); //3. crea una sola vez la estructura del menú
+
+
+  const sectionTitle = document.querySelector(".section-title");
+  sectionTitle.classList += " titulo-dorado";
+  sectionTitle.textContent = "CASAS";
+
+  document.querySelector(".inner-content").innerHTML =
+    `
+  <div class="grilla">
+    <img src = "./Imagenes/House Gry.jpg" class="grid-item" id="EscudoGry">
+    <img src = "./Imagenes/House Raven.jpg" class="grid-item" id="EscudoRaven">
+    <img src = "./Imagenes/House Huff.jpg" class="grid-item" id="EscudoHuffle">
+    <img src = "./Imagenes/House Sly.jpg" class="grid-item"id="EscudoSly">
+  </div>
+`;
+  const EscudoGry = document.getElementById("EscudoGry");
+  EscudoGry.addEventListener("click", (event) => {
+    let gryffindorMembers = filterByHouse(charactersData, "Gryffindor");
+    event.preventDefault();
+    return showHouseMembers(gryffindorMembers);
+  });
+
+  const EscudoRaven = document.getElementById("EscudoRaven");
+  EscudoRaven.addEventListener("click", (event) => {
+    event.preventDefault();
+    let ravenclawMembers = filterByHouse(charactersData, "Ravenclaw");
+    return showHouseMembers(ravenclawMembers);
+  });
+
+  const EscudoHuffle = document.getElementById("EscudoHuffle");
+  EscudoHuffle.addEventListener("click", (event) => {
+    event.preventDefault();
+    let hufflepuffwMembers = filterByHouse(charactersData, "Hufflepuff");
+    return showHouseMembers(hufflepuffwMembers);
+  });
+
+  const EscudoSly = document.getElementById("EscudoSly");
+  EscudoSly.addEventListener("click", (event) => {
+    event.preventDefault();
+    let slytherinMembers = filterByHouse(charactersData, "Slytherin");
+    return showHouseMembers(slytherinMembers);
+  });
+}
+
+
+//1. FUNCIÓN PARA MOSTRAR LA PANTALLA DE CADA CASA (la única con createElement XD)
 function showHouseMembers(houseMembers) {
-  clearContent(); //1. limpia pantalla anterior
-  createBasicStructure(); //2. crea estructura básica que se repite en cada pantalla
-  MenuPrincipal(); //3. crea estructura del menú (provisorio)
+  clearInnerContent(); //se borra el contenido anterior que está en .inner-content
+  //MenuPrincipal(); //3. crea estructura del menú (provisorio)
   const innerContentSection = document.querySelector(".inner-content");
   const sectionTitle = document.querySelector(".section-title");
 
   //4. modifica el color del título según la casa
   if (houseMembers[0].house === "Gryffindor") {
-    sectionTitle.classList += " gryffindor-color";
+    sectionTitle.classList = "section-title gryffindor-color";
     sectionTitle.textContent = "GRYFFINDOR";
   } else if (houseMembers[0].house === "Hufflepuff") {
-    sectionTitle.classList += " hufflepuff-color";
+    sectionTitle.classList = "section-title hufflepuff-color";
     sectionTitle.textContent = "HUFFLEPUFF";
   } else if (houseMembers[0].house === "Slytherin") {
-    sectionTitle.classList += " slytherin-color";
+    sectionTitle.classList = "section-title slytherin-color";
     sectionTitle.textContent = "SLYTHERIN";
   } else {
-    sectionTitle.classList += " ravenclaw-color";
+    sectionTitle.classList = "section-title ravenclaw-color";
     sectionTitle.textContent = "RAVENCLAW";
   }
 
@@ -174,192 +337,20 @@ function showHouseMembers(houseMembers) {
     card.appendChild(cardBack);
     cardContainer.appendChild(card);
 
-    //RESULTADO: TARJETA DE CADA PERSONAJE (cardBox)
+    //Resultado: tarjeta de cada personaje (cardContainer)
     fragment.appendChild(cardContainer); //7. se pega cada tarjeta al fragmento vacío
   });
   innerContentSection.appendChild(fragment); //8. el fragmento se pega a la pantalla (el DOM se actualiza una sola vez)
 }
 
-function MenuPrincipal() {
-  document.getElementById("navbar").insertAdjacentHTML(
-    "afterbegin",
-    `
-
-  <div class="item">
-    <input type="checkbox" id="check1"/>
-    <label for="check1"class="bar1"></label>
-    <label for="check1"class="bar2"></label>
-    <label for="check1"class="bar3"></label>
-    <ul>
-    <div>
-      <input type="checkbox" id="check2"/>
-      <label for="check2" id="casas">CASAS</label>
-
-       <ul>
-      <li id="Gryffindor"><a href="">Gryffindor</a></li>
-      
-      <li id="Slytherin"><a href="">Slytherin</a></li>
-      
-      <li id="Hufflepuff"><a href="">Hufflepuff</a></li>
-      
-      <li id="Ravenclaw"><a href="">Ravenclaw</a></li>
-     
-      </ul>
- </div>
-     <div>
-      <input type="checkbox" id="check3"/>
-      <label for="check3">VARITAS</label>
-     
-       <ul>
-      <li id="madera"><a href="">Madera</a></li>
-      
-      <li id="nucleo"><a href="">Núcleo</a></li>
-     
-      </ul>
- </div>
- <div>
-    <input type="checkbox" id="check4"/>
-    <label for="check4">PATRONUS</label>
-    
-     </div> 
-  
-`
-  );
-
-  const Gryffindor = document.getElementById("Gryffindor");
-  Gryffindor.addEventListener("click", (event) => {
-    let gryffindorMembers = filterByHouse(charactersData, "Gryffindor");
-    event.preventDefault();
-    return showHouseMembers(gryffindorMembers);
-  });
-
-  const Slytherin = document.getElementById("Slytherin");
-  Slytherin.addEventListener("click", (event) => {
-    event.preventDefault();
-    let slytherinMembers = filterByHouse(charactersData, "Slytherin");
-    return showHouseMembers(slytherinMembers);
-  });
-  const Hufflepuff = document.getElementById("Hufflepuff");
-  Hufflepuff.addEventListener("click", (event) => {
-    event.preventDefault();
-    let hufflepuffMembers = filterByHouse(charactersData, "Hufflepuff");
-    return showHouseMembers(hufflepuffMembers);
-  });
-
-  const Ravenclaw = document.getElementById("Ravenclaw");
-  Ravenclaw.addEventListener("click", (event) => {
-    event.preventDefault();
-    let ravenclawMembers = filterByHouse(charactersData, "Ravenclaw");
-    return showHouseMembers(ravenclawMembers);
-  });
-
-  const wands = document.getElementById("check3");
-  wands.addEventListener("click", (event) => {
-    event.preventDefault();
-    showWands();
-  });
-
-  //lleva a VARITAS, pero no despliega las opciones en el menú :P
-  const wandsWood = document.querySelector("#madera");
-  wandsWood.addEventListener("click", (event) => {
-      event.preventDefault();
-      showWandsWood();
-  });
-
-  //estas dos están bien conectadas pero el menú no se despliega para seleccionarlas
-  const wandsCore = document.querySelector("#nucleo");
-  wandsCore.addEventListener("click", () => {
-      showWandsCore();
-  });
-
-  const patronus = document.querySelector("#check4");
-  patronus.addEventListener("click", (event) => {
-    event.preventDefault();
-    showPatronus();
-  })
 
 
-
-  /* const casas = document.getElementById("casas");
-      casas.addEventListener("click", () => {
-        console.log(casas.classList);
-        if (casas.classList = "no-clickeado") {
-          casas.classList = "clickeado";
-          Casas();
-
-        } 
-        
-      }); */
-  const casasCheckbox = document.querySelector("#check2");
-  if (casasCheckbox.checked === false) {
-    casasCheckbox.checked = true;
-    console.log(casasCheckbox.checked);
-  }
-
-  if (casasCheckbox.checked === true) {
-    casasCheckbox.addEventListener("click", () => Casas());
-  }
-}
-
-function Casas() {
-  clearContent(); //1. limpia pantalla anterior
-  createBasicStructure(); //2. crea estructura básica que se repite en cada pantalla
-  MenuPrincipal(); //3. crea estructura del menú (provisorio)
-
-  const sectionTitle = document.querySelector(".section-title");
-  sectionTitle.classList += " titulo-dorado";
-  sectionTitle.textContent = "CASAS";
-
-  document.querySelector(".inner-content").insertAdjacentHTML(
-    "afterbegin",
-    `
-  <div class="grilla">
-    <img src = "./Imagenes/House Gry.jpg" class="grid-item" id="EscudoGry">
-    <img src = "./Imagenes/House Raven.jpg" class="grid-item" id="EscudoRaven">
-    <img src = "./Imagenes/House Huff.jpg" class="grid-item" id="EscudoHuffle">
-    <img src = "./Imagenes/House Sly.jpg" class="grid-item"id="EscudoSly">
-  </div>
-`
-  );
-  const EscudoGry = document.getElementById("EscudoGry");
-  EscudoGry.addEventListener("click", (event) => {
-    let gryffindorMembers = filterByHouse(charactersData, "Gryffindor");
-    event.preventDefault();
-    return showHouseMembers(gryffindorMembers);
-  });
-
-  const EscudoRaven = document.getElementById("EscudoRaven");
-  EscudoRaven.addEventListener("click", (event) => {
-    event.preventDefault();
-    let ravenclawMembers = filterByHouse(charactersData, "Ravenclaw");
-    return showHouseMembers(ravenclawMembers);
-  });
-
-  const EscudoHuffle = document.getElementById("EscudoHuffle");
-  EscudoHuffle.addEventListener("click", (event) => {
-    event.preventDefault();
-    let hufflepuffwMembers = filterByHouse(charactersData, "Hufflepuff");
-    return showHouseMembers(hufflepuffwMembers);
-  });
-
-  const EscudoSly = document.getElementById("EscudoSly");
-  EscudoSly.addEventListener("click", (event) => {
-    event.preventDefault();
-    let slytherinMembers = filterByHouse(charactersData, "Slytherin");
-    return showHouseMembers(slytherinMembers);
-  });
-}
-
-/*///////////////////////PANTALLA DE VARITAS///////////////////////////////////*/
-
-//VARITAS
+//2. FUNCIÓN PARA MOSTRAR LA PANTALLA DE VARITAS (opciones: Material - Núcleo)
 function showWands() {
-  clearContent();
-  createBasicStructure();
-  MenuPrincipal();
+  clearInnerContent(); //se borra el contenido anterior que está en .inner-content
 
   const sectionTitle = document.querySelector(".section-title");
-  sectionTitle.classList += " titulo-dorado";
+  sectionTitle.classList = "section-title titulo-dorado";
   sectionTitle.textContent = "VARITAS";
 
   document.querySelector(".inner-content").innerHTML = `
@@ -381,41 +372,32 @@ function showWands() {
   `;
   };
 
-//VARITAS > MATERIAL
+//3. FUNCIÓN PARA MOSTRAR LA PANTALLA DE VARITAS > MATERIAL
 function showWandsWood() {
-  clearContent();
-  createBasicStructure();
-  MenuPrincipal();
+  clearInnerContent(); //se borra el contenido anterior que está en .inner-content
 
   const sectionTitle = document.querySelector(".section-title");
-  sectionTitle.classList += " titulo-dorado";
+  sectionTitle.classList = "section-title titulo-dorado";
   sectionTitle.textContent = "MATERIAL";
 }
 
-//VARITAS > NÚCLEO
+//4. FUNCIÓN PARA MOSTRAR LA PANTALLA DE VARITAS > NÚCLEO
 function showWandsCore() {
-  clearContent();
-  createBasicStructure();
-  MenuPrincipal();
-  
+  clearInnerContent(); //se borra el contenido anterior que está en .inner-content
 
   const sectionTitle = document.querySelector(".section-title");
-  sectionTitle.classList += " titulo-dorado";
+  sectionTitle.classList = "section-title titulo-dorado";
   sectionTitle.textContent = "NÚCLEO";
 }
 
 
 
 
-//PANTALLA DE PATRONUS
+//5. FUNCIÓN PARA MOSTRAR LA PANTALLA DE PATRONUS
 function showPatronus() {
-  clearContent();
-  createBasicStructure();
-  MenuPrincipal();
-
-
+  clearInnerContent(); //se borra el contenido anterior que está en .inner-content
   const sectionTitle = document.querySelector(".section-title");
-  sectionTitle.classList += " titulo-dorado";
+  sectionTitle.classList = "section-title titulo-dorado";
   sectionTitle.textContent = "PATRONUS";
 
 
