@@ -323,7 +323,7 @@ nav ul {
 }
 
 .item input {
-  display: none;
+ /*  display: none; */
 }
 
 .item ul li a {

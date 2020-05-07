@@ -3,7 +3,7 @@
 import charactersData from "./data/potter/potter.js";
 import { filterByHouse } from "./data.js";
 import { filterWandByWood } from "./data.js";
-import { filterWandByCore } from "./data.js";
+//import { filterWandByCore } from "./data.js";
 import { filterByPatronus } from "./data.js";
 import { wandWood } from "./data.js";
 import { wandCore } from "./data.js";
@@ -161,11 +161,11 @@ function MenuPrincipal() {
   });
 
   //lleva a VARITAS, pero no despliega las opciones en el menú :P
-  /* const wands = document.getElementById("check3");
+  const wands = document.getElementById("check3");
   wands.addEventListener("click", (event) => {
     event.preventDefault();
     showWands();
-  }); */
+  });
 
   const wandsWood = document.querySelector("#madera");
   wandsWood.addEventListener("click", () => {
@@ -408,9 +408,6 @@ function showPatronus() {
     const patronusName = character[1];
     const patronusDescription = character[2];
     const patronusImg = character[3];
-
-    console.log(patronusName);
-    console.log(patronusImg);
     innerContent.innerHTML += `
     <div class="card-box">
       <div class="card">

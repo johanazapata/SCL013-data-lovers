@@ -1,23 +1,19 @@
-import { example, anotherExample } from '../src/data.js';
+import { filterByHouse } from '../src/data.js';
+import { filterByPatronus } from '../src/data.js';
+import { charactersData } from '../src/data/potter/potter.js';
 
 
-describe('example', () => {
+describe('filterByHouse', () => {
   test('is a function', () => {
-    expect(typeof example).toBe('function');
-  });
+    expect(typeof filterByHouse).toBe('function');
+  })
+})
 
-  test('returns `example`', () => {
-    expect(example()).toBe('example');
-  });
-});
+test('Returns patronus name, owner and description', () => {
+  expect(filterByPatronus(dataToFilter)).toContain('stag');
+})
 
 
-describe('anotherExample', () => {
-  test('is a function', () => {
-    expect(typeof anotherExample).toBe('function');
-  });
 
-  test('returns `anotherExample`', () => {
-    expect(anotherExample()).toBe('OMG');
-  });
-});
+
+
