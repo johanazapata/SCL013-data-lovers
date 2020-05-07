@@ -9,6 +9,14 @@ export function filterByHouse(dataToFilter, condition) {
   return membersByHouse;
 }
 
+export function wandWood(dataToFilter) {
+  return Object.entries(dataToFilter.wand)[0][1];
+}
+
+export function wandCore(dataToFilter) {
+  return Object.entries(dataToFilter.wand)[1][1];
+}
+
 //Filtrar por el material/madera de la varita
 export function filterWandByWood(dataToFilter) {
   const wandsAndOwner = dataToFilter.map(character => {
@@ -28,17 +36,13 @@ export function filterWandByCore(dataToFilter) {
   return Object.entries(dataToFilter.wand)[1][1];
 }
 
-//Filtrar por el patronus. El resultado es un array con muchos array [nombre, patronus, descripción]
-/* export function filterByPatronus(dataToFilter) {
-    const hasPatronus = dataToFilter.filter(character => character.patronus);
-    const patronus = hasPatronus.map(character => {
-      return [character.name, character.patronus];
-    })
+//Filtrar por el patronus. El resultado es un array con muchos array [nombre, patronus, descripción] - onlyPatronus(character); (después de un forEach)
+ export function patronusNameOnly(dataToFilter) {
+      return Object.entries(dataToFilter.patronus)[0][1];
 
-    return patronus; // patronus = [ ['harry', 'ciervo', 'descripción'], ['hermione', 'nutria', 'descripción'] ];
-} */
+} 
 
-
+//Filtrar por el patronus (pero sin forEach previo) - filterByPatronus(charactersData);
 export function filterByPatronus(dataToFilter) {
   const hasPatronus = dataToFilter.filter(character => character.patronus);
   const patronusAndInfo = hasPatronus.map(character => {

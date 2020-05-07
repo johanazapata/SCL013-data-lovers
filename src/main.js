@@ -5,6 +5,9 @@ import { filterByHouse } from "./data.js";
 import { filterWandByWood } from "./data.js";
 import { filterWandByCore } from "./data.js";
 import { filterByPatronus } from "./data.js";
+import { wandWood } from "./data.js";
+import { wandCore } from "./data.js";
+import { patronusNameOnly } from "./data.js";
 
 const root = document.getElementById("root");
 const homepageFragment = new DocumentFragment(); //aquí se agregan todos los elementos, luego este fragmento se agrega al root, así solo se actualiza una vez y podemos agregar imagen, h1 y botón al mismo tiempo
@@ -269,14 +272,19 @@ function showHouseMembers(houseMembers) {
     cardFront.classList = "card-front";
     const cardBack = document.createElement("div");
     cardBack.classList = "card-back";
+    const cardTitle = document.createElement("h1");
+    cardTitle.classList = "card-title";
+    cardInfo.appendChild(cardTitle);
 
     //6. se crean 4 elementos de lista para la información de cada personaje
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 4; i++) {
       let cardInfoLi = document.createElement("li");
       cardInfo.appendChild(cardInfoLi);
     }
+
+    //cardTitle es el título donde va el nombre del personaje
+    cardInfo.childNodes[0].textContent = `${character.name}`;
     //cardInfo equivale a la lista, childNodes[x] a cada elemento
-    cardInfo.childNodes[0].textContent = `Nombre: ${character.name}`;
     cardInfo.childNodes[1].textContent = `Género: ${character.gender}`;
 
     //por si el personaje no tiene año de nacimiento
@@ -290,26 +298,26 @@ function showHouseMembers(houseMembers) {
     if (character.patronus === "") {
       cardInfo.childNodes[3].textContent = `Patronus: Información no disponible`;
     } else {
-      cardInfo.childNodes[3].textContent = `Patronus: ${character.patronus}`;
+      cardInfo.childNodes[3].textContent = `Patronus: ${patronusNameOnly(character)}`;
     }
 
     //por si el personaje 1) no tiene varita, 2) solo tiene madera 3) tiene madera y núcleo
     if (
-      filterWandByWood(character) === "" &&
-      filterWandByCore(character) === ""
+      wandWood(character) === "" &&
+      wandCore(character) === ""
     ) {
       cardInfo.childNodes[4].textContent = `Varita: Información no disponible`;
     } else if (
-      filterWandByWood(character) &&
-      filterWandByCore(character) === ""
+      wandWood(character) &&
+      wandCore(character) === ""
     ) {
-      cardInfo.childNodes[4].textContent = `Varita: ${filterWandByWood(
+      cardInfo.childNodes[4].textContent = `Varita: ${wandWood(
         character
       )}`;
     } else {
-      cardInfo.childNodes[4].textContent = `Varita: ${filterWandByWood(
+      cardInfo.childNodes[4].textContent = `Varita: ${wandWood(
         character
-      )} con núcleo de ${filterWandByCore(character)}`;
+      )} con núcleo de ${wandCore(character)}`;
     }
 
     cardFront.appendChild(cardImg);
@@ -371,7 +379,7 @@ function showWandsWood() {
       </div>
       <div class="card-back">
         <ul class="card-info">
-          <h1>${wand[1]}</h1>
+          <h1 class="card-title">${wand[1]}</h1>
           <li>Pertenece a: ${wand[0]}</li>
         </ul>
       </div>
@@ -411,9 +419,11 @@ function showPatronus() {
       </div>
       <div class="card-back">
         <ul class="card-info">
-          <h1>${character[1]}</h1>
+          <h1 class="card-title">${character[1]}</h1>
+          <br>
           <li>Pertenece a: ${character[0]}</li>
-          <li>${character[2]}</li>
+          <br>
+          <p>${character[2]}</p>
         </ul>
       </div>
     </div>
