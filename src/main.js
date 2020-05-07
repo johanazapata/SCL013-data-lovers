@@ -107,6 +107,7 @@ function MenuPrincipal() {
       <label for="check2" id="casas">CASAS</label>
 
        <ul>
+      <li id="escudos">Casas</li>
       <li id="Gryffindor">Gryffindor</li>
       
       <li id="Slytherin">Slytherin</li>
@@ -122,6 +123,7 @@ function MenuPrincipal() {
       <label for="check3">VARITAS</label>
 
        <ul>
+      <li id="varitas">Varitas</li>
       <li id="madera">Madera</li>
       
       <li id="nucleo">Núcleo</li>
@@ -136,10 +138,19 @@ function MenuPrincipal() {
 `
   );
 
+  const casas = document.querySelector("#escudos");
+  casas.addEventListener("click", () => {
+    Casas();
+  })
+
+  const varitas = document.querySelector("#varitas");
+  varitas.addEventListener("click", () => {
+    showWands();
+  })
+
   const Gryffindor = document.getElementById("Gryffindor");
-  Gryffindor.addEventListener("click", (event) => {
+  Gryffindor.addEventListener("click", () => {
     let gryffindorMembers = filterByHouse(charactersData, "Gryffindor");
-    event.preventDefault();
     return showHouseMembers(gryffindorMembers);
   });
 
@@ -161,11 +172,11 @@ function MenuPrincipal() {
   });
 
   //lleva a VARITAS, pero no despliega las opciones en el menú :P
-  const wands = document.getElementById("check3");
+  /* const wands = document.getElementById("check3");
   wands.addEventListener("click", (event) => {
     event.preventDefault();
     showWands();
-  }); 
+  });  */
 
   const wandsWood = document.querySelector("#madera");
   wandsWood.addEventListener("click", () => {
@@ -339,7 +350,7 @@ function showWands() {
   const sectionTitle = document.querySelector(".section-title");
   sectionTitle.classList = "section-title titulo-dorado";
   sectionTitle.textContent = "VARITAS";
-
+  //HAY QUE HACER FOREACH E INGRESAR DATOS EN ESTE HTML
   document.querySelector(".inner-content").innerHTML = `
   <div class="card-box">
     
