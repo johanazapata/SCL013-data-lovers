@@ -46,7 +46,6 @@ export function filterByPatronus(dataToFilter) {
     const owner = character.name;
     const image = Object.entries(character.patronus)[2][1];
     const description = Object.entries(character.patronus)[1][1];
-    const image = Object.entries(character.patronus)[2][1];
     const allPatronus = [owner, patronus, description, image];
     return allPatronus;
   });

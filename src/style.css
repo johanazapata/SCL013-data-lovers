@@ -322,9 +322,9 @@ nav ul {
   transition: all 1s linear;
 }
 
-.item input {
+.item input 
  /*  display: none; */
-}
+
 
 .item ul li a {
   width: 100%;
