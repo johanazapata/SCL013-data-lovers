@@ -18,7 +18,7 @@ export default [
       name: "Ciervo",
       descripcion:
         "El Patronus de Harry tiene la forma de Animagus al igual que el Patronus de su padre. Aprendió a conjurarlo a una edad excepcionalmente temprana.",
-      image: ""
+      image: "./Imagenes/ciervo.jpg",
     },
     hogwartsStudent: true,
     hogwartsStaff: false,
@@ -45,6 +45,7 @@ export default [
       name: "Nutria",
       descripcion:
         "Visto en la última reunión del Ejército de Dumbledore en 1996. Aparentemente es el único hechizo con el que Hermione tuvo problemas, como se dijo en 1997 mientras escapaba del Ministerio de Magia.",
+      image: "file://../../Imagenes/ciervo.jpg",
     },
     hogwartsStudent: true,
     hogwartsStaff: false,
@@ -366,7 +367,7 @@ export default [
     patronus: {
       name: "Comadreja",
       descripcion:
-        "Visto por primera vez cuando envió un mensaje sobre la llegada de Rufus Scrimgeour en el decimoséptimo cumpleaños de Harry. Más tarde visto cuando Arthur envió un Patronus a 12 Grimmauld Place para informar a Harry, Ron y Hermione que la familia Weasley estaba a salvo.",
+        "Visto por primera vez cuando envió un mensaje sobre la llegada de Rufus Scrimgeour en el decimoséptimo cumpleaños de Harry.",
     },
     hogwartsStudent: false,
     hogwartsStaff: false,
@@ -484,7 +485,7 @@ export default [
     patronus: {
       name: "Gato persa",
       descripcion:
-        "Mientras interrogaba a los nacidos de muggles en un juicio, había emitido un Patronus para alejar a los Dementores de los fiscales. Su animal favorito, como lo demuestran los muchos platos con gatos en su oficina. Pudo lanzar el Patronus debido a su afinidad con la influencia malvada del medallón Horrocrux",
+        "Mientras interrogaba a los nacidos de muggles en un juicio, había emitido un Patronus para alejar a los Dementores de los fiscales. Su animal favorito, como lo demuestran los muchos platos con gatos en su oficina.",
     },
     hogwartsStudent: false,
     hogwartsStaff: true,

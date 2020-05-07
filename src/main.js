@@ -240,7 +240,7 @@ function showHouseMembers(houseMembers) {
   //MenuPrincipal(); //3. crea estructura del menú (provisorio)
   const innerContentSection = document.querySelector(".inner-content");
   const sectionTitle = document.querySelector(".section-title");
-  
+
   //4. modifica el color del título según la casa
   if (houseMembers[0].house === "Gryffindor") {
     sectionTitle.classList = "section-title gryffindor-color";
@@ -298,22 +298,16 @@ function showHouseMembers(houseMembers) {
     if (character.patronus === "") {
       cardInfo.childNodes[3].textContent = `Patronus: Información no disponible`;
     } else {
-      cardInfo.childNodes[3].textContent = `Patronus: ${patronusNameOnly(character)}`;
+      cardInfo.childNodes[3].textContent = `Patronus: ${patronusNameOnly(
+        character
+      )}`;
     }
 
     //por si el personaje 1) no tiene varita, 2) solo tiene madera 3) tiene madera y núcleo
-    if (
-      wandWood(character) === "" &&
-      wandCore(character) === ""
-    ) {
+    if (wandWood(character) === "" && wandCore(character) === "") {
       cardInfo.childNodes[4].textContent = `Varita: Información no disponible`;
-    } else if (
-      wandWood(character) &&
-      wandCore(character) === ""
-    ) {
-      cardInfo.childNodes[4].textContent = `Varita: ${wandWood(
-        character
-      )}`;
+    } else if (wandWood(character) && wandCore(character) === "") {
+      cardInfo.childNodes[4].textContent = `Varita: ${wandWood(character)}`;
     } else {
       cardInfo.childNodes[4].textContent = `Varita: ${wandWood(
         character
@@ -370,7 +364,7 @@ function showWandsWood() {
   const woodData = filterWandByWood(charactersData);
   console.log(woodData[0]);
 
-  woodData.forEach(wand => {
+  woodData.forEach((wand) => {
     innerContent.innerHTML += `
     <div class="card-box">
       <div class="card">
@@ -409,38 +403,31 @@ function showPatronus() {
   //filterByPatronus(charactersData)); = cada uno de los patronus patronus[0] = name y patronus[1] = patronus
   const innerContent = document.querySelector(".inner-content");
 
-  patronusData.forEach(character => {
-    console.log(character[1]);
+  patronusData.forEach((character) => {
+    const patronusOwner = character[0];
+    const patronusName = character[1];
+    const patronusDescription = character[2];
+    const patronusImg = character[3];
+
+    console.log(patronusName);
+    console.log(patronusImg);
     innerContent.innerHTML += `
     <div class="card-box">
       <div class="card">
       <div class="card-front">
-        <img src="http://hp-api.herokuapp.com/images/harry.jpg">
+        <img src="${patronusImg}">
       </div>
       <div class="card-back">
         <ul class="card-info">
-          <h1 class="card-title">${character[1]}</h1>
+          <h1 class="card-title">${patronusName}</h1>
           <br>
-          <li>Pertenece a: ${character[0]}</li>
+          <li>Pertenece a: ${patronusOwner}</li>
           <br>
-          <p>${character[2]}</p>
+          <p>${patronusDescription}</p>
         </ul>
       </div>
     </div>
   
   `;
-
-
-  })
-  
-
-
-
-
-
-
-
-
-
-
+  });
 }
