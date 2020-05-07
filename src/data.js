@@ -5,7 +5,6 @@ export function filterByHouse(dataToFilter, condition) {
   let membersByHouse = dataToFilter.filter(
     (character) => character.house === condition
   );
-  console.log("filter funciona bien");
   return membersByHouse;
 }
 
@@ -49,7 +48,8 @@ export function filterByPatronus(dataToFilter) {
     const patronus = Object.entries(character.patronus)[0][1];
     const owner = character.name;
     const description = Object.entries(character.patronus)[1][1];
-    const allPatronus = [owner, patronus, description];
+    const image = Object.entries(character.patronus)[2][1];
+    const allPatronus = [owner, patronus, description, image];
     return allPatronus;
   });
 

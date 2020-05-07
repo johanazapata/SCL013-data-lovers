@@ -3,7 +3,7 @@
 import charactersData from "./data/potter/potter.js";
 import { filterByHouse } from "./data.js";
 import { filterWandByWood } from "./data.js";
-import { filterWandByCore } from "./data.js";
+//import { filterWandByCore } from "./data.js";
 import { filterByPatronus } from "./data.js";
 import { wandWood } from "./data.js";
 import { wandCore } from "./data.js";
@@ -161,11 +161,11 @@ function MenuPrincipal() {
   });
 
   //lleva a VARITAS, pero no despliega las opciones en el menú :P
-  /* const wands = document.getElementById("check3");
+  const wands = document.getElementById("check3");
   wands.addEventListener("click", (event) => {
     event.preventDefault();
     showWands();
-  }); */
+  }); 
 
   const wandsWood = document.querySelector("#madera");
   wandsWood.addEventListener("click", () => {
@@ -408,22 +408,25 @@ function showPatronus() {
   const patronusData = filterByPatronus(charactersData);
   //filterByPatronus(charactersData)); = cada uno de los patronus patronus[0] = name y patronus[1] = patronus
   const innerContent = document.querySelector(".inner-content");
-
+  
   patronusData.forEach(character => {
-    console.log(character[1]);
+    const patronusOwner = character[0];
+    const patronusName = character[1];
+    const patronusDescription = character[2];
+    const patronusImg = character[3];
     innerContent.innerHTML += `
     <div class="card-box">
       <div class="card">
       <div class="card-front">
-        <img src="http://hp-api.herokuapp.com/images/harry.jpg">
+        <img src="${patronusImg}">
       </div>
       <div class="card-back">
         <ul class="card-info">
-          <h1 class="card-title">${character[1]}</h1>
+          <h1 class="card-title">${patronusName}</h1>
           <br>
-          <li>Pertenece a: ${character[0]}</li>
+          <li>Pertenece a: ${patronusOwner}</li>
           <br>
-          <p>${character[2]}</p>
+          <p>${patronusDescription}</p>
         </ul>
       </div>
     </div>
