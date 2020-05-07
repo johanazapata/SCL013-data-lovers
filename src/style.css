@@ -216,6 +216,13 @@ header {
   margin: 0.2rem;
 }
 
+/*PATRONUS*/
+
+.card-title {
+  text-transform: uppercase;
+  text-align: center;
+}
+
 /*Código Menú nuevo*/
 /*Menu Hamburguesa*/
 .nav--top {
