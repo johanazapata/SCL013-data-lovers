@@ -11,8 +11,16 @@ export default [
     hairColour: "negro",
     wand: {
       wood: "Acebo",
-      core: "Pluma de fénix",
       length: 11,
+      descripcion:
+        "Las varitas de acebo trabajan muy feliz para aquellos que pueden necesitar ayuda para superar una tendencia a la ira y la impetuosidad.",
+      image: "",
+    },
+    core: {
+      name: "Pluma de fénix",
+      descripcion:
+        "La pluma de fénix es el tipo de núcleo para varitas más raro. Las plumas de fénix pueden producir una amplia gama de efectos mágicos, aunque pueden tomarse más tiempo que las varitas de unicornio o de dragón para mostrarlo.",
+      image: "",
     },
     patronus: {
       name: "Ciervo",
@@ -38,9 +46,18 @@ export default [
     hairColour: "café",
     wand: {
       wood: "Vine",
-      core: " Fibra de Corazón de Dragón",
       length: 10,
+      descripción:
+        "Las varitas de vid se encuentran entre los tipos menos comunes, y sus dueños son casi siempre aquellas brujas o magos que buscan un propósito mayor. ",
+      image: "",
     },
+    core: {
+      name: "Fibra de Corazón de Dragón",
+      descripcion:
+        "Poderosa, fácil para aprender hechizos. Sin embargo, su lealtad cambia fácilmente de dueño.",
+      image: "",
+    },
+
     patronus: {
       name: "Nutria",
       descripcion:
@@ -65,8 +82,15 @@ export default [
     hairColour: "rojo",
     wand: {
       wood: "Sauce",
-      core: "Cola de Unicornio",
       length: 14,
+      descripcion:
+        "El sauce es una madera de varita poco común con los poderes curativos, y su propietario ideal a menudo tiene cierta inseguridad, por mucho que intenten esconderla.",
+      image: "",
+    },
+    core: {
+      name: "Cola de Unicornio",
+      descripcion: "Magia consistente. Une fuertemente a su primer dueño.",
+      image: "",
     },
     patronus: {
       name: "Jack Russell Terrier",
@@ -92,8 +116,16 @@ export default [
     hairColour: "rubio",
     wand: {
       wood: "Espino",
-      core: "Cola de Unicornio",
       length: 10,
+      descripcion:
+        "Las varitas de espino pueden ser particularmente adecuadas para los hechizos sanadores, pero también son expertas en maldiciones, ",
+      image: "",
+    },
+    core: {
+      name: "Cola de Unicornio",
+      descripcion:
+        "Las varitas con núcleos de pelo de unicornio son las más difíciles de utilizar para las Artes Oscuras. Son las más fieles de todas las varitas, y normalmente permanecen unidas a su primer dueño",
+      image: "",
     },
     patronus: "",
     hogwartsStudent: true,
@@ -114,8 +146,16 @@ export default [
     hairColour: "negro",
     wand: {
       wood: "Abeto",
-      core: "Fibra de Corazón de Dragon",
       length: 9.5,
+      descripcion:
+        "Las varitas de abeto exigen poder de permanencia y fuerza de propósito en sus verdaderos dueños, y que son herramientas deficientes en manos de los cambiantes e indecisos.",
+      image: "",
+    },
+    core: {
+      name: "Fibra de Corazón de Dragon",
+      descripción:
+        "En general, la fibra de corazón de dragón produce las varitas más poderosas, y con ellas se pueden realizar los encantamientos más llamativos.",
+      image: "",
     },
     patronus: {
       name: "Gato atigrado",
@@ -140,9 +180,17 @@ export default [
     eyeColour: "gris",
     hairColour: "café",
     wand: {
-      wood: "Ceniza",
-      core: "Pelo de Unicornio",
+      wood: "Fresno",
       length: 12.25,
+      descripcion:
+        "Las varitas de fresno se aferran a su verdadero maestro y no deben pasarse ni regalarse al propietario original, ya que perderán poder y habilidad.",
+      image: "",
+    },
+    core: {
+      name: "Crín de Unicornio",
+      descripcion:
+        "Las desventajas del pelo de unicornio son que no produce las varitas más poderosas, aunque se puede compensar con la madera de la varita",
+      image: "",
     },
     patronus: "",
     hogwartsStudent: true,
@@ -190,8 +238,16 @@ export default [
     hairColour: "negro",
     wand: {
       wood: "Pino Negro",
-      core: "Nervio de Corazón de Dragón",
       length: 11,
+      descripcion:
+        "Las varitas de pino siempre eligen un maestro individual e independiente que puede ser percibido como solitario, intrigante y tal vez misterioso.",
+      image: "",
+    },
+    core: {
+      name: "Nervio de Corazón de Dragón",
+      descripcion:
+        "Las varitas de dragón tienden a aprender más rápido que otros tipos. Son mas faciles de usar para las Artes Oscuras",
+      image: "",
     },
     patronus: {
       name: "Cierva",
@@ -239,8 +295,16 @@ export default [
     hairColour: "rubio",
     wand: {
       wood: "Cerezo",
-      core: "Cola de Unicornio",
       length: 13,
+      descripcion:
+        "Esta varita se consideraba cara, posiblemente debido al tipo de madera de la cual estaba hecha",
+      image: "",
+    },
+    core: {
+      name: "Cola de Unicornio",
+      descripcion:
+        "Tienden a la melancolía si no son usadas correctamente y el pelo puede “morir” y necesita ser reemplazas.",
+      image: "",
     },
     patronus: "",
     hogwartsStudent: true,
@@ -315,8 +379,16 @@ export default [
     hairColour: "negro",
     wand: {
       wood: "Roble",
-      core: "Fibra de Corazon de Dragón",
       length: 11,
+      descripcion:
+        "Una varita mágica para los buenos y para los malos, este es un amigo tan leal como el mago que lo merece. ",
+      image: "",
+    },
+    core: {
+      name: "Fibra de Corazon de Dragón",
+      descripcion:
+        "La varita de dragón es la más fácil de usar para las Artes Oscuras, aunque, no se inclinará hacia ellas por ella misma. También, es la que tiene más tendencia a producir accidentes, debido a su temperamento.",
+      image: "",
     },
     patronus: {
       name: " Perro",
@@ -342,8 +414,16 @@ export default [
     hairColour: "café",
     wand: {
       wood: "Ciprés",
-      core: "Pelo de Cola de Unicornio",
       length: 10.25,
+      descripcion:
+        "Se dice que las varitas ciprés están bien adaptadas a los magos que se sacrifican y están dispuestos a morir como una muerte heroica.",
+      image: "",
+    },
+    core: {
+      name: "Pelo de Cola de Unicornio",
+      descripcion:
+        ". Son las más fieles de todas las varitas, y normalmente permanecen unidas a su primer dueño con una relación difícil de romper, independientemente de si es una bruja o un mago consumado.",
+      image: "",
     },
     patronus: {
       name: "Lobo",
@@ -375,7 +455,7 @@ export default [
     patronus: {
       name: "Comadreja",
       descripcion:
-        "Visto por primera vez cuando envió un mensaje sobre la llegada de Rufus Scrimgeour en el decimoséptimo cumpleaños de Harry. Más tarde visto cuando Arthur envió un Patronus a 12 Grimmauld Place para informar a Harry, Ron y Hermione que la familia Weasley estaba a salvo.",
+        "Visto por primera vez cuando envió un mensaje sobre la llegada de Rufus Scrimgeour en el cumpleaños 17 de Harry. Luego cuando Arthur envió un Patronus a 12 Grimmauld Place para informar a Harry, Ron y Hermione que la familia Weasley estaba a salvo.",
       image: "./Imagenes/Comadreja Arthur.jpg",
     },
     hogwartsStudent: false,
@@ -396,8 +476,16 @@ export default [
     hairColour: "negro",
     wand: {
       wood: "Nogal",
-      core: "Fibra de Corazón de Dragón",
       length: 12.75,
+      descripcion:
+        ". Las varitas de nogal, una vez subyugadas, realizarán cualquier tarea que su propietario desee, siempre que el usuario tenga suficiente brillo.",
+      image: "",
+    },
+    core: {
+      name: "Fibra de Corazón de Dragón",
+      descripcion:
+        " Las varitas con núcleo de fibra de corazón de dragón tienden a aprender hechizos más rápido que las de otros tipos. Sin embargo, pueden cambiar de maestro si se le quitan a su dueño original.",
+      image: "",
     },
     patronus: "",
     hogwartsStudent: false,
@@ -418,8 +506,16 @@ export default [
     hairColour: "calvo",
     wand: {
       wood: "Tejo",
-      core: "Pluma de Fénix",
       length: 13.5,
+      descripcion:
+        "La varita del tejo tiene fama de otorgar a su poseedor el poder de la vida y la muerte. Conserva una reputación oscura y temible en las esferas de los duelos",
+      image: "",
+    },
+    core: {
+      name: "Pluma de Fénix",
+      descripcion:
+        "Las varitas de pluma de fénix son siempre las más quisquillosas a la hora de escoger un dueño, puesto que la criatura de la que han salido es una de las más independientes y distantes del mundo.",
+      image: "",
     },
     patronus: "",
     hogwartsStudent: false,
@@ -440,8 +536,16 @@ export default [
     hairColour: "rubio",
     wand: {
       wood: "Cedro",
-      core: "Fibra de Corazón de Dragon",
       length: 10.25,
+      descripcion:
+        "La bruja o mago que está bien emparejado con el cedro tiene el potencial de ser un adversario aterrador, que a menudo sorprende a quienes los desafiaron sin pensar.",
+      image: "",
+    },
+    core: {
+      name: "Fibra de Corazón de Dragon",
+      descripcion:
+        "En general, la fibra de corazón de dragón produce las varitas más poderosas, y con ellas se pueden realizar los encantamientos más llamativos.",
+      image: "",
     },
     patronus: "",
     hogwartsStudent: false,
@@ -489,13 +593,21 @@ export default [
     hairColour: "gris",
     wand: {
       wood: "Abedul",
-      core: "Fibra de Corazón de Dragon",
       length: 8,
+      descripcion:
+        "Aunque el propio Garrick Ollivander no lo usó, su asociado en la sucursal de Hogsmeade era conocido por vender varitas hechas de abedul.",
+      image: "",
+    },
+    core: {
+      name: "Fibra de Corazón de Dragon",
+      descripcion:
+        "Las varitas de fibra de corazón de dragón son las más fáciles de usar para las Artes Oscuras, aunque no se inclinará hacia ellas por ella misma. ",
+      image: "",
     },
     patronus: {
       name: "Gato persa",
       descripcion:
-        "Mientras interrogaba a los nacidos de muggles en un juicio, había emitido un Patronus para alejar a los Dementores de los fiscales. Su animal favorito, como lo demuestran los muchos platos con gatos en su oficina. Pudo lanzar el Patronus debido a su afinidad con la influencia malvada del medallón Horrocrux",
+        "El Patronus de Dolores Umbridge también era un gato, al igual que los de esos platos decorativos de mal gusto que colgaba de sus paredes.",
       image: "./Imagenes/Gato Dolores.jpg",
     },
     hogwartsStudent: false,
@@ -516,8 +628,16 @@ export default [
     hairColour: "rubio",
     wand: {
       wood: "Olmo",
-      core: "Fibra de Corazón de Dragon",
       length: 18,
+      descripcion:
+        "Las varitas de olmo prefieren dueños con presencia, destreza mágica y cierta dignidad nativa.",
+      image: "",
+    },
+    core: {
+      name: "Fibra de Corazón de Dragon",
+      descripcion:
+        "También, de las tres más poderosas, es la que tiene más tendencia a producir accidentes, debido a su temperamento.",
+      image: "",
     },
     patronus: "",
     hogwartsStudent: false,
