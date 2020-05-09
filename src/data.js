@@ -9,46 +9,45 @@ export function filterByHouse(dataToFilter, condition) {
 }
 
 /* export function wandWood(dataToFilter) {
-  return Object.entries(dataToFilter.wand)[0][1];
-}
+  return Object.entries(dataToFilter.wand)[1][1];
+} */
 
-export function wandCore(dataToFilter) {
+/* export function wandCore(dataToFilter) {
   return Object.entries(dataToFilter.wand)[1][1];
 } */
 
 //Filtrar por el material/madera de la varita
-export function filterWandByWood(dataToFilter) {
+export function wandNameOnly(dataToFilter) {
   return Object.entries(dataToFilter.wand)[0][1];
 }
 
-export function filterBywood(dataToFilter) {
-  const hasWood = dataToFilter.filter((character) => character.wood);
-  const woodAndInfo = hasWood.map((character) => {
-    const wood = Object.entries(character.wood)[0][1];
+export function filterByWand(dataToFilter) {
+  const hasWand = dataToFilter.filter((character) => character.wand);
+  const wandAndInfo = hasWand.map((character) => {
+    const wand = Object.entries(character.wand)[0][1];
     const owner = character.name;
-    const image = Object.entries(character.wood)[2][1];
-    const description = Object.entries(character.wood)[1][1];
-    const allWood = [owner, wood, description, image];
-    return allWood;
+    const image = Object.entries(character.wand)[2][1];
+    const description = Object.entries(character.wand)[1][1];
+    const allWand = [owner, wand, description, image];
+    return allWand;
   });
 
-  return woodAndInfo;
+  return wandAndInfo;
 }
-
 //Filtrar por el núcleo de la varita
-/* export function filterWandByCore(dataToFilter) {
-  return Object.entries(dataToFilter.wand)[1][1];
-} */
+export function coreNameOnly(dataToFilter) {
+  return Object.entries(dataToFilter.core)[0][1];
+}
 
 export function filterByCore(dataToFilter) {
   const hasCore = dataToFilter.filter((character) => character.core);
   const coreAndInfo = hasCore.map((character) => {
-    const core = Object.entries(character.core)[1][1];
+    const core = Object.entries(character.core)[0][1];
     const owner = character.name;
     const image = Object.entries(character.core)[2][1];
     const description = Object.entries(character.core)[1][1];
-    const allPatronus = [owner, core, description, image];
-    return allPatronus;
+    const allCore = [owner, core, description, image];
+    return allCore;
   });
 
   return coreAndInfo;

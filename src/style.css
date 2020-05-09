@@ -324,9 +324,9 @@ nav ul {
   transition: all 1s linear;
 }
 
-.item input 
- /*  display: none; */
-
+.item input {
+  display: none;
+}
 
 .item ul li a {
   width: 100%;
@@ -350,7 +350,6 @@ nav ul {
   max-height: 400px;
   transform: all;
 }
-
 @media screen and (min-width: 500px) {
   .nav--top__list {
     float: none;

@@ -2,12 +2,12 @@
 
 import charactersData from "./data/potter/potter.js";
 import { filterByHouse } from "./data.js";
-import { filterWandByWood } from "./data.js";
-//import { filterWandByCore } from "./data.js";
 import { filterByPatronus } from "./data.js";
-import { filterBywood } from "./data.js";
+import { filterByWand } from "./data.js";
 import { filterByCore } from "./data.js";
 import { patronusNameOnly } from "./data.js";
+import { coreNameOnly } from "./data.js";
+import { wandNameOnly } from "./data.js";
 
 const root = document.getElementById("root");
 const homepageFragment = new DocumentFragment(); //aquí se agregan todos los elementos, luego este fragmento se agrega al root, así solo se actualiza una vez y podemos agregar imagen, h1 y botón al mismo tiempo
@@ -95,41 +95,37 @@ function createBasicStructure() {
 function MenuPrincipal() {
   document.getElementById("navbar").insertAdjacentHTML(
     "afterbegin",
-    `
 
+    `   
 <input type="checkbox" class="checkbox__hack" id="checkbox__hack">
 <label for="checkbox__hack" class="checkbox-hack__label"></label>
 <nav class="nav--top">
 <ul class="menu-lateral nav--top__list">
 <ul>
-    <div class="item">
+    <ul>
+  <div class="item">
       <input type="checkbox" id="check2"/>
       <label for="check2" id="casas">CASAS</label>
        <ul>
-      <li id="Gryffindor">Gryffindor</li>
-      
-      <li id="Slytherin">Slytherin</li>
-      
-      <li id="Hufflepuff">Hufflepuff</li>
-      
-      <li id="Ravenclaw">Ravenclaw</li>
-     
+      <li id="Gryffindor"><a href="">Gryffindor</a></li>
+      <li id="Slytherin"><a href="">Slytherin</a></li>
+      <li id="Hufflepuff"><a href="">Hufflepuff</a></li>
+      <li id="Ravenclaw"><a href="">Ravenclaw</a></li>
       </ul>
  </div>
-    <div class="item">
+     <div class="item">
       <input type="checkbox" id="check3"/>
       <label for="check3">MADERA</label>
  </div>
-
-  <div class="item">
+ <div class="item">
       <input type="checkbox" id="check4"/>
-      <label for="check3">NÚCLEO</label>
+      <label for="check4">NUCLEO</label>    
  </div>
 <div class="item">
     <input type="checkbox" id="check5"/>
-    <label for="check4">PATRONUS</label>
-    
+    <label for="check5">PATRONUS</label>
      </div> 
+ 
 `
   );
 
@@ -143,33 +139,36 @@ function MenuPrincipal() {
   const Slytherin = document.getElementById("Slytherin");
   Slytherin.addEventListener("click", () => {
     let slytherinMembers = filterByHouse(charactersData, "Slytherin");
+    event.preventDefault();
     return showHouseMembers(slytherinMembers);
   });
   const Hufflepuff = document.getElementById("Hufflepuff");
   Hufflepuff.addEventListener("click", () => {
     let hufflepuffMembers = filterByHouse(charactersData, "Hufflepuff");
+    event.preventDefault();
     return showHouseMembers(hufflepuffMembers);
   });
 
   const Ravenclaw = document.getElementById("Ravenclaw");
   Ravenclaw.addEventListener("click", () => {
     let ravenclawMembers = filterByHouse(charactersData, "Ravenclaw");
+    event.preventDefault();
     return showHouseMembers(ravenclawMembers);
   });
 
   //lleva a VARITAS, pero no despliega las opciones en el menú :P
-  const wood = document.getElementById("check3");
-  wood.addEventListener("click", (event) => {
+  const wand = document.getElementById("check3");
+  wand.addEventListener("click", (event) => {
     event.preventDefault();
-    showWands();
+    showWand();
   });
   const core = document.getElementById("check4");
   core.addEventListener("click", (event) => {
     event.preventDefault();
-    showWands();
+    showWandsCore();
   });
 
-  const patronus = document.querySelector("#check4");
+  const patronus = document.querySelector("#check5");
   patronus.addEventListener("click", () => {
     showPatronus();
   });
@@ -320,7 +319,7 @@ function showHouseMembers(houseMembers) {
 }
 
 //2. FUNCIÓN PARA MOSTRAR LA PANTALLA DE VARITAS (opciones: Material - Núcleo)
-function showWands() {
+/* function showWands() {
   clearInnerContent(); //se borra el contenido anterior que está en .inner-content
 
   const sectionTitle = document.querySelector(".section-title");
@@ -345,37 +344,36 @@ function showWands() {
   
   `;
 }
-
+ */
 //3. FUNCIÓN PARA MOSTRAR LA PANTALLA DE VARITAS > MATERIAL
-function showWandsWood() {
+function showWand() {
   clearInnerContent(); //se borra el contenido anterior que está en .inner-content
-
   const sectionTitle = document.querySelector(".section-title");
   sectionTitle.classList = "section-title titulo-dorado";
-  sectionTitle.textContent = "MATERIAL";
-  const innerContent = document.querySelector(".inner-content");
-  console.log(filterBywood(charactersData));
-  const coreData = filterByWood(charactersData);
+  sectionTitle.textContent = "MADERA";
+  console.log(filterByWand(charactersData));
+  const wandData = filterByWand(charactersData);
   //filterByPatronus(charactersData)); = cada uno de los patronus patronus[0] = name y patronus[1] = patronus
+  const innerContent = document.querySelector(".inner-content");
 
-  coreData.forEach((character) => {
-    const woodOwner = character[0];
-    const woodName = character[1];
-    const woodDescription = character[2];
-    const woodImg = character[3];
+  wandData.forEach((character) => {
+    const wandOwner = character[0];
+    const wandName = character[1];
+    const wandDescription = character[2];
+    const wandImg = character[3];
     innerContent.innerHTML += `
     <div class="card-box">
       <div class="card">
       <div class="card-front">
-        <img src="${woodImg}">
+        <img src="${wandImg}">
       </div>
       <div class="card-back">
         <ul class="card-info">
-          <h1 class="card-title">${woodName}</h1>
+          <h1 class="card-title">${wandName}</h1>
           <br>
-          <li>Pertenece a: ${woodOwner}</li>
+          <li>Pertenece a: ${wandOwner}</li>
           <br>
-          <p>${woodDescription}</p>
+          <p>${wandDescription}</p>
         </ul>
       </div>
     </div>
@@ -383,7 +381,6 @@ function showWandsWood() {
   `;
   });
 }
-
 //4. FUNCIÓN PARA MOSTRAR LA PANTALLA DE VARITAS > NÚCLEO
 function showWandsCore() {
   clearInnerContent(); //se borra el contenido anterior que está en .inner-content
