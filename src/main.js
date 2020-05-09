@@ -2,12 +2,12 @@
 
 import charactersData from "./data/potter/potter.js";
 import { filterByHouse } from "./data.js";
-import { filterWandByWood } from "./data.js";
-//import { filterWandByCore } from "./data.js";
 import { filterByPatronus } from "./data.js";
-import { wandWood } from "./data.js";
-import { wandCore } from "./data.js";
+import { filterByWand } from "./data.js";
+import { filterByCore } from "./data.js";
 import { patronusNameOnly } from "./data.js";
+import { coreNameOnly } from "./data.js";
+import { wandNameOnly } from "./data.js";
 
 const root = document.getElementById("root");
 const homepageFragment = new DocumentFragment(); //aquí se agregan todos los elementos, luego este fragmento se agrega al root, así solo se actualiza una vez y podemos agregar imagen, h1 y botón al mismo tiempo
@@ -95,33 +95,32 @@ function createBasicStructure() {
 function MenuPrincipal() {
   document.getElementById("navbar").insertAdjacentHTML(
     "afterbegin",
-    `
 
+    `   
 <input type="checkbox" class="checkbox__hack" id="checkbox__hack">
 <label for="checkbox__hack" class="checkbox-hack__label"></label>
 <nav class="nav--top">
 <ul class="menu-lateral nav--top__list">
 <ul>
-    <div class="item">
+    <ul>
+  <div class="item">
       <input type="checkbox" id="check2"/>
       <label for="check2" id="casas">CASAS</label>
-
        <ul>
-      <li id="escudos">Casas</li>
-      <li id="Gryffindor">Gryffindor</li>
-      
-      <li id="Slytherin">Slytherin</li>
-      
-      <li id="Hufflepuff">Hufflepuff</li>
-      
-      <li id="Ravenclaw">Ravenclaw</li>
-     
+      <li id="Gryffindor"><a href="">Gryffindor</a></li>
+      <li id="Slytherin"><a href="">Slytherin</a></li>
+      <li id="Hufflepuff"><a href="">Hufflepuff</a></li>
+      <li id="Ravenclaw"><a href="">Ravenclaw</a></li>
       </ul>
  </div>
-    <div class="item">
+     <div class="item">
       <input type="checkbox" id="check3"/>
-      <label for="check3">VARITAS</label>
 
+      <label for="check3">MADERA</label>
+ </div>
+ <div class="item">
+      <input type="checkbox" id="check4"/>
+      <label for="check4">NUCLEO</label>    
        <ul>
       <li id="varitas">Varitas</li>
       <li id="madera">Madera</li>
@@ -129,12 +128,13 @@ function MenuPrincipal() {
       <li id="nucleo">Núcleo</li>
      
       </ul>
+
  </div>
 <div class="item">
-    <input type="checkbox" id="check4"/>
-    <label for="check4">PATRONUS</label>
-    
+    <input type="checkbox" id="check5"/>
+    <label for="check5">PATRONUS</label>
      </div> 
+ 
 `
   );
 
@@ -157,21 +157,30 @@ function MenuPrincipal() {
   const Slytherin = document.getElementById("Slytherin");
   Slytherin.addEventListener("click", () => {
     let slytherinMembers = filterByHouse(charactersData, "Slytherin");
+    event.preventDefault();
     return showHouseMembers(slytherinMembers);
   });
   const Hufflepuff = document.getElementById("Hufflepuff");
   Hufflepuff.addEventListener("click", () => {
     let hufflepuffMembers = filterByHouse(charactersData, "Hufflepuff");
+    event.preventDefault();
     return showHouseMembers(hufflepuffMembers);
   });
 
   const Ravenclaw = document.getElementById("Ravenclaw");
   Ravenclaw.addEventListener("click", () => {
     let ravenclawMembers = filterByHouse(charactersData, "Ravenclaw");
+    event.preventDefault();
     return showHouseMembers(ravenclawMembers);
   });
 
   //lleva a VARITAS, pero no despliega las opciones en el menú :P
+
+  const wand = document.getElementById("check3");
+  wand.addEventListener("click", (event) => {
+    event.preventDefault();
+    showWand();
+
   /* const wands = document.getElementById("check3");
   wands.addEventListener("click", (event) => {
     event.preventDefault();
@@ -181,15 +190,15 @@ function MenuPrincipal() {
   const wandsWood = document.querySelector("#madera");
   wandsWood.addEventListener("click", () => {
     showWandsWood();
-  });
 
-  //estas dos están bien conectadas pero el menú no se despliega para seleccionarlas
-  const wandsCore = document.querySelector("#nucleo");
-  wandsCore.addEventListener("click", () => {
+  });
+  const core = document.getElementById("check4");
+  core.addEventListener("click", (event) => {
+    event.preventDefault();
     showWandsCore();
   });
 
-  const patronus = document.querySelector("#check4");
+  const patronus = document.querySelector("#check5");
   patronus.addEventListener("click", () => {
     showPatronus();
   });
@@ -207,8 +216,10 @@ function Casas() {
   const sectionTitle = document.querySelector(".section-title");
   sectionTitle.classList += " titulo-dorado";
   sectionTitle.textContent = "CASAS";
+  /* document.createElement("HOLA COMO ESTAS HOY"); */
 
   document.querySelector(".inner-content").innerHTML = `
+  
   <div class="grilla">
     <img src = "./Imagenes/House Gry.jpg" class="grid-item" id="EscudoGry">
     <img src = "./Imagenes/House Raven.jpg" class="grid-item" id="EscudoRaven">
@@ -251,7 +262,7 @@ function showHouseMembers(houseMembers) {
   //MenuPrincipal(); //3. crea estructura del menú (provisorio)
   const innerContentSection = document.querySelector(".inner-content");
   const sectionTitle = document.querySelector(".section-title");
-  
+
   //4. modifica el color del título según la casa
   if (houseMembers[0].house === "Gryffindor") {
     sectionTitle.classList = "section-title gryffindor-color";
@@ -309,27 +320,21 @@ function showHouseMembers(houseMembers) {
     if (character.patronus === "") {
       cardInfo.childNodes[3].textContent = `Patronus: Información no disponible`;
     } else {
-      cardInfo.childNodes[3].textContent = `Patronus: ${patronusNameOnly(character)}`;
-    }
-
-    //por si el personaje 1) no tiene varita, 2) solo tiene madera 3) tiene madera y núcleo
-    if (
-      wandWood(character) === "" &&
-      wandCore(character) === ""
-    ) {
-      cardInfo.childNodes[4].textContent = `Varita: Información no disponible`;
-    } else if (
-      wandWood(character) &&
-      wandCore(character) === ""
-    ) {
-      cardInfo.childNodes[4].textContent = `Varita: ${wandWood(
+      cardInfo.childNodes[3].textContent = `Patronus: ${patronusNameOnly(
         character
       )}`;
+    }
+
+    /* //por si el personaje 1) no tiene varita, 2) solo tiene madera 3) tiene madera y núcleo
+    if (wandWood(character) === "" && wandCore(character) === "") {
+      cardInfo.childNodes[4].textContent = `Varita: Información no disponible`;
+    } else if (wandWood(character) && wandCore(character) === "") {
+      cardInfo.childNodes[4].textContent = `Varita: ${wandWood(character)}`;
     } else {
       cardInfo.childNodes[4].textContent = `Varita: ${wandWood(
         character
       )} con núcleo de ${wandCore(character)}`;
-    }
+    } */
 
     cardFront.appendChild(cardImg);
     cardBack.appendChild(cardInfo);
@@ -344,7 +349,7 @@ function showHouseMembers(houseMembers) {
 }
 
 //2. FUNCIÓN PARA MOSTRAR LA PANTALLA DE VARITAS (opciones: Material - Núcleo)
-function showWands() {
+/* function showWands() {
   clearInnerContent(); //se borra el contenido anterior que está en .inner-content
 
   const sectionTitle = document.querySelector(".section-title");
@@ -369,29 +374,36 @@ function showWands() {
   
   `;
 }
-
+ */
 //3. FUNCIÓN PARA MOSTRAR LA PANTALLA DE VARITAS > MATERIAL
-function showWandsWood() {
+function showWand() {
   clearInnerContent(); //se borra el contenido anterior que está en .inner-content
-
   const sectionTitle = document.querySelector(".section-title");
   sectionTitle.classList = "section-title titulo-dorado";
-  sectionTitle.textContent = "MATERIAL";
+  sectionTitle.textContent = "MADERA";
+  console.log(filterByWand(charactersData));
+  const wandData = filterByWand(charactersData);
+  //filterByPatronus(charactersData)); = cada uno de los patronus patronus[0] = name y patronus[1] = patronus
   const innerContent = document.querySelector(".inner-content");
-  const woodData = filterWandByWood(charactersData);
-  console.log(woodData[0]);
 
-  woodData.forEach(wand => {
+  wandData.forEach((character) => {
+    const wandOwner = character[0];
+    const wandName = character[1];
+    const wandDescription = character[2];
+    const wandImg = character[3];
     innerContent.innerHTML += `
     <div class="card-box">
       <div class="card">
       <div class="card-front">
-        <img src="http://hp-api.herokuapp.com/images/harry.jpg">
+        <img src="${wandImg}">
       </div>
       <div class="card-back">
         <ul class="card-info">
-          <h1 class="card-title">${wand[1]}</h1>
-          <li>Pertenece a: ${wand[0]}</li>
+          <h1 class="card-title">${wandName}</h1>
+          <br>
+          <li>Pertenece a: ${wandOwner}</li>
+          <br>
+          <p>${wandDescription}</p>
         </ul>
       </div>
     </div>
@@ -399,14 +411,41 @@ function showWandsWood() {
   `;
   });
 }
-
 //4. FUNCIÓN PARA MOSTRAR LA PANTALLA DE VARITAS > NÚCLEO
 function showWandsCore() {
   clearInnerContent(); //se borra el contenido anterior que está en .inner-content
-
   const sectionTitle = document.querySelector(".section-title");
   sectionTitle.classList = "section-title titulo-dorado";
   sectionTitle.textContent = "NÚCLEO";
+  console.log(filterByCore(charactersData));
+  const coreData = filterByCore(charactersData);
+  //filterByPatronus(charactersData)); = cada uno de los patronus patronus[0] = name y patronus[1] = patronus
+  const innerContent = document.querySelector(".inner-content");
+
+  coreData.forEach((character) => {
+    const coreOwner = character[0];
+    const coreName = character[1];
+    const coreDescription = character[2];
+    const coreImg = character[3];
+    innerContent.innerHTML += `
+    <div class="card-box">
+      <div class="card">
+      <div class="card-front">
+        <img src="${coreImg}">
+      </div>
+      <div class="card-back">
+        <ul class="card-info">
+          <h1 class="card-title">${coreName}</h1>
+          <br>
+          <li>Pertenece a: ${coreOwner}</li>
+          <br>
+          <p>${coreDescription}</p>
+        </ul>
+      </div>
+    </div>
+  
+  `;
+  });
 }
 
 //5. FUNCIÓN PARA MOSTRAR LA PANTALLA DE PATRONUS
@@ -419,8 +458,8 @@ function showPatronus() {
   const patronusData = filterByPatronus(charactersData);
   //filterByPatronus(charactersData)); = cada uno de los patronus patronus[0] = name y patronus[1] = patronus
   const innerContent = document.querySelector(".inner-content");
-  
-  patronusData.forEach(character => {
+
+  patronusData.forEach((character) => {
     const patronusOwner = character[0];
     const patronusName = character[1];
     const patronusDescription = character[2];
@@ -443,18 +482,5 @@ function showPatronus() {
     </div>
   
   `;
-
-
-  })
-  
-
-
-
-
-
-
-
-
-
-
+  });
 }

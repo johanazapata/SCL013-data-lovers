@@ -11,14 +11,21 @@ export default [
     hairColour: "negro",
     wand: {
       wood: "Acebo",
-      core: "Pluma de fénix",
-      length: 11,
+      descripcion:
+        "Las varitas de acebo trabajan muy feliz para aquellos que pueden necesitar ayuda para superar una tendencia a la ira y la impetuosidad.",
+      image: "",
+    },
+    core: {
+      name: "Pluma de fénix",
+      descripcion:
+        "La pluma de fénix es el tipo de núcleo para varitas más raro. Las plumas de fénix pueden producir una amplia gama de efectos mágicos, aunque pueden tomarse más tiempo que las varitas de unicornio o de dragón para mostrarlo.",
+      image: "./Imagenes/Fenix2.jpg",
     },
     patronus: {
       name: "Ciervo",
       descripcion:
         "El Patronus de Harry tiene la forma de Animagus al igual que el Patronus de su padre. Aprendió a conjurarlo a una edad excepcionalmente temprana.",
-      image: "http://hp-api.herokuapp.com/images/harry.jpg"
+      image: "./Imagenes/ciervo.jpg",
     },
     hogwartsStudent: true,
     hogwartsStaff: false,
@@ -38,14 +45,22 @@ export default [
     hairColour: "café",
     wand: {
       wood: "Vine",
-      core: " Fibra de Corazón de Dragón",
-      length: 10,
+      descripción:
+        "Las varitas de vid se encuentran entre los tipos menos comunes, y sus dueños son casi siempre aquellas brujas o magos que buscan un propósito mayor. ",
+      image: "",
     },
+    core: {
+      name: "Fibra de Corazón de Dragón",
+      descripcion:
+        "Poderosa, fácil para aprender hechizos. Sin embargo, su lealtad cambia fácilmente de dueño.",
+      image: "./Imagenes/dragon7.jpg",
+    },
+
     patronus: {
       name: "Nutria",
       descripcion:
         "Visto en la última reunión del Ejército de Dumbledore en 1996. Aparentemente es el único hechizo con el que Hermione tuvo problemas, como se dijo en 1997 mientras escapaba del Ministerio de Magia.",
-      image: "https://www.hola.com/imagenes/estar-bien/20190820147813/razas-perros-pequenos-parecen-grandes/0-711-550/razas-perro-pequenos-grandes-m.jpg"
+      image: "./Imagenes/nutria.jpg",
     },
     hogwartsStudent: true,
     hogwartsStaff: false,
@@ -65,14 +80,20 @@ export default [
     hairColour: "rojo",
     wand: {
       wood: "Sauce",
-      core: "Cola de Unicornio",
-      length: 14,
+      descripcion:
+        "El sauce es una madera de varita poco común con los poderes curativos, y su propietario ideal a menudo tiene cierta inseguridad, por mucho que intenten esconderla.",
+      image: "",
+    },
+    core: {
+      name: "Cola de Unicornio",
+      descripcion: "Magia consistente. Une fuertemente a su primer dueño.",
+      image: "./Imagenes/unicornio3.jpg",
     },
     patronus: {
       name: "Jack Russell Terrier",
       descripcion:
         " El Patronus de Ron toma la figura de un perro, concretamente un Jack Russell. Es posible que la autora eligiera éste porque son perros aficionados a cazar nutrias, y el Patronus de Hermione es una nutria",
-      image: "https://www.hola.com/imagenes/estar-bien/20190820147813/razas-perros-pequenos-parecen-grandes/0-711-550/razas-perro-pequenos-grandes-m.jpg"
+      image: "./Imagenes/jackr.jpg",
     },
     hogwartsStudent: true,
     hogwartsStaff: false,
@@ -92,8 +113,15 @@ export default [
     hairColour: "rubio",
     wand: {
       wood: "Espino",
-      core: "Cola de Unicornio",
-      length: 10,
+      descripcion:
+        "Las varitas de espino pueden ser particularmente adecuadas para los hechizos sanadores, pero también son expertas en maldiciones, ",
+      image: "",
+    },
+    core: {
+      name: "Cola de Unicornio",
+      descripcion:
+        "Las varitas con núcleos de pelo de unicornio son las más difíciles de utilizar para las Artes Oscuras. Son las más fieles de todas las varitas, y normalmente permanecen unidas a su primer dueño",
+      image: "./Imagenes/unicornio.jpg",
     },
     patronus: "",
     hogwartsStudent: true,
@@ -114,14 +142,21 @@ export default [
     hairColour: "negro",
     wand: {
       wood: "Abeto",
-      core: "Fibra de Corazón de Dragon",
-      length: 9.5,
+      descripcion:
+        "Las varitas de abeto exigen poder de permanencia y fuerza de propósito en sus verdaderos dueños, y que son herramientas deficientes en manos de los cambiantes e indecisos.",
+      image: "",
+    },
+    core: {
+      name: "Fibra de Corazón de Dragon",
+      descripción:
+        "En general, la fibra de corazón de dragón produce las varitas más poderosas, y con ellas se pueden realizar los encantamientos más llamativos.",
+      image: "./Imagenes/dragon8.jpg",
     },
     patronus: {
       name: "Gato atigrado",
       descripcion:
         "Justo antes de la Batalla de Hogwarts, envió a su Patronus para alertar a los otros Jefes de Casa de que el Castillo de Hogwarts pronto sería atacado por Lord Voldemort y sus seguidores",
-      image: "https://www.hola.com/imagenes/estar-bien/20190820147813/razas-perros-pequenos-parecen-grandes/0-711-550/razas-perro-pequenos-grandes-m.jpg"
+      image: "./Imagenes/Gato Minerva.jpg",
     },
     hogwartsStudent: false,
     hogwartsStaff: true,
@@ -140,9 +175,16 @@ export default [
     eyeColour: "gris",
     hairColour: "café",
     wand: {
-      wood: "Ceniza",
-      core: "Pelo de Unicornio",
-      length: 12.25,
+      wood: "Fresno",
+      descripcion:
+        "Las varitas de fresno se aferran a su verdadero maestro y no deben pasarse ni regalarse al propietario original, ya que perderán poder y habilidad.",
+      image: "",
+    },
+    core: {
+      name: "Crín de Unicornio",
+      descripcion:
+        "Las desventajas del pelo de unicornio son que no produce las varitas más poderosas, aunque se puede compensar con la madera de la varita",
+      image: "./Imagenes/unicornio4.jpg",
     },
     patronus: "",
     hogwartsStudent: true,
@@ -163,14 +205,14 @@ export default [
     hairColour: "negro",
     wand: {
       wood: "",
-      core: "",
-      length: "",
+      descripcion: "",
+      image: "",
     },
     patronus: {
       name: "Cisne",
       descripcion:
         "Su Patronus tomó la forma de un cisne. Defensa Contra las Artes Oscuras: Considerando que entrenó con el ED, ​​Cho debería dominar la magia defensiva, sus habilidades mejoradas por el hecho de que luchó y sobrevivió la Segunda Guerra Mágica",
-      image: "https://www.hola.com/imagenes/estar-bien/20190820147813/razas-perros-pequenos-parecen-grandes/0-711-550/razas-perro-pequenos-grandes-m.jpg"
+      image: "./Imagenes/cisne.jpg",
     },
     hogwartsStudent: true,
     hogwartsStaff: false,
@@ -190,14 +232,21 @@ export default [
     hairColour: "negro",
     wand: {
       wood: "Pino Negro",
-      core: "Nervio de Corazón de Dragón",
-      length: 11,
+      descripcion:
+        "Las varitas de pino siempre eligen un maestro individual e independiente que puede ser percibido como solitario, intrigante y tal vez misterioso.",
+      image: "",
+    },
+    core: {
+      name: "Nervio de Corazón de Dragón",
+      descripcion:
+        "Las varitas de dragón tienden a aprender más rápido que otros tipos. Son mas faciles de usar para las Artes Oscuras",
+      image: "./Imagenes/dragon9.jpg",
     },
     patronus: {
       name: "Cierva",
       descripcion:
         "Actuó como guía de Harry a través del bosque hasta donde estaba escondida la Espada de Godric Gryffindor. El Patronus de Snape reflejaba el de Lily debido a su tácito amor por ella que comenzó cuando eran niños pequeños.",
-      image: "https://www.hola.com/imagenes/estar-bien/20190820147813/razas-perros-pequenos-parecen-grandes/0-711-550/razas-perro-pequenos-grandes-m.jpg"
+      image: "./Imagenes/cierva.jpg",
     },
     hogwartsStudent: false,
     hogwartsStaff: true,
@@ -217,8 +266,8 @@ export default [
     hairColour: "negro",
     wand: {
       wood: "Roble",
-      core: "",
-      length: 16,
+      descripcion: "",
+      image: "",
     },
     patronus: "",
     hogwartsStudent: false,
@@ -239,8 +288,15 @@ export default [
     hairColour: "rubio",
     wand: {
       wood: "Cerezo",
-      core: "Cola de Unicornio",
-      length: 13,
+      descripcion:
+        "Esta varita se consideraba cara, posiblemente debido al tipo de madera de la cual estaba hecha",
+      image: "",
+    },
+    core: {
+      name: "Cola de Unicornio",
+      descripcion:
+        "Tienden a la melancolía si no son usadas correctamente y el pelo puede “morir” y necesita ser reemplazas.",
+      image: "./Imagenes/unicornio5.png",
     },
     patronus: "",
     hogwartsStudent: true,
@@ -261,14 +317,14 @@ export default [
     hairColour: "rubio",
     wand: {
       wood: "",
-      core: "",
-      length: "",
+      descripcion: "",
+      image: "",
     },
     patronus: {
       name: "Liebre",
       descripcion:
         "Su patronus es una liebre. En su quinto año salva a Harry de los torposoplos con sus espectrogafas. En su sexto año, es capturada por los mortífagos y sobrevive a la batalla de Hogwarts.",
-      image: "https://www.hola.com/imagenes/estar-bien/20190820147813/razas-perros-pequenos-parecen-grandes/0-711-550/razas-perro-pequenos-grandes-m.jpg"
+      image: "./Imagenes/liebre.jpg",
     },
     hogwartsStudent: true,
     hogwartsStaff: false,
@@ -288,14 +344,14 @@ export default [
     hairColour: "rojo",
     wand: {
       wood: "Tejo",
-      core: "",
-      length: "",
+      descripcion: "",
+      image: "",
     },
     patronus: {
       name: "Caballo",
       descripcion:
         "El patronus de Ginny calza con su personalidad: de espíritu libre y fuerte.",
-      image: "https://www.hola.com/imagenes/estar-bien/20190820147813/razas-perros-pequenos-parecen-grandes/0-711-550/razas-perro-pequenos-grandes-m.jpg"
+      image: "./Imagenes/Caballo Ginny.jpg",
     },
     hogwartsStudent: true,
     hogwartsStaff: false,
@@ -315,14 +371,21 @@ export default [
     hairColour: "negro",
     wand: {
       wood: "Roble",
-      core: "Fibra de Corazon de Dragón",
-      length: 11,
+      descripcion:
+        "Una varita mágica para los buenos y para los malos, este es un amigo tan leal como el mago que lo merece. ",
+      image: "",
+    },
+    core: {
+      name: "Fibra de Corazon de Dragón",
+      descripcion:
+        "La varita de dragón es la más fácil de usar para las Artes Oscuras, aunque, no se inclinará hacia ellas por ella misma. También, es la que tiene más tendencia a producir accidentes, debido a su temperamento.",
+      image: "./Imagenes/dragon10.jpg",
     },
     patronus: {
       name: " Perro",
       descripcion:
         "El patronus del animago es el mismo que su animal de transformación.",
-      image: "https://www.hola.com/imagenes/estar-bien/20190820147813/razas-perros-pequenos-parecen-grandes/0-711-550/razas-perro-pequenos-grandes-m.jpg"
+      image: "./Imagenes/perrosirius.jpg",
     },
     hogwartsStudent: false,
     hogwartsStaff: false,
@@ -342,14 +405,21 @@ export default [
     hairColour: "café",
     wand: {
       wood: "Ciprés",
-      core: "Pelo de Cola de Unicornio",
-      length: 10.25,
+      descripcion:
+        "Se dice que las varitas ciprés están bien adaptadas a los magos que se sacrifican y están dispuestos a morir como una muerte heroica.",
+      image: "",
+    },
+    core: {
+      name: "Pelo de Cola de Unicornio",
+      descripcion:
+        ". Son las más fieles de todas las varitas, y normalmente permanecen unidas a su primer dueño con una relación difícil de romper, independientemente de si es una bruja o un mago consumado.",
+      image: "./Imagenes/unicornio1.jpg",
     },
     patronus: {
       name: "Lobo",
       descripcion:
         "Remus a menudo disfrazó deliberadamente la forma de su Patronus porque sentía que revelaría demasiado sobre su condición, siendo un hombre lobo",
-      image: "https://www.hola.com/imagenes/estar-bien/20190820147813/razas-perros-pequenos-parecen-grandes/0-711-550/razas-perro-pequenos-grandes-m.jpg"
+      image: "./Imagenes/Lobo Remus.jpg",
     },
     hogwartsStudent: false,
     hogwartsStaff: true,
@@ -369,14 +439,14 @@ export default [
     hairColour: "rojo",
     wand: {
       wood: "",
-      length: "",
-      length: "",
+      descripcion: "",
+      image: "",
     },
     patronus: {
       name: "Comadreja",
       descripcion:
-        "Visto por primera vez cuando envió un mensaje sobre la llegada de Rufus Scrimgeour en el decimoséptimo cumpleaños de Harry. Más tarde visto cuando Arthur envió un Patronus a 12 Grimmauld Place para informar a Harry, Ron y Hermione que la familia Weasley estaba a salvo.",
-      image: "https://www.hola.com/imagenes/estar-bien/20190820147813/razas-perros-pequenos-parecen-grandes/0-711-550/razas-perro-pequenos-grandes-m.jpg"
+        "Visto por primera vez cuando envió un mensaje sobre la llegada de Rufus Scrimgeour en el cumpleaños 17 de Harry. Luego cuando Arthur envió un Patronus a 12 Grimmauld Place para informar a Harry, Ron y Hermione que la familia Weasley estaba a salvo.",
+      image: "./Imagenes/Comadreja Arthur.jpg",
     },
     hogwartsStudent: false,
     hogwartsStaff: false,
@@ -396,8 +466,15 @@ export default [
     hairColour: "negro",
     wand: {
       wood: "Nogal",
-      core: "Fibra de Corazón de Dragón",
-      length: 12.75,
+      descripcion:
+        ". Las varitas de nogal, una vez subyugadas, realizarán cualquier tarea que su propietario desee, siempre que el usuario tenga suficiente brillo.",
+      image: "",
+    },
+    core: {
+      name: "Fibra de Corazón de Dragón",
+      descripcion:
+        " Las varitas con núcleo de fibra de corazón de dragón tienden a aprender hechizos más rápido que las de otros tipos. Sin embargo, pueden cambiar de maestro si se le quitan a su dueño original.",
+      image: "./Imagenes/dragon11.jpg",
     },
     patronus: "",
     hogwartsStudent: false,
@@ -418,8 +495,15 @@ export default [
     hairColour: "calvo",
     wand: {
       wood: "Tejo",
-      core: "Pluma de Fénix",
-      length: 13.5,
+      descripcion:
+        "La varita del tejo tiene fama de otorgar a su poseedor el poder de la vida y la muerte. Conserva una reputación oscura y temible en las esferas de los duelos",
+      image: "",
+    },
+    core: {
+      name: "Pluma de Fénix",
+      descripcion:
+        "Las varitas de pluma de fénix son siempre las más quisquillosas a la hora de escoger un dueño, puesto que la criatura de la que han salido es una de las más independientes y distantes del mundo.",
+      image: "./Imagenes/fenix3.jpg",
     },
     patronus: "",
     hogwartsStudent: false,
@@ -440,8 +524,15 @@ export default [
     hairColour: "rubio",
     wand: {
       wood: "Cedro",
-      core: "Fibra de Corazón de Dragon",
-      length: 10.25,
+      descripcion:
+        "La bruja o mago que está bien emparejado con el cedro tiene el potencial de ser un adversario aterrador, que a menudo sorprende a quienes los desafiaron sin pensar.",
+      image: "",
+    },
+    core: {
+      name: "Fibra de Corazón de Dragon",
+      descripcion:
+        "En general, la fibra de corazón de dragón produce las varitas más poderosas, y con ellas se pueden realizar los encantamientos más llamativos.",
+      image: "./Imagenes/dragon13.jpg",
     },
     patronus: "",
     hogwartsStudent: false,
@@ -462,14 +553,14 @@ export default [
     hairColour: "café",
     wand: {
       wood: "",
-      core: "",
-      length: "",
+      descripcion: "",
+      image: "",
     },
     patronus: {
       name: "Lince",
       descripcion:
         "Su patronus es un lince, pero no se especifica su raza, y como se piensa que Kingsley tiene origen Africano, se puede determinar que es un lince caracal, el famoso Lince Africano",
-      image: "https://www.hola.com/imagenes/estar-bien/20190820147813/razas-perros-pequenos-parecen-grandes/0-711-550/razas-perro-pequenos-grandes-m.jpg"
+      image: "./Imagenes/Lince.jpg",
     },
     hogwartsStudent: false,
     hogwartsStaff: false,
@@ -489,14 +580,21 @@ export default [
     hairColour: "gris",
     wand: {
       wood: "Abedul",
-      core: "Fibra de Corazón de Dragon",
-      length: 8,
+      descripcion:
+        "Aunque el propio Garrick Ollivander no lo usó, su asociado en la sucursal de Hogsmeade era conocido por vender varitas hechas de abedul.",
+      image: "",
+    },
+    core: {
+      name: "Fibra de Corazón de Dragon",
+      descripcion:
+        "Las varitas de fibra de corazón de dragón son las más fáciles de usar para las Artes Oscuras, aunque no se inclinará hacia ellas por ella misma. ",
+      image: "./Imagenes/dragon12.jpg",
     },
     patronus: {
       name: "Gato persa",
       descripcion:
-        "Mientras interrogaba a los nacidos de muggles en un juicio, había emitido un Patronus para alejar a los Dementores de los fiscales. Su animal favorito, como lo demuestran los muchos platos con gatos en su oficina. Pudo lanzar el Patronus debido a su afinidad con la influencia malvada del medallón Horrocrux",
-      image: "https://www.hola.com/imagenes/estar-bien/20190820147813/razas-perros-pequenos-parecen-grandes/0-711-550/razas-perro-pequenos-grandes-m.jpg"
+        "El Patronus de Dolores Umbridge también era un gato, al igual que los de esos platos decorativos de mal gusto que colgaba de sus paredes.",
+      image: "./Imagenes/Gato Dolores.jpg",
     },
     hogwartsStudent: false,
     hogwartsStaff: true,
@@ -516,8 +614,15 @@ export default [
     hairColour: "rubio",
     wand: {
       wood: "Olmo",
-      core: "Fibra de Corazón de Dragon",
-      length: 18,
+      descripcion:
+        "Las varitas de olmo prefieren dueños con presencia, destreza mágica y cierta dignidad nativa.",
+      image: "",
+    },
+    core: {
+      name: "Fibra de Corazón de Dragon",
+      descripcion:
+        "También, de las tres más poderosas, es la que tiene más tendencia a producir accidentes, debido a su temperamento.",
+      image: "./Imagenes/dragon14.jpg",
     },
     patronus: "",
     hogwartsStudent: false,
@@ -538,8 +643,8 @@ export default [
     hairColour: "negro",
     wand: {
       wood: "",
-      core: "",
-      length: "",
+      descripcion: "",
+      image: "",
     },
     patronus: "",
     hogwartsStudent: true,
@@ -560,8 +665,8 @@ export default [
     hairColour: "café",
     wand: {
       wood: "",
-      core: "",
-      length: "",
+      descripcion: "",
+      image: "",
     },
     patronus: "",
     hogwartsStudent: true,
@@ -582,8 +687,8 @@ export default [
     hairColour: "café",
     wand: {
       wood: "",
-      core: "",
-      length: "",
+      descripcion: "",
+      image: "",
     },
     patronus: "",
     hogwartsStudent: false,
@@ -603,9 +708,9 @@ export default [
     eyeColour: "",
     hairColour: "gris",
     wand: {
-      Madera: "",
-      Núcleo: "",
-      Longitud: "",
+      wood: "",
+      descripcion: "",
+      image: "",
     },
     patronus: "",
     hogwartsStudent: false,
