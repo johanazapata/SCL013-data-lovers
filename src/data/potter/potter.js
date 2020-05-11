@@ -13,7 +13,7 @@ export default [
       wood: "Acebo",
       descripcion:
         "Las varitas de acebo trabajan muy feliz para aquellos que pueden necesitar ayuda para superar una tendencia a la ira y la impetuosidad.",
-      image: "./Imagenes/varitaHarry.jpg",
+      image: "",
     },
     core: {
       name: "Pluma de fénix",
@@ -47,7 +47,7 @@ export default [
       wood: "Vine",
       descripción:
         "Las varitas de vid se encuentran entre los tipos menos comunes, y sus dueños son casi siempre aquellas brujas o magos que buscan un propósito mayor. ",
-      image: "./Imagenes/wand2.jpg",
+      image: "",
     },
     core: {
       name: "Fibra de Corazón de Dragón",
@@ -82,7 +82,7 @@ export default [
       wood: "Sauce",
       descripcion:
         "El sauce es una madera de varita poco común con los poderes curativos, y su propietario ideal a menudo tiene cierta inseguridad, por mucho que intenten esconderla.",
-      image: "./Imagenes/wand3.jpg",
+      image: "",
     },
     core: {
       name: "Cola de Unicornio",
@@ -115,7 +115,7 @@ export default [
       wood: "Espino",
       descripcion:
         "Las varitas de espino pueden ser particularmente adecuadas para los hechizos sanadores, pero también son expertas en maldiciones, ",
-      image: "./Imagenes/wand7.jpg",
+      image: "",
     },
     core: {
       name: "Cola de Unicornio",
@@ -144,7 +144,7 @@ export default [
       wood: "Abeto",
       descripcion:
         "Las varitas de abeto exigen poder de permanencia y fuerza de propósito en sus verdaderos dueños, y que son herramientas deficientes en manos de los cambiantes e indecisos.",
-      image: "./Imagenes/wand6.jpg",
+      image: "",
     },
     core: {
       name: "Fibra de Corazón de Dragon",

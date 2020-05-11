@@ -8,8 +8,8 @@
 }
 
 /*
-body -> grid 
-root -> flex  
+body -> grid  -  nav, contenido dinámico
+root -> flex  -  solo se usa para la página de inicio 
 */
 
 html {
@@ -45,46 +45,28 @@ nav {
   margin-top: 2rem;
 }
 
-
-
-
-/*PANTALLA DE INICIO*/
-.img-box {
-  margin-top: 3rem;
-  max-width: 80vw;
+img-box {
+  width: 20vw;
 }
 
-.img-box-image {
+img-box-image {
   width: 100%;
-}
-
-.titulo-inicio {
-  font-family: "Oswald",
-  sans-serif;
-  color: #272828;
-  align-self: center;
-  font-size: 3rem;
 }
 
 .alohomora-button {
   text-decoration: none;
   padding: 10px;
   font-weight: 600;
-  font-size: 2rem;
+  font-size: 20px;
   color: #272828;
   background-color: #dfa63a;
   border-radius: 6px;
-  margin-top: 2rem;
-  transition: all, 0.5s;
-  outline: none;
 }
 
-.alohomora-button:hover {
-  transform: scale(1.2);
- 
+.tituloinicio {
+  font-family: "Oswald", sans-serif;
+  color: #272828;
 }
-
-
 
 /*0. ESTRUCTURA BÁSICA DE TODAS LAS PANTALLAS*/
 .dynamic-content {
@@ -228,7 +210,7 @@ header {
   padding-right: 2rem;
   padding-top: 4rem;
   /* text-align: center; */
-  font-size: medium;
+  font-size: large;
 }
 
 .card-back > ul > li {
@@ -393,32 +375,6 @@ nav ul {
 /*TABLET - 2 columnas */
 
 @media screen and (max-width: 768px) {
-
-    /*Pantalla de inicio*/
-    .titulo-inicio {
-      font-family: "Oswald",
-        sans-serif;
-      color: #272828;
-      align-self: center;
-      font-size: 2rem;
-    }
-
-    .alohomora-button {
-      text-decoration: none;
-      padding: 10px;
-      font-weight: 600;
-      font-size: 1.5rem;
-      color: #272828;
-      background-color: #dfa63a;
-      border-radius: 6px;
-      transform: scale(1);
-      outline: none;
-    }
-
-
-
-
-
   /*0. Estructura básica*/
   .inner-content {
     width: 80vw;
@@ -449,35 +405,6 @@ nav ul {
 
 /*MOBILE - 1 columna */
 @media screen and (max-width: 425px) {
-
-  /*Pantalla de inicio*/
-
-  .img-box {
-    margin-top: 10rem;
-  }
-
-  .titulo-inicio {
-    font-family: "Oswald",
-      sans-serif;
-    color: #272828;
-    align-self: center;
-    font-size: 1.5rem;
-  }
-
-  .alohomora-button {
-    text-decoration: none;
-    padding: 10px;
-    font-weight: 600;
-    font-size: 1.5rem;
-    color: #272828;
-    background-color: #dfa63a;
-    border-radius: 6px;
-    outline: none;
-    transform: scale(0.8);
-    
-  }
-
-
   /*0. Estructura básica*/
 
   .inner-content {

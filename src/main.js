@@ -8,19 +8,15 @@ import { filterByCore } from "./data.js";
 import { patronusNameOnly } from "./data.js";
 import { coreNameOnly } from "./data.js";
 import { wandNameOnly } from "./data.js";
-import { wandWood } from "./data.js";
-import { wandCore } from "./data.js";
 
-
-//PANTALLA DE INICIO
 const root = document.getElementById("root");
 const homepageFragment = new DocumentFragment(); //aquí se agregan todos los elementos, luego este fragmento se agrega al root, así solo se actualiza una vez y podemos agregar imagen, h1 y botón al mismo tiempo
 
 const logoBox = document.createElement("div");
 const logo = document.createElement("img");
 
-logoBox.classList = "img-box";
-logo.classList = "img-box-image";
+logoBox.classList.add = "img-box";
+logo.classList.add = "img-box-image";
 
 logo.src = "./Imagenes/wizards-unite-logo.png";
 
@@ -29,7 +25,7 @@ logoBox.appendChild(logo);
 
 const titulo = document.createElement("h1");
 titulo.textContent = "BASE DE DATOS PARA JUGADORES";
-titulo.classList = "titulo-inicio";
+titulo.classList.add = "tituloinicio";
 //root.appendChild(titulo);  //esto fue reemplazado por root.appendChild(homepageFragment)
 
 const alohomoraBtn = document.createElement("button");
@@ -101,8 +97,8 @@ function MenuPrincipal() {
     "afterbegin",
 
     `   
-<input type="checkbox" class="checkbox_hack" id="checkbox_hack">
-<label for="checkbox_hack" class="checkbox-hack_label"></label>
+<input type="checkbox" class="checkbox__hack" id="checkbox__hack">
+<label for="checkbox__hack" class="checkbox-hack__label"></label>
 <nav class="nav--top">
 <ul class="menu-lateral nav--top__list">
 <ul>
@@ -133,19 +129,8 @@ function MenuPrincipal() {
 `
   );
 
-
-  /*   const casas = document.querySelector("#escudos");
-  casas.addEventListener("click", () => {
-    Casas();
-  });
-
-  const varitas = document.querySelector("#varitas");
-  varitas.addEventListener("click", () => {
-    showWands();
-  }); */
-
   const Gryffindor = document.getElementById("Gryffindor");
-  Gryffindor.addEventListener("click", () => {
+  Gryffindor.addEventListener("click", (event) => {
     let gryffindorMembers = filterByHouse(charactersData, "Gryffindor");
     event.preventDefault();
     return showHouseMembers(gryffindorMembers);
@@ -172,33 +157,11 @@ function MenuPrincipal() {
   });
 
   //lleva a VARITAS, pero no despliega las opciones en el menú :P
-
   const wand = document.getElementById("check3");
   wand.addEventListener("click", (event) => {
     event.preventDefault();
     showWand();
   });
-
-
-  /* const wands = document.getElementById("check3");
-    wands.addEventListener("click", (event) => {
-      event.preventDefault();
-      showWands();
-    });  */
-
-  const wandsWood = document.querySelector("#madera");
-  wandsWood.addEventListener("click", () => {
-    showWandsWood();
-  });
-
-  const wands = document.getElementById("check3");
-  wands.addEventListener("click", (event) => {
-    event.preventDefault();
-    showWands();
-  }); 
-
-
-
   const core = document.getElementById("check4");
   core.addEventListener("click", (event) => {
     event.preventDefault();
@@ -208,8 +171,9 @@ function MenuPrincipal() {
   const patronus = document.querySelector("#check5");
   patronus.addEventListener("click", () => {
     showPatronus();
-  }); 
+  });
 }
+
 ///////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////* PANTALLAS */////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////
@@ -233,7 +197,6 @@ function Casas() {
     <img src = "./Imagenes/House Sly.jpg" class="grid-item"id="EscudoSly">
   </div>
 `;
-
   const EscudoGry = document.getElementById("EscudoGry");
   EscudoGry.addEventListener("click", (event) => {
     let gryffindorMembers = filterByHouse(charactersData, "Gryffindor");
@@ -332,7 +295,7 @@ function showHouseMembers(houseMembers) {
       )}`;
     }
 
-    //por si el personaje 1) no tiene varita, 2) solo tiene madera 3) tiene madera y núcleo
+    /* //por si el personaje 1) no tiene varita, 2) solo tiene madera 3) tiene madera y núcleo
     if (wandWood(character) === "" && wandCore(character) === "") {
       cardInfo.childNodes[4].textContent = `Varita: Información no disponible`;
     } else if (wandWood(character) && wandCore(character) === "") {
@@ -341,7 +304,7 @@ function showHouseMembers(houseMembers) {
       cardInfo.childNodes[4].textContent = `Varita: ${wandWood(
         character
       )} con núcleo de ${wandCore(character)}`;
-    } 
+    } */
 
     cardFront.appendChild(cardImg);
     cardBack.appendChild(cardInfo);
@@ -362,7 +325,7 @@ function showHouseMembers(houseMembers) {
   const sectionTitle = document.querySelector(".section-title");
   sectionTitle.classList = "section-title titulo-dorado";
   sectionTitle.textContent = "VARITAS";
-  //HAY QUE HACER FOREACH E INGRESAR DATOS EN ESTE HTML
+
   document.querySelector(".inner-content").innerHTML = `
   <div class="card-box">
     

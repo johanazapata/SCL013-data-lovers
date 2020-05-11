@@ -8,13 +8,13 @@ export function filterByHouse(dataToFilter, condition) {
   return membersByHouse;
 }
 
-export function wandWood(dataToFilter) {
+/* export function wandWood(dataToFilter) {
   return Object.entries(dataToFilter.wand)[1][1];
-}
+} */
 
-export function wandCore(dataToFilter) {
+/* export function wandCore(dataToFilter) {
   return Object.entries(dataToFilter.wand)[1][1];
-} 
+} */
 
 //Filtrar por el material/madera de la varita
 export function wandNameOnly(dataToFilter) {
