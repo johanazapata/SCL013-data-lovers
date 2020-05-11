@@ -9,15 +9,14 @@ import { patronusNameOnly } from "./data.js";
 import { coreNameOnly } from "./data.js";
 import { wandNameOnly } from "./data.js";
 
-//PANTALLA DE INICIO
 const root = document.getElementById("root");
 const homepageFragment = new DocumentFragment(); //aquí se agregan todos los elementos, luego este fragmento se agrega al root, así solo se actualiza una vez y podemos agregar imagen, h1 y botón al mismo tiempo
 
 const logoBox = document.createElement("div");
 const logo = document.createElement("img");
 
-logoBox.classList = "img-box";
-logo.classList = "img-box-image";
+logoBox.classList.add = "img-box";
+logo.classList.add = "img-box-image";
 
 logo.src = "./Imagenes/wizards-unite-logo.png";
 
@@ -26,7 +25,7 @@ logoBox.appendChild(logo);
 
 const titulo = document.createElement("h1");
 titulo.textContent = "BASE DE DATOS PARA JUGADORES";
-titulo.classList = "titulo-inicio";
+titulo.classList.add = "tituloinicio";
 //root.appendChild(titulo);  //esto fue reemplazado por root.appendChild(homepageFragment)
 
 const alohomoraBtn = document.createElement("button");
@@ -34,7 +33,7 @@ alohomoraBtn.classList = "alohomora-button";
 alohomoraBtn.textContent = "Alohomora";
 alohomoraBtn.addEventListener("click", () => {
   clearContent(); //1. limpia pantalla de inicio que está en div#root
-  return Casas();
+  return Houses();
 });
 
 //agregando logo, h1 y botón al fragment
@@ -71,7 +70,7 @@ function createBasicStructure() {
       </header>
 
     <section id="general-section" class="dynamic-content">
-    
+
     
       <h1 class="section-title"></h1>
         <section class="inner-content">
@@ -97,9 +96,9 @@ function MenuPrincipal() {
   document.getElementById("navbar").insertAdjacentHTML(
     "afterbegin",
 
-    `     
-<input type="checkbox" class="checkbox_hack" id="checkbox_hack">
-<label for="checkbox_hack" class="checkbox-hack_label"></label>
+    `   
+<input type="checkbox" class="checkbox__hack" id="checkbox__hack">
+<label for="checkbox__hack" class="checkbox-hack__label"></label>
 <nav class="nav--top">
 <ul class="menu-lateral nav--top__list">
 <ul>
@@ -126,22 +125,17 @@ function MenuPrincipal() {
     <input type="checkbox" id="check5"/>
     <label for="check5">PATRONUS</label>
      </div> 
+
+  <div class="item">
+    <input type="checkbox" id="check6"/>
+    <label for="check6">NOTICIAS</label>
+     </div> 
  
 `
   );
 
-  const casas = document.querySelector("check2");
-  casas.addEventListener("click", () => {
-    Casas();
-  });
-
-  /*  const varitas = document.querySelector("#varitas");
-  varitas.addEventListener("click", () => {
-    showWands();
-  }); */
-
   const Gryffindor = document.getElementById("Gryffindor");
-  Gryffindor.addEventListener("click", () => {
+  Gryffindor.addEventListener("click", (event) => {
     let gryffindorMembers = filterByHouse(charactersData, "Gryffindor");
     event.preventDefault();
     return showHouseMembers(gryffindorMembers);
@@ -167,48 +161,37 @@ function MenuPrincipal() {
     return showHouseMembers(ravenclawMembers);
   });
 
-  //lleva a VARITAS, pero no despliega las opciones en el menú :P
-
+  //lleva a Varitas-Madera
   const wand = document.getElementById("check3");
   wand.addEventListener("click", (event) => {
     event.preventDefault();
     showWand();
   });
-
-  /* const wands = document.getElementById("check3");
-    wands.addEventListener("click", (event) => {
-      event.preventDefault();
-      showWands();
-    });  */
-
-  /*   const wandsWood = document.querySelector("#madera");
-  wandsWood.addEventListener("click", () => {
-    showWandsWood();
-  });
-
-  const wands = document.getElementById("check3");
-  wands.addEventListener("click", (event) => {
-    event.preventDefault();
-    showWands();
-  });
- */
+  //lleva a Varitas-Núcleo
   const core = document.getElementById("check4");
   core.addEventListener("click", (event) => {
     event.preventDefault();
     showWandsCore();
   });
-
+  //lleva a Patronus
   const patronus = document.querySelector("#check5");
   patronus.addEventListener("click", () => {
     showPatronus();
   });
+  //lleva a Datos Curiosos
+  const noticias = document.querySelector("#check6");
+  noticias.addEventListener("click", () => {
+    event.preventDefault();
+    noticiasHarry();
+  });
 }
+
 ///////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////* PANTALLAS */////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////
 
 //0. FUNCIÓN PARA MOSTRAR LA PANTALLA DE LOS ESCUDOS
-function Casas() {
+function Houses() {
   createBasicStructure(); //2. crea una sola vez la estructura básica que se repite en cada pantalla (esta estructura se mantiene en el resto de las pantallas)
   MenuPrincipal(); //3. crea una sola vez la estructura del menú
 
@@ -225,7 +208,6 @@ function Casas() {
     <img src = "./Imagenes/House Sly.jpg" class="grid-item"id="EscudoSly">
   </div>
 `;
-
   const EscudoGry = document.getElementById("EscudoGry");
   EscudoGry.addEventListener("click", (event) => {
     let gryffindorMembers = filterByHouse(charactersData, "Gryffindor");
@@ -261,21 +243,32 @@ function showHouseMembers(houseMembers) {
   //MenuPrincipal(); //3. crea estructura del menú (provisorio)
   const innerContentSection = document.querySelector(".inner-content");
   const sectionTitle = document.querySelector(".section-title");
-  const bienvenida = document.createElement("parrafo");
+  const welcomeMembers = document.createElement("parrafo");
+  welcomeMembers.classList = "parrafo";
+  welcomeMembers.textContent = "";
+  innerContentSection.appendChild(welcomeMembers);
 
   //4. modifica el color del título según la casa
   if (houseMembers[0].house === "Gryffindor") {
     sectionTitle.classList = "section-title gryffindor-color";
     sectionTitle.textContent = "GRYFFINDOR";
+    welcomeMembers.textContent =
+      "Bienvenidos a Gryfindor , casa fundada por Grodic Gryffindor. Nuestros alummnos se caracteriazan por su Valentia, Caballerosidad y Atrevimiento. El elemento de la casa es Fuego, los colores Rojo y Oro  y la reliquia es la Espada.";
   } else if (houseMembers[0].house === "Hufflepuff") {
     sectionTitle.classList = "section-title hufflepuff-color";
     sectionTitle.textContent = "HUFFLEPUFF";
+    welcomeMembers.textContent =
+      "Bienvenidos a  Haufflepuff, casa fundada por Helga Hufflepuff. Nuestros alummnos son Leales, Justos y Trabajadores. El elemento de la casa es la Tierra, los colores Amarillo y Negro y el Tejón es el animal que nos representa.";
   } else if (houseMembers[0].house === "Slytherin") {
     sectionTitle.classList = "section-title slytherin-color";
     sectionTitle.textContent = "SLYTHERIN";
+    welcomeMembers.textContent =
+      "Bienvenidos a Slyterin, fundada por Salazar Slytherin. La Ambición, Astucia y Determinación son las principales caracteriasticas de nuestro alumnos. El elemento de la casa es Agua, sus colores Verde y Palteado y el animal es una Serpiente.";
   } else {
     sectionTitle.classList = "section-title ravenclaw-color";
     sectionTitle.textContent = "RAVENCLAW";
+    welcomeMembers.textContent =
+      "Bienvenidos a  Revenclaw, fundada por Rowena Ravenclaw. Las caracteriasticas fundamentales de nuestros alumnos son: Inteligencia, Erudición y Creatividad. Nuestro elemento es el aire, Azul y Bronces los colores y el Águila el animal de la casa.";
   }
 
   //5. crea una tarjeta con información de cada personaje
@@ -355,7 +348,7 @@ function showHouseMembers(houseMembers) {
   const sectionTitle = document.querySelector(".section-title");
   sectionTitle.classList = "section-title titulo-dorado";
   sectionTitle.textContent = "VARITAS";
-  //HAY QUE HACER FOREACH E INGRESAR DATOS EN ESTE HTML
+
   document.querySelector(".inner-content").innerHTML = `
   <div class="card-box">
     
@@ -383,8 +376,13 @@ function showWand() {
   sectionTitle.textContent = "MADERA";
   console.log(filterByWand(charactersData));
   const wandData = filterByWand(charactersData);
-  //filterByWand(charactersData));
+  //descripción de la página
   const innerContent = document.querySelector(".inner-content");
+  const welcomeWand = document.createElement("parrafo");
+  welcomeWand.classList = "parrafo";
+  welcomeWand.textContent =
+    "Una varita es un instrumento mágico casi sensible a través del cual una bruja o mago canaliza su poder mágico para centralizar los efectos para obtener resultados más complejos.";
+  innerContent.appendChild(welcomeWand);
 
   wandData.forEach((character) => {
     const wandOwner = character[0];
@@ -421,6 +419,11 @@ function showWandsCore() {
   const coreData = filterByCore(charactersData);
   //filterByCore(charactersData));
   const innerContent = document.querySelector(".inner-content");
+  const welcomeCore = document.createElement("parrafo");
+  welcomeCore.classList = "parrafo";
+  welcomeCore.textContent =
+    "El núcleo de una varita es una sustancia mágica colocada dentro de la longitud de la madera, generalmente extraída de una criatura mágica.";
+  innerContent.appendChild(welcomeCore);
 
   coreData.forEach((character) => {
     const coreOwner = character[0];
@@ -458,6 +461,11 @@ function showPatronus() {
   const patronusData = filterByPatronus(charactersData);
   //filterByPatronus(charactersData)); = cada uno de los patronus patronus[0] = name y patronus[1] = patronus
   const innerContent = document.querySelector(".inner-content");
+  const welcomePatronus = document.createElement("parrafo");
+  welcomePatronus.classList = "parrafo";
+  welcomePatronus.textContent =
+    "Patronus, es un encantamiento utilizado para repeler a los Dementores. Debe ser conjurado mediante la pronunciación del encantamiento Expecto Patronum (del latín Expecto/Esperar y Patronum/Protector), el cual creará una barrera entre el mago y el Dementor.";
+  innerContent.appendChild(welcomePatronus);
 
   patronusData.forEach((character) => {
     const patronusOwner = character[0];
@@ -483,4 +491,22 @@ function showPatronus() {
   
   `;
   });
+}
+
+function noticiasHarry() {
+  createBasicStructure(); //2. crea una sola vez la estructura básica que se repite en cada pantalla (esta estructura se mantiene en el resto de las pantallas)
+  MenuPrincipal(); //3. crea una sola vez la estructura del menú
+
+  const sectionTitle = document.querySelector(".section-title");
+  sectionTitle.classList += " titulo-dorado";
+  sectionTitle.textContent = "NOTICIAS";
+
+  document.querySelector(".inner-content").innerHTML = `
+  
+  <div class="contenedor">
+  <h1>"Daniel Radcliffe se reencuentra con Harry Potter públicamente tras casi una década"</h1>
+    <video src = "./Imagenes/noticiasHarry.mp4">
+   
+  </div>
+`;
 }
