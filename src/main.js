@@ -9,24 +9,25 @@ import { patronusNameOnly } from "./data.js";
 import { coreNameOnly } from "./data.js";
 import { wandNameOnly } from "./data.js";
 
+//PANTALLA DE INICIO
 const root = document.getElementById("root");
 const homepageFragment = new DocumentFragment(); //aquí se agregan todos los elementos, luego este fragmento se agrega al root, así solo se actualiza una vez y podemos agregar imagen, h1 y botón al mismo tiempo
 
 const logoBox = document.createElement("div");
 const logo = document.createElement("img");
 
-logoBox.classList.add = "img-box";
-logo.classList.add = "img-box-image";
+logoBox.classList = "img-box";
+logo.classList = "img-box-image";
 
 logo.src = "./Imagenes/wizards-unite-logo.png";
 
 logoBox.appendChild(logo);
-//root.appendChild(logoBox);  //esto fue reemplazado por root.appendChild(homepageFragment)
+//root.appendChild(logoBox); //esto fue reemplazado por root.appendChild(homepageFragment)
 
 const titulo = document.createElement("h1");
 titulo.textContent = "BASE DE DATOS PARA JUGADORES";
-titulo.classList.add = "tituloinicio";
-//root.appendChild(titulo);  //esto fue reemplazado por root.appendChild(homepageFragment)
+titulo.classList = "titulo-inicio";
+//root.appendChild(titulo); //esto fue reemplazado por root.appendChild(homepageFragment)
 
 const alohomoraBtn = document.createElement("button");
 alohomoraBtn.classList = "alohomora-button";
