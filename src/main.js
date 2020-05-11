@@ -9,14 +9,15 @@ import { patronusNameOnly } from "./data.js";
 import { coreNameOnly } from "./data.js";
 import { wandNameOnly } from "./data.js";
 
+//PANTALLA DE INICIO
 const root = document.getElementById("root");
 const homepageFragment = new DocumentFragment(); //aquí se agregan todos los elementos, luego este fragmento se agrega al root, así solo se actualiza una vez y podemos agregar imagen, h1 y botón al mismo tiempo
 
 const logoBox = document.createElement("div");
 const logo = document.createElement("img");
 
-logoBox.classList.add = "img-box";
-logo.classList.add = "img-box-image";
+logoBox.classList = "img-box";
+logo.classList = "img-box-image";
 
 logo.src = "./Imagenes/wizards-unite-logo.png";
 
@@ -25,7 +26,7 @@ logoBox.appendChild(logo);
 
 const titulo = document.createElement("h1");
 titulo.textContent = "BASE DE DATOS PARA JUGADORES";
-titulo.classList.add = "tituloinicio";
+titulo.classList = "titulo-inicio";
 //root.appendChild(titulo);  //esto fue reemplazado por root.appendChild(homepageFragment)
 
 const alohomoraBtn = document.createElement("button");
@@ -95,9 +96,10 @@ function createBasicStructure() {
 function MenuPrincipal() {
   document.getElementById("navbar").insertAdjacentHTML(
     "afterbegin",
+
     `     
-<input type="checkbox" class="checkbox__hack" id="checkbox__hack">
-<label for="checkbox__hack" class="checkbox-hack__label"></label>
+<input type="checkbox" class="checkbox_hack" id="checkbox_hack">
+<label for="checkbox_hack" class="checkbox-hack_label"></label>
 <nav class="nav--top">
 <ul class="menu-lateral nav--top__list">
 <ul>
@@ -114,20 +116,11 @@ function MenuPrincipal() {
  </div>
      <div class="item">
       <input type="checkbox" id="check3"/>
-
       <label for="check3">MADERA</label>
  </div>
  <div class="item">
       <input type="checkbox" id="check4"/>
       <label for="check4">NUCLEO</label>    
-       <ul>
-      <li id="varitas">Varitas</li>
-      <li id="madera">Madera</li>
-      
-      <li id="nucleo">Núcleo</li>
-     
-      </ul>
-
  </div>
 <div class="item">
     <input type="checkbox" id="check5"/>
@@ -137,12 +130,12 @@ function MenuPrincipal() {
 `
   );
 
-  /*   const casas = document.querySelector("#escudos");
+  const casas = document.querySelector("check2");
   casas.addEventListener("click", () => {
     Casas();
   });
 
-  const varitas = document.querySelector("#varitas");
+  /*  const varitas = document.querySelector("#varitas");
   varitas.addEventListener("click", () => {
     showWands();
   }); */
@@ -188,10 +181,17 @@ function MenuPrincipal() {
       showWands();
     });  */
 
-  const wandsWood = document.querySelector("#madera");
+  /*   const wandsWood = document.querySelector("#madera");
   wandsWood.addEventListener("click", () => {
     showWandsWood();
   });
+
+  const wands = document.getElementById("check3");
+  wands.addEventListener("click", (event) => {
+    event.preventDefault();
+    showWands();
+  });
+ */
   const core = document.getElementById("check4");
   core.addEventListener("click", (event) => {
     event.preventDefault();
