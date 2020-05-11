@@ -95,8 +95,7 @@ function createBasicStructure() {
 function MenuPrincipal() {
   document.getElementById("navbar").insertAdjacentHTML(
     "afterbegin",
-
-    `   
+    `     
 <input type="checkbox" class="checkbox__hack" id="checkbox__hack">
 <label for="checkbox__hack" class="checkbox-hack__label"></label>
 <nav class="nav--top">
@@ -216,7 +215,6 @@ function Casas() {
   const sectionTitle = document.querySelector(".section-title");
   sectionTitle.classList += " titulo-dorado";
   sectionTitle.textContent = "CASAS";
-  /* document.createElement("HOLA COMO ESTAS HOY"); */
 
   document.querySelector(".inner-content").innerHTML = `
   
@@ -263,6 +261,7 @@ function showHouseMembers(houseMembers) {
   //MenuPrincipal(); //3. crea estructura del menú (provisorio)
   const innerContentSection = document.querySelector(".inner-content");
   const sectionTitle = document.querySelector(".section-title");
+  const bienvenida = document.createElement("parrafo");
 
   //4. modifica el color del título según la casa
   if (houseMembers[0].house === "Gryffindor") {
@@ -384,7 +383,7 @@ function showWand() {
   sectionTitle.textContent = "MADERA";
   console.log(filterByWand(charactersData));
   const wandData = filterByWand(charactersData);
-  //filterByPatronus(charactersData)); = cada uno de los patronus patronus[0] = name y patronus[1] = patronus
+  //filterByWand(charactersData));
   const innerContent = document.querySelector(".inner-content");
 
   wandData.forEach((character) => {
@@ -420,7 +419,7 @@ function showWandsCore() {
   sectionTitle.textContent = "NÚCLEO";
   console.log(filterByCore(charactersData));
   const coreData = filterByCore(charactersData);
-  //filterByPatronus(charactersData)); = cada uno de los patronus patronus[0] = name y patronus[1] = patronus
+  //filterByCore(charactersData));
   const innerContent = document.querySelector(".inner-content");
 
   coreData.forEach((character) => {
