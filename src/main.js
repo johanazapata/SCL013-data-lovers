@@ -8,6 +8,8 @@ import { filterByCore } from "./data.js";
 import { patronusNameOnly } from "./data.js";
 import { coreNameOnly } from "./data.js";
 import { wandNameOnly } from "./data.js";
+import { wandWood } from "./data.js";
+import { wandCore } from "./data.js";
 
 
 //PANTALLA DE INICIO
@@ -305,7 +307,7 @@ function showHouseMembers(houseMembers) {
       )}`;
     }
 
-    /* //por si el personaje 1) no tiene varita, 2) solo tiene madera 3) tiene madera y núcleo
+    //por si el personaje 1) no tiene varita, 2) solo tiene madera 3) tiene madera y núcleo
     if (wandWood(character) === "" && wandCore(character) === "") {
       cardInfo.childNodes[4].textContent = `Varita: Información no disponible`;
     } else if (wandWood(character) && wandCore(character) === "") {
@@ -314,7 +316,7 @@ function showHouseMembers(houseMembers) {
       cardInfo.childNodes[4].textContent = `Varita: ${wandWood(
         character
       )} con núcleo de ${wandCore(character)}`;
-    } */
+    } 
 
     cardFront.appendChild(cardImg);
     cardBack.appendChild(cardInfo);
