@@ -115,11 +115,20 @@ function MenuPrincipal() {
  </div>
      <div class="item">
       <input type="checkbox" id="check3"/>
+
       <label for="check3">MADERA</label>
  </div>
  <div class="item">
       <input type="checkbox" id="check4"/>
       <label for="check4">NUCLEO</label>    
+       <ul>
+      <li id="varitas">Varitas</li>
+      <li id="madera">Madera</li>
+      
+      <li id="nucleo">Núcleo</li>
+     
+      </ul>
+
  </div>
 <div class="item">
     <input type="checkbox" id="check5"/>
@@ -129,10 +138,19 @@ function MenuPrincipal() {
 `
   );
 
+  const casas = document.querySelector("#escudos");
+  casas.addEventListener("click", () => {
+    Casas();
+  })
+
+  const varitas = document.querySelector("#varitas");
+  varitas.addEventListener("click", () => {
+    showWands();
+  })
+
   const Gryffindor = document.getElementById("Gryffindor");
-  Gryffindor.addEventListener("click", (event) => {
+  Gryffindor.addEventListener("click", () => {
     let gryffindorMembers = filterByHouse(charactersData, "Gryffindor");
-    event.preventDefault();
     return showHouseMembers(gryffindorMembers);
   });
 
@@ -157,10 +175,22 @@ function MenuPrincipal() {
   });
 
   //lleva a VARITAS, pero no despliega las opciones en el menú :P
+
   const wand = document.getElementById("check3");
   wand.addEventListener("click", (event) => {
     event.preventDefault();
     showWand();
+
+  /* const wands = document.getElementById("check3");
+  wands.addEventListener("click", (event) => {
+    event.preventDefault();
+    showWands();
+  });  */
+
+  const wandsWood = document.querySelector("#madera");
+  wandsWood.addEventListener("click", () => {
+    showWandsWood();
+
   });
   const core = document.getElementById("check4");
   core.addEventListener("click", (event) => {
@@ -325,7 +355,7 @@ function showHouseMembers(houseMembers) {
   const sectionTitle = document.querySelector(".section-title");
   sectionTitle.classList = "section-title titulo-dorado";
   sectionTitle.textContent = "VARITAS";
-
+  //HAY QUE HACER FOREACH E INGRESAR DATOS EN ESTE HTML
   document.querySelector(".inner-content").innerHTML = `
   <div class="card-box">
     
