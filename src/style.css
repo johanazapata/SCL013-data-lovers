@@ -1,5 +1,8 @@
-@media screen and (max-width: 400px) {
-}
+/*
+root ->flex - solo se usa para la página de inicio
+body -> grid  -  nav, estructura principal + .inner-content
+.inner-content -> flex - se usa para todo el contenido dinámico
+*/
 
 * {
   margin: 0;
@@ -7,10 +10,6 @@
   box-sizing: border-box;
 }
 
-/*
-body -> grid  -  nav, contenido dinámico
-root -> flex  -  solo se usa para la página de inicio 
-*/
 
 html {
   font-size: 62.5%; /*16px = 100%, 10px = 62.5%  - 1rem = 10px*/

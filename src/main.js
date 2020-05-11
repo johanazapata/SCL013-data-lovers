@@ -6,8 +6,8 @@ import { filterByPatronus } from "./data.js";
 import { filterByWand } from "./data.js";
 import { filterByCore } from "./data.js";
 import { patronusNameOnly } from "./data.js";
-import { coreNameOnly } from "./data.js";
-import { wandNameOnly } from "./data.js";
+/* import { coreNameOnly } from "./data.js";
+import { wandNameOnly } from "./data.js"; */
 
 //PANTALLA DE INICIO
 const root = document.getElementById("root");
