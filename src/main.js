@@ -138,19 +138,20 @@ function MenuPrincipal() {
 `
   );
 
-  const casas = document.querySelector("#escudos");
+  /*   const casas = document.querySelector("#escudos");
   casas.addEventListener("click", () => {
     Casas();
-  })
+  });
 
   const varitas = document.querySelector("#varitas");
   varitas.addEventListener("click", () => {
     showWands();
-  })
+  }); */
 
   const Gryffindor = document.getElementById("Gryffindor");
   Gryffindor.addEventListener("click", () => {
     let gryffindorMembers = filterByHouse(charactersData, "Gryffindor");
+    event.preventDefault();
     return showHouseMembers(gryffindorMembers);
   });
 
@@ -180,17 +181,17 @@ function MenuPrincipal() {
   wand.addEventListener("click", (event) => {
     event.preventDefault();
     showWand();
+  });
 
   /* const wands = document.getElementById("check3");
-  wands.addEventListener("click", (event) => {
-    event.preventDefault();
-    showWands();
-  });  */
+    wands.addEventListener("click", (event) => {
+      event.preventDefault();
+      showWands();
+    });  */
 
   const wandsWood = document.querySelector("#madera");
   wandsWood.addEventListener("click", () => {
     showWandsWood();
-
   });
   const core = document.getElementById("check4");
   core.addEventListener("click", (event) => {
@@ -203,7 +204,6 @@ function MenuPrincipal() {
     showPatronus();
   });
 }
-
 ///////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////* PANTALLAS */////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////
@@ -227,6 +227,7 @@ function Casas() {
     <img src = "./Imagenes/House Sly.jpg" class="grid-item"id="EscudoSly">
   </div>
 `;
+
   const EscudoGry = document.getElementById("EscudoGry");
   EscudoGry.addEventListener("click", (event) => {
     let gryffindorMembers = filterByHouse(charactersData, "Gryffindor");
