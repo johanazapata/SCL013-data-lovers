@@ -259,7 +259,7 @@ header {
 /*Código Menú nuevo*/
 /*Menu Hamburguesa*/
 .nav--top {
-  position: fixed;
+  position: absolute;
   top: 10px;
   left: 100px;
   z-index: 10;
