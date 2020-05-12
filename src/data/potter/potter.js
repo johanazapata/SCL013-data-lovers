@@ -143,8 +143,8 @@ export default [
     wand: {
       wood: "Abeto",
       descripcion:
-        "Las varitas de abeto exigen poder de permanencia y fuerza de propósito en sus verdaderos dueños, y que son herramientas deficientes en manos de los cambiantes e indecisos.",
-      image: "./Imagenes/varitaminer.jpg",
+        "Las varitas de abeto exigen poder de permanencia y fuerza de propósito en sus verdaderos dueños.",
+      image: "./Imagenes/varitaminerva.jpg",
     },
     core: {
       name: "Fibra de Corazón de Dragon",
@@ -470,7 +470,7 @@ export default [
       wood: "Nogal",
       descripcion:
         ". Las varitas de nogal, una vez subyugadas, realizarán cualquier tarea que su propietario desee, siempre que el usuario tenga suficiente brillo.",
-      image: "./Imagenes/varitabella.jpg",
+      image: "./Imagenes/varitadolo.jpg",
     },
     core: {
       name: "Fibra de Corazón de Dragón",

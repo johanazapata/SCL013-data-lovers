@@ -24,15 +24,21 @@ export function wandNameOnly(dataToFilter) {
 export function filterByWand(dataToFilter) {
   const hasWand = dataToFilter.filter((character) => character.wand);
   const wandAndInfo = hasWand.map((character) => {
-    const wand = Object.entries(character.wand)[0][1];
+    const wood = Object.entries(character.wand)[0][1];
     const owner = character.name;
     const image = Object.entries(character.wand)[2][1];
     const description = Object.entries(character.wand)[1][1];
-    const allWand = [owner, wand, description, image];
+    const allWand = [owner, wood, description, image];
     return allWand;
   });
 
-  return wandAndInfo;
+  const willHaveCard = wandAndInfo.filter((wand) => {
+    if (wand[1] != "") {
+      return wand;
+    }
+  });
+
+  return willHaveCard;
 }
 //Filtrar por el núcleo de la varita
 export function coreNameOnly(dataToFilter) {
