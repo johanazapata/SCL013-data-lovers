@@ -6,27 +6,28 @@ import { filterByPatronus } from "./data.js";
 import { filterByWand } from "./data.js";
 import { filterByCore } from "./data.js";
 import { patronusNameOnly } from "./data.js";
-import { coreNameOnly } from "./data.js";
-import { wandNameOnly } from "./data.js";
+/* import { coreNameOnly } from "./data.js";
+import { wandNameOnly } from "./data.js"; */
 
+//PANTALLA DE INICIO
 const root = document.getElementById("root");
 const homepageFragment = new DocumentFragment(); //aquí se agregan todos los elementos, luego este fragmento se agrega al root, así solo se actualiza una vez y podemos agregar imagen, h1 y botón al mismo tiempo
 
 const logoBox = document.createElement("div");
 const logo = document.createElement("img");
 
-logoBox.classList.add = "img-box";
-logo.classList.add = "img-box-image";
+logoBox.classList = "img-box";
+logo.classList = "img-box-image";
 
 logo.src = "./Imagenes/wizards-unite-logo.png";
 
 logoBox.appendChild(logo);
-//root.appendChild(logoBox);  //esto fue reemplazado por root.appendChild(homepageFragment)
+//root.appendChild(logoBox); //esto fue reemplazado por root.appendChild(homepageFragment)
 
 const titulo = document.createElement("h1");
 titulo.textContent = "BASE DE DATOS PARA JUGADORES";
-titulo.classList.add = "tituloinicio";
-//root.appendChild(titulo);  //esto fue reemplazado por root.appendChild(homepageFragment)
+titulo.classList = "titulo-inicio";
+//root.appendChild(titulo); //esto fue reemplazado por root.appendChild(homepageFragment)
 
 const alohomoraBtn = document.createElement("button");
 alohomoraBtn.classList = "alohomora-button";
@@ -64,7 +65,7 @@ function createBasicStructure() {
     <header>
         
   <div class="small-logo-box">
-          <img src="./Imagenes/wizards-unite-logo.png" alt="logo-small">
+         <img src="./Imagenes/wizards-unite-logo.png" alt="logo-small">
         </div>     
         
       </header>
@@ -80,7 +81,12 @@ function createBasicStructure() {
     </section>
   
   `;
-
+  //función que nos devuelve a la pantalla de los escudos al hacer click en el logo
+  const logoBox = document.querySelector(".small-logo-box");
+  logoBox.addEventListener("click", (event) => {
+    event.preventDefault();
+    Casas();
+  });
   //función que permite borrar el contenido dinámico que se coloca en .inner-content
   clearInnerContent = function () {
     const innerContent = document.querySelector(".inner-content");
@@ -248,8 +254,9 @@ function showHouseMembers(houseMembers) {
   welcomeMembers.textContent = "";
   innerContentSection.appendChild(welcomeMembers);
 
-  //4. modifica el color del título según la casa
-  if (houseMembers[0].house === "Gryffindor") {
+  //4. modifica el color del título según la casa del primer miembro del grupo
+  const firstHouseMember = houseMembers[0];
+  if (firstHouseMember.house === "Gryffindor") {
     sectionTitle.classList = "section-title gryffindor-color";
     sectionTitle.textContent = "GRYFFINDOR";
     welcomeMembers.textContent =
@@ -274,6 +281,7 @@ function showHouseMembers(houseMembers) {
   //5. crea una tarjeta con información de cada personaje
   const fragment = new DocumentFragment();
   houseMembers.forEach((character) => {
+    //General card structure
     const cardContainer = document.createElement("div");
     cardContainer.classList = "card-box";
     const cardImg = document.createElement("img");
@@ -285,37 +293,46 @@ function showHouseMembers(houseMembers) {
     card.classList = "card";
     const cardFront = document.createElement("div");
     cardFront.classList = "card-front";
+    const transparentCardTitle = document.createElement("p");
+    transparentCardTitle.classList = "transparent-card-title";
     const cardBack = document.createElement("div");
     cardBack.classList = "card-back";
     const cardTitle = document.createElement("h1");
     cardTitle.classList = "card-title";
     cardInfo.appendChild(cardTitle);
 
-    //6. se crean 4 elementos de lista para la información de cada personaje
+    //Front
+    transparentCardTitle.textContent = `${character.name}`;
+
+    //Back
     for (let i = 0; i < 4; i++) {
       let cardInfoLi = document.createElement("li");
       cardInfo.appendChild(cardInfoLi);
     }
 
+    const nameTitle = cardInfo.childNodes[0];
+    const firstLi = cardInfo.childNodes[1];
+    const secondLi = cardInfo.childNodes[2];
+    const thirdLi = cardInfo.childNodes[2];
+    const fourthLi = cardInfo.childNodes[3];
+
     //cardTitle es el título donde va el nombre del personaje
-    cardInfo.childNodes[0].textContent = `${character.name}`;
+    nameTitle.textContent = `${character.name}`;
     //cardInfo equivale a la lista, childNodes[x] a cada elemento
-    cardInfo.childNodes[1].textContent = `Género: ${character.gender}`;
+    firstLi.textContent = `Género: ${character.gender}`;
 
     //por si el personaje no tiene año de nacimiento
     if (character.yearOfBirth === "") {
-      cardInfo.childNodes[2].textContent = `Año de nacimiento: Información no disponible`;
+      secondLi.textContent = `Año de nacimiento: Información no disponible`;
     } else {
-      cardInfo.childNodes[2].textContent = `Año de nacimiento: ${character.yearOfBirth}`;
+      thirdLi.textContent = `Año de nacimiento: ${character.yearOfBirth}`;
     }
 
     //por si el personaje no tiene patronus
     if (character.patronus === "") {
-      cardInfo.childNodes[3].textContent = `Patronus: Información no disponible`;
+      fourthLi.textContent = `Patronus: Información no disponible`;
     } else {
-      cardInfo.childNodes[3].textContent = `Patronus: ${patronusNameOnly(
-        character
-      )}`;
+      fourthLi.textContent = `Patronus: ${patronusNameOnly(character)}`;
     }
 
     /* //por si el personaje 1) no tiene varita, 2) solo tiene madera 3) tiene madera y núcleo
@@ -329,6 +346,8 @@ function showHouseMembers(houseMembers) {
       )} con núcleo de ${wandCore(character)}`;
     } */
 
+    //Card elements are attached accordingly
+    cardFront.appendChild(transparentCardTitle);
     cardFront.appendChild(cardImg);
     cardBack.appendChild(cardInfo);
     card.appendChild(cardFront);
@@ -476,6 +495,7 @@ function showPatronus() {
     <div class="card-box">
       <div class="card">
       <div class="card-front">
+        <p class="transparent-card-title">${patronusName}</p>
         <img src="${patronusImg}">
       </div>
       <div class="card-back">
