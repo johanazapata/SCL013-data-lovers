@@ -13,7 +13,7 @@ export default [
       wood: "Acebo",
       descripcion:
         "Las varitas de acebo trabajan muy feliz para aquellos que pueden necesitar ayuda para superar una tendencia a la ira y la impetuosidad.",
-      image: "",
+      image: "./Imagenes/varita.jpg",
     },
     core: {
       name: "Pluma de fénix",
@@ -47,7 +47,7 @@ export default [
       wood: "Vine",
       descripción:
         "Las varitas de vid se encuentran entre los tipos menos comunes, y sus dueños son casi siempre aquellas brujas o magos que buscan un propósito mayor. ",
-      image: "",
+      image: "./Imagenes/varitaHer.jpg",
     },
     core: {
       name: "Fibra de Corazón de Dragón",
@@ -82,7 +82,7 @@ export default [
       wood: "Sauce",
       descripcion:
         "El sauce es una madera de varita poco común con los poderes curativos, y su propietario ideal a menudo tiene cierta inseguridad, por mucho que intenten esconderla.",
-      image: "",
+      image: "./Imagenes/varitaron.jpg",
     },
     core: {
       name: "Cola de Unicornio",
@@ -115,7 +115,7 @@ export default [
       wood: "Espino",
       descripcion:
         "Las varitas de espino pueden ser particularmente adecuadas para los hechizos sanadores, pero también son expertas en maldiciones, ",
-      image: "",
+      image: "./Imagenes/varitadraco.jpg",
     },
     core: {
       name: "Cola de Unicornio",
@@ -144,7 +144,7 @@ export default [
       wood: "Abeto",
       descripcion:
         "Las varitas de abeto exigen poder de permanencia y fuerza de propósito en sus verdaderos dueños, y que son herramientas deficientes en manos de los cambiantes e indecisos.",
-      image: "",
+      image: "./Imagenes/varitaminer.jpg",
     },
     core: {
       name: "Fibra de Corazón de Dragon",
@@ -178,7 +178,7 @@ export default [
       wood: "Fresno",
       descripcion:
         "Las varitas de fresno se aferran a su verdadero maestro y no deben pasarse ni regalarse al propietario original, ya que perderán poder y habilidad.",
-      image: "",
+      image: "./Imagenes/varitacedric.jpg",
     },
     core: {
       name: "Crín de Unicornio",
@@ -234,7 +234,7 @@ export default [
       wood: "Pino Negro",
       descripcion:
         "Las varitas de pino siempre eligen un maestro individual e independiente que puede ser percibido como solitario, intrigante y tal vez misterioso.",
-      image: "",
+      image: "./Imagenes/varitaseverus.jpg",
     },
     core: {
       name: "Nervio de Corazón de Dragón",
@@ -266,8 +266,9 @@ export default [
     hairColour: "negro",
     wand: {
       wood: "Roble",
-      descripcion: "",
-      image: "",
+      descripcion:
+        "Las varitas de roble requieren socios de fuerza, coraje y fidelidad.",
+      image: "./Imagenes/varitahagrid.jpg",
     },
     patronus: "",
     hogwartsStudent: false,
@@ -290,7 +291,7 @@ export default [
       wood: "Cerezo",
       descripcion:
         "Esta varita se consideraba cara, posiblemente debido al tipo de madera de la cual estaba hecha",
-      image: "",
+      image: "./Imagenes/varitanevil.jpg",
     },
     core: {
       name: "Cola de Unicornio",
@@ -344,8 +345,9 @@ export default [
     hairColour: "rojo",
     wand: {
       wood: "Tejo",
-      descripcion: "",
-      image: "",
+      descripcion:
+        "Las varitas de tejo están entre las más raras, y sus compañeros ideales son igualmente inusuales y ocasionalmente notorios.",
+      image: "./Imagenes/varitaginny.jpg",
     },
     patronus: {
       name: "Caballo",
@@ -373,7 +375,7 @@ export default [
       wood: "Roble",
       descripcion:
         "Una varita mágica para los buenos y para los malos, este es un amigo tan leal como el mago que lo merece. ",
-      image: "",
+      image: "./Imagenes/varitasirius.jpg",
     },
     core: {
       name: "Fibra de Corazon de Dragón",
@@ -407,7 +409,7 @@ export default [
       wood: "Ciprés",
       descripcion:
         "Se dice que las varitas ciprés están bien adaptadas a los magos que se sacrifican y están dispuestos a morir como una muerte heroica.",
-      image: "",
+      image: "./Imagenes/varitaremus.jpg",
     },
     core: {
       name: "Pelo de Cola de Unicornio",
@@ -468,7 +470,7 @@ export default [
       wood: "Nogal",
       descripcion:
         ". Las varitas de nogal, una vez subyugadas, realizarán cualquier tarea que su propietario desee, siempre que el usuario tenga suficiente brillo.",
-      image: "",
+      image: "./Imagenes/varitabella.jpg",
     },
     core: {
       name: "Fibra de Corazón de Dragón",
@@ -497,7 +499,7 @@ export default [
       wood: "Tejo",
       descripcion:
         "La varita del tejo tiene fama de otorgar a su poseedor el poder de la vida y la muerte. Conserva una reputación oscura y temible en las esferas de los duelos",
-      image: "",
+      image: "./Imagenes/varitalord.jpg",
     },
     core: {
       name: "Pluma de Fénix",
@@ -526,7 +528,7 @@ export default [
       wood: "Cedro",
       descripcion:
         "La bruja o mago que está bien emparejado con el cedro tiene el potencial de ser un adversario aterrador, que a menudo sorprende a quienes los desafiaron sin pensar.",
-      image: "",
+      image: "./Imagenes/varitahora.jpg",
     },
     core: {
       name: "Fibra de Corazón de Dragon",
@@ -582,7 +584,7 @@ export default [
       wood: "Abedul",
       descripcion:
         "Aunque el propio Garrick Ollivander no lo usó, su asociado en la sucursal de Hogsmeade era conocido por vender varitas hechas de abedul.",
-      image: "",
+      image: "./Imagenes/varitadolores.jpg",
     },
     core: {
       name: "Fibra de Corazón de Dragon",
@@ -616,7 +618,7 @@ export default [
       wood: "Olmo",
       descripcion:
         "Las varitas de olmo prefieren dueños con presencia, destreza mágica y cierta dignidad nativa.",
-      image: "",
+      image: "./Imagenes/varitalucius.jpg",
     },
     core: {
       name: "Fibra de Corazón de Dragon",

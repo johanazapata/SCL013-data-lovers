@@ -34,7 +34,7 @@ alohomoraBtn.classList = "alohomora-button";
 alohomoraBtn.textContent = "Alohomora";
 alohomoraBtn.addEventListener("click", () => {
   clearContent(); //1. limpia pantalla de inicio que está en div#root
-  return Casas();
+  return Houses();
 });
 
 //agregando logo, h1 y botón al fragment
@@ -71,7 +71,7 @@ function createBasicStructure() {
       </header>
 
     <section id="general-section" class="dynamic-content">
-    
+
     
       <h1 class="section-title"></h1>
         <section class="inner-content">
@@ -131,6 +131,11 @@ function MenuPrincipal() {
     <input type="checkbox" id="check5"/>
     <label for="check5">PATRONUS</label>
      </div> 
+
+  <div class="item">
+    <input type="checkbox" id="check6"/>
+    <label for="check6">NOTICIAS</label>
+     </div> 
  
 `
   );
@@ -162,21 +167,28 @@ function MenuPrincipal() {
     return showHouseMembers(ravenclawMembers);
   });
 
-  //lleva a VARITAS, pero no despliega las opciones en el menú :P
+  //lleva a Varitas-Madera
   const wand = document.getElementById("check3");
   wand.addEventListener("click", (event) => {
     event.preventDefault();
     showWand();
   });
+  //lleva a Varitas-Núcleo
   const core = document.getElementById("check4");
   core.addEventListener("click", (event) => {
     event.preventDefault();
     showWandsCore();
   });
-
+  //lleva a Patronus
   const patronus = document.querySelector("#check5");
   patronus.addEventListener("click", () => {
     showPatronus();
+  });
+  //lleva a Datos Curiosos
+  const noticias = document.querySelector("#check6");
+  noticias.addEventListener("click", () => {
+    event.preventDefault();
+    noticiasHarry();
   });
 }
 
@@ -185,14 +197,13 @@ function MenuPrincipal() {
 ///////////////////////////////////////////////////////////////////////////////////////
 
 //0. FUNCIÓN PARA MOSTRAR LA PANTALLA DE LOS ESCUDOS
-function Casas() {
+function Houses() {
   createBasicStructure(); //2. crea una sola vez la estructura básica que se repite en cada pantalla (esta estructura se mantiene en el resto de las pantallas)
   MenuPrincipal(); //3. crea una sola vez la estructura del menú
 
   const sectionTitle = document.querySelector(".section-title");
   sectionTitle.classList += " titulo-dorado";
   sectionTitle.textContent = "CASAS";
-  /* document.createElement("HOLA COMO ESTAS HOY"); */
 
   document.querySelector(".inner-content").innerHTML = `
   
@@ -238,21 +249,40 @@ function showHouseMembers(houseMembers) {
   //MenuPrincipal(); //3. crea estructura del menú (provisorio)
   const innerContentSection = document.querySelector(".inner-content");
   const sectionTitle = document.querySelector(".section-title");
+  const welcomeMembers = document.createElement("parrafo");
+  welcomeMembers.classList = "parrafo";
+  welcomeMembers.textContent = "";
+  innerContentSection.appendChild(welcomeMembers);
 
   //4. modifica el color del título según la casa del primer miembro del grupo
   const firstHouseMember = houseMembers[0];
   if (firstHouseMember.house === "Gryffindor") {
     sectionTitle.classList = "section-title gryffindor-color";
     sectionTitle.textContent = "GRYFFINDOR";
+
+    welcomeMembers.textContent =
+      "Bienvenidos a Gryfindor , casa fundada por Grodic Gryffindor. Nuestros alummnos se caracterizan por su Valentia, Caballerosidad y Atrevimiento. El elemento de la casa es Fuego, los colores Rojo y Oro  y la reliquia es la Espada.";
+  } else if (houseMembers[0].house === "Hufflepuff") {
+    sectionTitle.classList = "section-title hufflepuff-color";
+    sectionTitle.textContent = "HUFFLEPUFF";
+    welcomeMembers.textContent =
+      "Bienvenidos a  Haufflepuff, casa fundada por Helga Hufflepuff. Nuestros alummnos son Leales, Justos y Trabajadores. El elemento de la casa es la Tierra, los colores Amarillo y Negro y el Tejón es el animal que nos representa.";
+  } else if (houseMembers[0].house === "Slytherin") {
+
   } else if (firstHouseMember.house === "Hufflepuff") {
     sectionTitle.classList = "section-title hufflepuff-color";
     sectionTitle.textContent = "HUFFLEPUFF";
   } else if (firstHouseMember.house === "Slytherin") {
+
     sectionTitle.classList = "section-title slytherin-color";
     sectionTitle.textContent = "SLYTHERIN";
+    welcomeMembers.textContent =
+      "Bienvenidos a Slyterin, fundada por Salazar Slytherin. La Ambición, Astucia y Determinación son las principales caracteriasticas de nuestro alumnos. El elemento de la casa es Agua, sus colores Verde y Palteado y el animal es una Serpiente.";
   } else {
     sectionTitle.classList = "section-title ravenclaw-color";
     sectionTitle.textContent = "RAVENCLAW";
+    welcomeMembers.textContent =
+      "Bienvenidos a  Revenclaw, fundada por Rowena Ravenclaw. Las caracteriasticas fundamentales de nuestros alumnos son: Inteligencia, Erudición y Creatividad. Nuestro elemento es el aire, Azul y Bronces los colores y el Águila el animal de la casa.";
   }
 
   //5. crea una tarjeta con información de cada personaje
@@ -373,8 +403,13 @@ function showWand() {
   sectionTitle.textContent = "MADERA";
   console.log(filterByWand(charactersData));
   const wandData = filterByWand(charactersData);
-  //filterByPatronus(charactersData)); = cada uno de los patronus patronus[0] = name y patronus[1] = patronus
+  //descripción de la página
   const innerContent = document.querySelector(".inner-content");
+  const welcomeWand = document.createElement("parrafo");
+  welcomeWand.classList = "parrafo";
+  welcomeWand.textContent =
+    "Una varita es un instrumento mágico casi sensible a través del cual una bruja o mago canaliza su poder mágico para centralizar los efectos para obtener resultados más complejos.";
+  innerContent.appendChild(welcomeWand);
 
   wandData.forEach((character) => {
     const wandOwner = character[0];
@@ -409,8 +444,13 @@ function showWandsCore() {
   sectionTitle.textContent = "NÚCLEO";
   console.log(filterByCore(charactersData));
   const coreData = filterByCore(charactersData);
-  //filterByPatronus(charactersData)); = cada uno de los patronus patronus[0] = name y patronus[1] = patronus
+  //filterByCore(charactersData));
   const innerContent = document.querySelector(".inner-content");
+  const welcomeCore = document.createElement("parrafo");
+  welcomeCore.classList = "parrafo";
+  welcomeCore.textContent =
+    "El núcleo de una varita es una sustancia mágica colocada dentro de la longitud de la madera, generalmente extraída de una criatura mágica.";
+  innerContent.appendChild(welcomeCore);
 
   coreData.forEach((character) => {
     const coreOwner = character[0];
@@ -448,6 +488,11 @@ function showPatronus() {
   const patronusData = filterByPatronus(charactersData);
   //filterByPatronus(charactersData)); = cada uno de los patronus patronus[0] = name y patronus[1] = patronus
   const innerContent = document.querySelector(".inner-content");
+  const welcomePatronus = document.createElement("parrafo");
+  welcomePatronus.classList = "parrafo";
+  welcomePatronus.textContent =
+    "Patronus, es un encantamiento utilizado para repeler a los Dementores. Debe ser conjurado mediante la pronunciación del encantamiento Expecto Patronum (del latín Expecto/Esperar y Patronum/Protector), el cual creará una barrera entre el mago y el Dementor.";
+  innerContent.appendChild(welcomePatronus);
 
   patronusData.forEach((character) => {
     const patronusOwner = character[0];
@@ -474,4 +519,22 @@ function showPatronus() {
   
   `;
   });
+}
+
+function noticiasHarry() {
+  createBasicStructure(); //2. crea una sola vez la estructura básica que se repite en cada pantalla (esta estructura se mantiene en el resto de las pantallas)
+  MenuPrincipal(); //3. crea una sola vez la estructura del menú
+
+  const sectionTitle = document.querySelector(".section-title");
+  sectionTitle.classList += " titulo-dorado";
+  sectionTitle.textContent = "NOTICIAS";
+
+  document.querySelector(".inner-content").innerHTML = `
+  
+  <div class="contenedor">
+  <h1>"Daniel Radcliffe se reencuentra con Harry Potter públicamente tras casi una década"</h1>
+    <video src = "./Imagenes/noticiasHarry.mp4">
+   
+  </div>
+`;
 }
