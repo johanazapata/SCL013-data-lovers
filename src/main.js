@@ -253,7 +253,7 @@ function showHouseMembers(houseMembers) {
     sectionTitle.classList = "section-title gryffindor-color";
     sectionTitle.textContent = "GRYFFINDOR";
     welcomeMembers.textContent =
-      "Bienvenidos a Gryfindor , casa fundada por Grodic Gryffindor. Nuestros alummnos se caracteriazan por su Valentia, Caballerosidad y Atrevimiento. El elemento de la casa es Fuego, los colores Rojo y Oro  y la reliquia es la Espada.";
+      "Bienvenidos a Gryfindor , casa fundada por Grodic Gryffindor. Nuestros alummnos se caracterizan por su Valentia, Caballerosidad y Atrevimiento. El elemento de la casa es Fuego, los colores Rojo y Oro  y la reliquia es la Espada.";
   } else if (houseMembers[0].house === "Hufflepuff") {
     sectionTitle.classList = "section-title hufflepuff-color";
     sectionTitle.textContent = "HUFFLEPUFF";
