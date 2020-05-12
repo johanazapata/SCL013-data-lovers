@@ -39,6 +39,11 @@ export function filterByWand(dataToFilter) {
   });
 
   return willHaveCard;
+
+}
+//Filtrar por el núcleo de la varita
+export function coreNameOnly(dataToFilter) {
+  return Object.entries(dataToFilter.core)[0][1];
 }
 
 

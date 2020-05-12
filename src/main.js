@@ -107,8 +107,7 @@ function MenuPrincipal() {
 <label for="checkbox__hack" class="checkbox-hack__label"></label>
 <nav class="nav--top">
 <ul class="menu-lateral nav--top__list">
-<ul>
-    <ul>
+
   <div class="item">
       <input type="checkbox" id="check2"/>
       <label for="check2" id="casas">CASAS</label>
@@ -119,13 +118,13 @@ function MenuPrincipal() {
       <li id="Ravenclaw"><a href="">Ravenclaw</a></li>
       </ul>
  </div>
-     <div class="item">
-      <input type="checkbox" id="check3"/>
-      <label for="check3">MADERA</label>
- </div>
  <div class="item">
-      <input type="checkbox" id="check4"/>
-      <label for="check4">NUCLEO</label>    
+      <input type="checkbox" id="check7"/>
+      <label for="check7">VARITAS</label>
+      <ul>
+      <li id="check3"><a href="">Madera</a></li>
+      <li id="check4"><a href="">Núcleo</a></li>
+       </ul>
  </div>
 <div class="item">
     <input type="checkbox" id="check5"/>
@@ -204,9 +203,8 @@ function Houses() {
   const sectionTitle = document.querySelector(".section-title");
   sectionTitle.classList += " titulo-dorado";
   sectionTitle.textContent = "CASAS";
-
   document.querySelector(".inner-content").innerHTML = `
-  
+
   <div class="grilla">
     <img src = "./Imagenes/House Gry.jpg" class="grid-item" id="EscudoGry">
     <img src = "./Imagenes/House Raven.jpg" class="grid-item" id="EscudoRaven">
@@ -249,10 +247,17 @@ function showHouseMembers(houseMembers) {
   //MenuPrincipal(); //3. crea estructura del menú (provisorio)
   const innerContentSection = document.querySelector(".inner-content");
   const sectionTitle = document.querySelector(".section-title");
+  //Bienvenida a cada Casa
   const welcomeMembers = document.createElement("parrafo");
   welcomeMembers.classList = "parrafo";
   welcomeMembers.textContent = "";
   innerContentSection.appendChild(welcomeMembers);
+
+  //Frase de Costado
+  const fraseMembers = document.createElement("p");
+  fraseMembers.classList = "p";
+  fraseMembers.textContent = "HOLA";
+  sectionTitle.appendChild(fraseMembers);
 
   //4. modifica el color del título según la casa del primer miembro del grupo
   const firstHouseMember = houseMembers[0];
@@ -261,19 +266,16 @@ function showHouseMembers(houseMembers) {
     sectionTitle.textContent = "GRYFFINDOR";
     welcomeMembers.textContent =
       "Bienvenidos a Gryfindor , casa fundada por Grodic Gryffindor. Nuestros alummnos se caracterizan por su Valentia, Caballerosidad y Atrevimiento. El elemento de la casa es Fuego, los colores Rojo y Oro  y la reliquia es la Espada.";
-
   } else if (firstHouseMember.house === "Hufflepuff") {
     sectionTitle.classList = "section-title hufflepuff-color";
     sectionTitle.textContent = "HUFFLEPUFF";
     welcomeMembers.textContent =
-      "Bienvenidos a  Hufflepuff, casa fundada por Helga Hufflepuff. Nuestros alummnos son Leales, Justos y Trabajadores. El elemento de la casa es la Tierra, los colores Amarillo y Negro y el Tejón es el animal que nos representa.";
-
+      "Bienvenidos a  Haufflepuff, casa fundada por Helga Hufflepuff. Nuestros alummnos son Leales, Justos y Trabajadores. El elemento de la casa es la Tierra, los colores Amarillo y Negro y el Tejón es el animal que nos representa.";
   } else if (firstHouseMember.house === "Slytherin") {
     sectionTitle.classList = "section-title slytherin-color";
     sectionTitle.textContent = "SLYTHERIN";
     welcomeMembers.textContent =
       "Bienvenidos a Slyterin, fundada por Salazar Slytherin. La Ambición, Astucia y Determinación son las principales caracteriasticas de nuestro alumnos. El elemento de la casa es Agua, sus colores Verde y Palteado y el animal es una Serpiente.";
-
   } else {
     sectionTitle.classList = "section-title ravenclaw-color";
     sectionTitle.textContent = "RAVENCLAW";
@@ -297,13 +299,12 @@ function showHouseMembers(houseMembers) {
     const cardFront = document.createElement("div");
     cardFront.classList = "card-front";
     const transparentCardTitle = document.createElement("p");
-    transparentCardTitle.classList = "transparent-card-title"
+    transparentCardTitle.classList = "transparent-card-title";
     const cardBack = document.createElement("div");
     cardBack.classList = "card-back";
     const cardTitle = document.createElement("h1");
     cardTitle.classList = "card-title";
     cardInfo.appendChild(cardTitle);
-    
 
     //Front
     transparentCardTitle.textContent = `${character.name}`;
@@ -314,7 +315,7 @@ function showHouseMembers(houseMembers) {
       cardInfo.appendChild(cardInfoLi);
     }
 
-    const nameTitle = cardInfo.childNodes[0]; 
+    const nameTitle = cardInfo.childNodes[0];
     const genderLi = cardInfo.childNodes[1];
     const yearOfBirthLi = cardInfo.childNodes[2];
     const patronusLi = cardInfo.childNodes[3];
@@ -338,6 +339,7 @@ function showHouseMembers(houseMembers) {
       patronusLi.textContent = `Patronus: ${patronusNameOnly(character)}`;
     }
 
+
     console.log(wandWood(character)[0][1]);
     //por si el personaje 1) no tiene varita, 2) solo tiene madera 3) tiene madera y núcleo
     /* if (wandWood(character) === "" && wandCore(character) === "") {
@@ -349,6 +351,7 @@ function showHouseMembers(houseMembers) {
         character
       )} con núcleo de ${wandCore(character)}`;
     }   */ 
+
 
     //Card elements are attached accordingly
     cardFront.appendChild(transparentCardTitle);
@@ -364,33 +367,6 @@ function showHouseMembers(houseMembers) {
   innerContentSection.appendChild(fragment); //8. el fragmento se pega a la pantalla (el DOM se actualiza una sola vez)
 }
 
-//2. FUNCIÓN PARA MOSTRAR LA PANTALLA DE VARITAS (opciones: Material - Núcleo)
-/* function showWands() {
-  clearInnerContent(); //se borra el contenido anterior que está en .inner-content
-
-  const sectionTitle = document.querySelector(".section-title");
-  sectionTitle.classList = "section-title titulo-dorado";
-  sectionTitle.textContent = "VARITAS";
-
-  document.querySelector(".inner-content").innerHTML = `
-  <div class="card-box">
-    
-    <div class="card">    
-       <h5 class="material-card-title">MATERIAL</h5>
-    </div>
-  </div>
-
-  <div class="card-box">
-    
-    <div class="card">
-       <h5 class="core-card-title">NÚCLEO</h5>
-    </div>
-  </div>
-
-  
-  `;
-}
- */
 //3. FUNCIÓN PARA MOSTRAR LA PANTALLA DE VARITAS > MATERIAL
 function showWand() {
   clearInnerContent(); //se borra el contenido anterior que está en .inner-content
@@ -399,7 +375,7 @@ function showWand() {
   sectionTitle.textContent = "MADERA";
   console.log(filterByWand(charactersData));
   const wandData = filterByWand(charactersData);
-  //descripción de la página
+  //Bienvenida Pantalla Núcleo
   const innerContent = document.querySelector(".inner-content");
   const welcomeWand = document.createElement("parrafo");
   welcomeWand.classList = "parrafo";
@@ -442,6 +418,7 @@ function showWandsCore() {
   const coreData = filterByCore(charactersData);
   //filterByCore(charactersData));
   const innerContent = document.querySelector(".inner-content");
+  //Bienvenida Pantalla Núcleo
   const welcomeCore = document.createElement("parrafo");
   welcomeCore.classList = "parrafo";
   welcomeCore.textContent =
@@ -484,6 +461,7 @@ function showPatronus() {
   const patronusData = filterByPatronus(charactersData);
   //filterByPatronus(charactersData)); = cada uno de los patronus patronus[0] = name y patronus[1] = patronus
   const innerContent = document.querySelector(".inner-content");
+  //Bienvenida a la sección de Patronus
   const welcomePatronus = document.createElement("parrafo");
   welcomePatronus.classList = "parrafo";
   welcomePatronus.textContent =
