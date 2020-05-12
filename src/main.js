@@ -251,13 +251,13 @@ function showHouseMembers(houseMembers) {
   const welcomeMembers = document.createElement("parrafo");
   welcomeMembers.classList = "parrafo";
   welcomeMembers.textContent = "";
-  innerContentSection.appendChild(welcomeMembers);
+  innerContentSection.appendChild(welcomeMembers); 
 
   //Frase de Costado
-  const fraseMembers = document.createElement("p");
+/*   const fraseMembers = document.createElement("p");
   fraseMembers.classList = "p";
   fraseMembers.textContent = "HOLA";
-  sectionTitle.appendChild(fraseMembers);
+  sectionTitle.appendChild(fraseMembers); */
 
   //4. modifica el color del título según la casa del primer miembro del grupo
   const firstHouseMember = houseMembers[0];
@@ -265,7 +265,7 @@ function showHouseMembers(houseMembers) {
     sectionTitle.classList = "section-title gryffindor-color";
     sectionTitle.textContent = "GRYFFINDOR";
     welcomeMembers.textContent =
-      "Bienvenidos a Gryfindor , casa fundada por Grodic Gryffindor. Nuestros alummnos se caracterizan por su Valentia, Caballerosidad y Atrevimiento. El elemento de la casa es Fuego, los colores Rojo y Oro  y la reliquia es la Espada.";
+      "Bienvenidos a Gryfindor , casa fundada por Godric Gryffindor. Nuestros alummnos se caracterizan por su Valentia, Caballerosidad y Atrevimiento. El elemento de la casa es Fuego, los colores Rojo y Oro  y la reliquia es la Espada.";
   } else if (firstHouseMember.house === "Hufflepuff") {
     sectionTitle.classList = "section-title hufflepuff-color";
     sectionTitle.textContent = "HUFFLEPUFF";
@@ -392,6 +392,7 @@ function showWand() {
     <div class="card-box">
       <div class="card">
       <div class="card-front">
+        <p class="transparent-card-title wand-card-title">${wandName}</p>
         <img src="${wandImg}">
       </div>
       <div class="card-back">
@@ -434,6 +435,7 @@ function showWandsCore() {
     <div class="card-box">
       <div class="card">
       <div class="card-front">
+        <p class="transparent-card-title">${coreName}</p>
         <img src="${coreImg}">
       </div>
       <div class="card-back">

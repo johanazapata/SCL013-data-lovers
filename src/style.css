@@ -26,6 +26,7 @@ body {
   grid-template-columns: 10% 1fr 10%;
   grid-template-rows: 20% 75%;
   height: 100vh;
+  font-size: 2rem;
 }
 
 #root {
@@ -41,6 +42,7 @@ nav {
   display: flex;
   flex-direction: column;
   margin-top: 2rem;
+  margin-left: -8rem;
 }
 
 /*PANTALLA DE INICIO*/
@@ -113,8 +115,9 @@ header {
   text-align: center;
   font-size: 3rem;
   width: 100%;
+  
 
-  /* margin-top: -5rem; */
+  margin-top: 5rem; 
   /*color de borde cambia según sección*/
 }
 
@@ -126,6 +129,7 @@ header {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
+  font-size: 2rem;
 }
 
 /*Colores de borde superior e inferior de título según sección*/
@@ -171,7 +175,7 @@ header {
 }
 
 .card {
-  width: 23vw;
+  width: 18vw;
   height: 120%;
   /* background-color: #272828; */
   position: relative;
@@ -206,7 +210,7 @@ header {
   height: 7vh;
   display: inline-block;
   position: absolute;
-  top: 24rem;
+  top: 20rem;
   color: #2c2a2a;
   font-size: large;
   text-transform: uppercase;
@@ -214,6 +218,12 @@ header {
   padding-top: 1rem;
   font-weight: 900;
 }
+
+.wand-card-title {
+  background-color: #2c2a2a;
+  color: #f7f0e9;
+}
+
 .card-back {
   position: absolute;
   top: 0;
@@ -248,6 +258,7 @@ header {
   text-transform: uppercase;
   text-align: center;
   font-size: x-large;
+  margin-top: -3rem;
 }
 
 /*Código Menú nuevo*/
@@ -375,34 +386,39 @@ nav ul {
   max-height: 400px;
   transform: all;
 }
+
+
+/*Sección Casas*/
+.grilla {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  text-align: center;
+  height: 60vh;
+}
+
+.grilla > img {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  margin-bottom: 2rem;
+  cursor: pointer;
+}
+
+
+
+
+/*PANTALLA DE VARITAS*/
+
+/*//////////////////////////////////////*/
+/*MEDIA QUERIES - TABLET, MOBILE*/
+
 @media screen and (min-width: 500px) {
   .nav--top__list {
     float: none;
     width: 100%;
   }
 }
-
-/*Sección Casas*/
-.grilla {
-  display: inline-flex;
-  text-align: center;
-  width: 25% 25% 25% 25%;
-  grid-column-start: 1;
-  grid-column-end: 4;
-  height: 60vh;
-}
-
-.grilla:first-child,
-.grilla:nth-child(2),
-.grilla:nth-child(3),
-.grilla:last-child {
-  cursor: pointer;
-}
-
-/*PANTALLA DE VARITAS*/
-
-/*//////////////////////////////////////*/
-/*MEDIA QUERIES - TABLET, MOBILE*/
 
 /*TABLET - 2 columnas */
 
@@ -441,9 +457,14 @@ nav ul {
     margin-top: 0;
   }
 
-  /*1. Pantallas de miembros de cada casa*/
+  /*1. Pantalla de los escudos */
+  .grilla {
+    grid-template-columns: 50% 50%;
+  }
+
+  /*2. Pantallas de miembros de cada casa*/
   .card-box {
-    width: 30vw;
+    width: 25vw;
   }
 
   .card {
@@ -457,6 +478,10 @@ nav ul {
 
 /*MOBILE - 1 columna */
 @media screen and (max-width: 425px) {
+  .nav--top__list {
+    margin-left: -6rem;
+  }
+
   /*Pantalla de inicio*/
 
   .img-box {
@@ -491,6 +516,7 @@ nav ul {
 
   .section-title {
     font-size: 2rem;
+    margin-top: 2rem;
   }
 
   .small-logo-box {
@@ -501,9 +527,38 @@ nav ul {
     margin-top: 0;
   }
 
-  /*1. Pantallas de miembros de cada casa*/
+  /*1. Pantalla de escudos */
+  .grilla {
+    grid-template-columns: 100%;
+  }
+
+  /*2. Pantallas de miembros de cada casa*/
   .card-box {
-    width: 80vw;
+    width: 50vw;
+  }
+
+  .card {
+    width: 100%;
+  }
+
+  ul {
+    font-size: inherit;
+  }
+
+}
+
+
+
+
+
+@media screen and (max-width: 320px) {
+  .nav--top__list {
+    margin-left: -5rem;
+  }
+
+  /*2. Pantallas de miembros de cada casa*/
+  .card-box {
+    width: 60vw;
   }
 
   .card {
@@ -518,3 +573,4 @@ nav ul {
 #toggle {
   display: none;
 }
+
