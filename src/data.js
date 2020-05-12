@@ -8,36 +8,39 @@ export function filterByHouse(dataToFilter, condition) {
   return membersByHouse;
 }
 
-/* export function wandWood(dataToFilter) {
-  return Object.entries(dataToFilter.wand)[1][1];
-} */
+//funciones para conocer la madera y el núcleo de cada varita (se interpola en un condicional con opciones "Información no disponible" o mostrar info)
+ export function wandWood(characterToFilter) {
+   return Object.entries(characterToFilter.wand);
 
-/* export function wandCore(dataToFilter) {
-  return Object.entries(dataToFilter.wand)[1][1];
-} */
+} 
 
-//Filtrar por el material/madera de la varita
-export function wandNameOnly(dataToFilter) {
-  return Object.entries(dataToFilter.wand)[0][1];
-}
+//return Object.entries(character.wand)[0][1];
+
+export function wandCore(characterToFilter) {
+  return Object.entries(characterToFilter.core);
+} 
+
 
 export function filterByWand(dataToFilter) {
   const hasWand = dataToFilter.filter((character) => character.wand);
   const wandAndInfo = hasWand.map((character) => {
-    const wand = Object.entries(character.wand)[0][1];
+    const wood = Object.entries(character.wand)[0][1];
     const owner = character.name;
     const image = Object.entries(character.wand)[2][1];
     const description = Object.entries(character.wand)[1][1];
-    const allWand = [owner, wand, description, image];
+    const allWand = [owner, wood, description, image];
     return allWand;
   });
 
-  return wandAndInfo;
+  const willHaveCard = wandAndInfo.filter(wand => {
+    if (wand[1] != "") {
+      return wand;
+    }
+  });
+
+  return willHaveCard;
 }
-//Filtrar por el núcleo de la varita
-export function coreNameOnly(dataToFilter) {
-  return Object.entries(dataToFilter.core)[0][1];
-}
+
 
 export function filterByCore(dataToFilter) {
   const hasCore = dataToFilter.filter((character) => character.core);
