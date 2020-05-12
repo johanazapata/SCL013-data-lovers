@@ -6,8 +6,8 @@ import { filterByPatronus } from "./data.js";
 import { filterByWand } from "./data.js";
 import { filterByCore } from "./data.js";
 import { patronusNameOnly } from "./data.js";
-import { wandCore } from "./data.js";
-import { wandWood } from "./data.js";  
+/* import { wandCore } from "./data.js";
+import { wandWood } from "./data.js";   */
 
 //PANTALLA DE INICIO
 const root = document.getElementById("root");
@@ -61,14 +61,16 @@ let clearInnerContent;
 //2. Generar "marco" o estructura básica que se repite en todas las páginas (título entre líneas, contenedor para ingresar el contenido dinámico, como personajes, varitas, patronus)
 function createBasicStructure() {
   document.body.innerHTML = `
+  <section class="header">
     <nav id="navbar"></nav>
     <header>
         
-  <div class="small-logo-box">
+        <div class="small-logo-box">
          <img src="./Imagenes/wizards-unite-logo.png" alt="logo-small">
         </div>     
         
       </header>
+  </section>
 
     <section id="general-section" class="dynamic-content">
 
@@ -340,7 +342,7 @@ function showHouseMembers(houseMembers) {
     }
 
 
-    console.log(wandWood(character)[0][1]);
+    //console.log(wandWood(character)[0][1]);
     //por si el personaje 1) no tiene varita, 2) solo tiene madera 3) tiene madera y núcleo
     /* if (wandWood(character) === "" && wandCore(character) === "") {
       cardInfo.childNodes[4].textContent = `Varita: Información no disponible`;
