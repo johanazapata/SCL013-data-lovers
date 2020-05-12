@@ -270,7 +270,11 @@ function showHouseMembers(houseMembers) {
     sectionTitle.classList = "section-title hufflepuff-color";
     sectionTitle.textContent = "HUFFLEPUFF";
     welcomeMembers.textContent =
-      "Bienvenidos a  Hufflepuff, casa fundada por Helga Hufflepuff. Nuestros alummnos son Leales, Justos y Trabajadores. El elemento de la casa es la Tierra, los colores Amarillo y Negro y el Tejón es el animal que nos representa.";
+      "Bienvenidos a  Haufflepuff, casa fundada por Helga Hufflepuff. Nuestros alummnos son Leales, Justos y Trabajadores. El elemento de la casa es la Tierra, los colores Amarillo y Negro y el Tejón es el animal que nos representa.";
+  } else if (houseMembers[0].house === "Slytherin") {
+  } else if (firstHouseMember.house === "Hufflepuff") {
+    sectionTitle.classList = "section-title hufflepuff-color";
+    sectionTitle.textContent = "HUFFLEPUFF";
   } else if (firstHouseMember.house === "Slytherin") {
     sectionTitle.classList = "section-title slytherin-color";
     sectionTitle.textContent = "SLYTHERIN";
@@ -316,28 +320,27 @@ function showHouseMembers(houseMembers) {
     }
 
     const nameTitle = cardInfo.childNodes[0];
-    const firstLi = cardInfo.childNodes[1];
-    const secondLi = cardInfo.childNodes[2];
-    const thirdLi = cardInfo.childNodes[2];
-    const fourthLi = cardInfo.childNodes[3];
+    const genderLi = cardInfo.childNodes[1];
+    const yearOfBirthLi = cardInfo.childNodes[2];
+    const patronusLi = cardInfo.childNodes[3];
 
     //cardTitle es el título donde va el nombre del personaje
     nameTitle.textContent = `${character.name}`;
     //cardInfo equivale a la lista, childNodes[x] a cada elemento
-    firstLi.textContent = `Género: ${character.gender}`;
+    genderLi.textContent = `Género: ${character.gender}`;
 
     //por si el personaje no tiene año de nacimiento
     if (character.yearOfBirth === "") {
-      secondLi.textContent = `Año de nacimiento: Información no disponible`;
+      yearOfBirthLi.textContent = `Año de nacimiento: Información no disponible`;
     } else {
-      thirdLi.textContent = `Año de nacimiento: ${character.yearOfBirth}`;
+      yearOfBirthLi.textContent = `Año de nacimiento: ${character.yearOfBirth}`;
     }
 
     //por si el personaje no tiene patronus
     if (character.patronus === "") {
-      fourthLi.textContent = `Patronus: Información no disponible`;
+      patronusLi.textContent = `Patronus: Información no disponible`;
     } else {
-      fourthLi.textContent = `Patronus: ${patronusNameOnly(character)}`;
+      patronusLi.textContent = `Patronus: ${patronusNameOnly(character)}`;
     }
 
     //Card elements are attached accordingly
