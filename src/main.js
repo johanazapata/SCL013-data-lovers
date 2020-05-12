@@ -6,8 +6,8 @@ import { filterByPatronus } from "./data.js";
 import { filterByWand } from "./data.js";
 import { filterByCore } from "./data.js";
 import { patronusNameOnly } from "./data.js";
-/* import { coreNameOnly } from "./data.js";
-import { wandNameOnly } from "./data.js"; */
+import { wandCore } from "./data.js";
+import { wandWood } from "./data.js";  
 
 //PANTALLA DE INICIO
 const root = document.getElementById("root");
@@ -85,7 +85,7 @@ function createBasicStructure() {
   const logoBox = document.querySelector(".small-logo-box");
   logoBox.addEventListener("click", (event) => {
     event.preventDefault();
-    Casas();
+    Houses();
   });
   //función que permite borrar el contenido dinámico que se coloca en .inner-content
   clearInnerContent = function () {
@@ -271,10 +271,6 @@ function showHouseMembers(houseMembers) {
     sectionTitle.textContent = "HUFFLEPUFF";
     welcomeMembers.textContent =
       "Bienvenidos a  Haufflepuff, casa fundada por Helga Hufflepuff. Nuestros alummnos son Leales, Justos y Trabajadores. El elemento de la casa es la Tierra, los colores Amarillo y Negro y el Tejón es el animal que nos representa.";
-  } else if (houseMembers[0].house === "Slytherin") {
-  } else if (firstHouseMember.house === "Hufflepuff") {
-    sectionTitle.classList = "section-title hufflepuff-color";
-    sectionTitle.textContent = "HUFFLEPUFF";
   } else if (firstHouseMember.house === "Slytherin") {
     sectionTitle.classList = "section-title slytherin-color";
     sectionTitle.textContent = "SLYTHERIN";
@@ -342,6 +338,20 @@ function showHouseMembers(houseMembers) {
     } else {
       patronusLi.textContent = `Patronus: ${patronusNameOnly(character)}`;
     }
+
+
+    console.log(wandWood(character)[0][1]);
+    //por si el personaje 1) no tiene varita, 2) solo tiene madera 3) tiene madera y núcleo
+    /* if (wandWood(character) === "" && wandCore(character) === "") {
+      cardInfo.childNodes[4].textContent = `Varita: Información no disponible`;
+    } else if (wandWood(character) && wandCore(character) === "") {
+      cardInfo.childNodes[4].textContent = `Varita: ${wandWood(character)}`;
+    } else {
+      cardInfo.childNodes[4].textContent = `Varita: ${wandWood(
+        character
+      )} con núcleo de ${wandCore(character)}`;
+    }   */ 
+
 
     //Card elements are attached accordingly
     cardFront.appendChild(transparentCardTitle);
