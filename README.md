@@ -18,7 +18,12 @@ En ""Harry Potter: Wizards Unite" conocera todo acerca de:
 
 Esta app esta dirigida a personas que conocen el personaje "Harry Potter", los libros y peliculas pero no esta familiarizado con el juego de realidad aumentada "Harry Potter: Wizards Unite".
 
-# 3. Historias de Usuario
+# 3. Elección de Colores y Letras
+
+En relación a colores, elegimos una gama de colores neutrales, si bien nuestro publico objetivo abarca un amplio rango de edad quisimos matener una paleta clara y de colores planos.
+Luego de revisar la pagina oficial de "Wisard United" quisimos tomar como referencia de diseño la sección "Estatutos del Secreto Fuerzas Especiales", mantuvimos la esencia en los colores y letras con el objetivo de que se mostrara como un complemento de "Wisard United".
+
+# 4. Historias de Usuario
 
 HISTORIA 1 : Crear una pagina inicial con botón de ingreso llamado "Alohomora"
 
@@ -34,13 +39,13 @@ HISTORIA 6 : Crar una sección llamada "Patronus", en ella se detallara los patr
 
 HISTORIA 7 : Crar una sección llamada "Noticias", en la cual se encontrara información publicada por el diario El Profeta.
 
-# 4. Planificación de Proyecto
+# 5. Planificación de Proyecto
 
 Iniciamos la planificación del proyecto creando las historias de usuario, delimitamos tareas diarias a realizar y a medida que las finalizabamos avanzamos a las siguientes
 
 ![PLANIFICACION](./src/Imagenes/PlanificacionTrello.jpg)
 
-# 5. Prototipos
+# 6. Prototipos
 
 - Baja Fidelidad Desktop
 
@@ -51,7 +56,7 @@ Nuestro prototipo de baja fidelidad partio de las bases establecidas en el proye
 
 - Alta Fidelidad Desktop
 
-El prototipo de de Alta Fidelidad fue mutando un poco de acuerdo al feedback obtenido en los primeros test. Luego de revisar la pagina oficial de "Wisard United" quisimos tomar como referencia de diseño la sección "Estatutos del Secreto Fuerzas Especiales", mantuvimos la esencia en los colores y letras con el objetivo de que se mostrara como un complemento de "Wisard United".
+El prototipo de de Alta Fidelidad fue mutando un poco de acuerdo al feedback obtenido en los primeros test.
 
 ![PROTOTIPO ALTA 1](./src/Imagenes/Pro1.jpg)
 ![PROTOTIPO ALTA 2](./src/Imagenes/Pro2.jpg)
@@ -69,7 +74,7 @@ El prototipo de de Alta Fidelidad fue mutando un poco de acuerdo al feedback obt
 
 Para detallar los avances de nuestro prototipo revisar <A HREF="https://www.figma.com/proto/ZRcPkq8uFijjGaQK1YJ0sw/Pantalla-de-inicio?node-id=23%3A169&scaling=scale-down"> AQUI </A>.
 
-# 5. Test de Usabilidad: Pimeros Testimonios
+# 7. Test de Usabilidad: Pimeros Testimonios
 
 Testeamos nuestro prototipo inicial de Alta Fidelidad en un total de 8 personas via whatsapp, la intención era conocer sus impresiones y sugerencias acerca de nuestra app.
 
@@ -99,7 +104,7 @@ Estas fueron algunas de las respuestas obtenidas durante este proceso:
 - Tipo de usuario: Conoce el juego Wizard’s Unite pero no lo ha jugado, le gusta Harry Potter, ha leido los libros y visto las peliculas.
 - Feedback: indico que la imagen inicial tardaba mucho en cargar. Sugirio entregar algún tipo de dirección al usuario menos intuitivo para que se le haga mas facil navegar por la app, ademas de agregar una sección de tips.
 
-# 5. Test de Usabilidad: Testimonios Versión Final
+# 8. Test de Usabilidad: Testimonios Versión Final
 
 Enviamos a través de whatsapp el link de GitHub Pages y a mediante una nota de voz pusimos en contexto a los usuarios, el objetivo era la interacción con la versión final de nuestra pagina y conocer sus opiones y sugerencias
 
