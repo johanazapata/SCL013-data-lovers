@@ -45,6 +45,7 @@ function createBasicStructure() {
   const logoBox = document.querySelector(".small-logo-box");
   logoBox.addEventListener("click", (event) => {
     event.preventDefault();
+    window.scrollTo(0,0);
     houses();
   });
   //función que permite borrar el contenido dinámico que se coloca en .inner-content
@@ -124,6 +125,7 @@ function mainMenu() {
   Gryffindor.addEventListener("click", (event) => {
     let gryffindorMembers = filterByHouse(charactersData, "Gryffindor");
     event.preventDefault();
+    window.scrollTo(0, 0);
     return showHouseMembers(gryffindorMembers);
   });
 
@@ -131,12 +133,14 @@ function mainMenu() {
   Slytherin.addEventListener("click", () => {
     let slytherinMembers = filterByHouse(charactersData, "Slytherin");
     event.preventDefault();
+    window.scrollTo(0, 0);
     return showHouseMembers(slytherinMembers);
   });
   const Hufflepuff = document.getElementById("Hufflepuff");
   Hufflepuff.addEventListener("click", () => {
     let hufflepuffMembers = filterByHouse(charactersData, "Hufflepuff");
     event.preventDefault();
+    window.scrollTo(0, 0);
     return showHouseMembers(hufflepuffMembers);
   });
 
@@ -144,6 +148,7 @@ function mainMenu() {
   Ravenclaw.addEventListener("click", () => {
     let ravenclawMembers = filterByHouse(charactersData, "Ravenclaw");
     event.preventDefault();
+    window.scrollTo(0, 0);
     return showHouseMembers(ravenclawMembers);
   });
 
@@ -151,23 +156,27 @@ function mainMenu() {
   const wand = document.getElementById("check3");
   wand.addEventListener("click", (event) => {
     event.preventDefault();
+    window.scrollTo(0, 0);
     showWood();
   });
   //Lleva a Varitas-Núcleo
   const core = document.getElementById("check4");
   core.addEventListener("click", (event) => {
     event.preventDefault();
+    window.scrollTo(0, 0);
     showCore();
   });
   //Lleva a Patronus
   const patronus = document.querySelector("#check5");
   patronus.addEventListener("click", () => {
+    window.scrollTo(0, 0);
     showPatronus();
   });
   //Lleva a Noticias
   const noticias = document.querySelector("#check6");
   noticias.addEventListener("click", () => {
     event.preventDefault();
+    window.scrollTo(0, 0);
     noticiasHarry();
   });
 }
