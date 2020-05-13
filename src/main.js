@@ -6,8 +6,8 @@ import { filterByPatronus } from "./data.js";
 import { filterByWand } from "./data.js";
 import { filterByCore } from "./data.js";
 import { patronusNameOnly } from "./data.js";
-import { wandCore } from "./data.js";
-import { wandWood } from "./data.js";
+/* import { wandCore } from "./data.js";
+import { wandWood } from "./data.js";   */
 
 //PANTALLA DE INICIO
 const root = document.getElementById("root");
@@ -61,14 +61,16 @@ let clearInnerContent;
 //2. Generar "marco" o estructura básica que se repite en todas las páginas (título entre líneas, contenedor para ingresar el contenido dinámico, como personajes, varitas, patronus)
 function createBasicStructure() {
   document.body.innerHTML = `
+  <section class="header">
     <nav id="navbar"></nav>
     <header>
         
-  <div class="small-logo-box">
+        <div class="small-logo-box">
          <img src="./Imagenes/wizards-unite-logo.png" alt="logo-small">
         </div>     
         
       </header>
+  </section>
 
     <section id="general-section" class="dynamic-content">
 
@@ -252,6 +254,7 @@ function Houses() {
 function showHouseMembers(houseMembers) {
   clearInnerContent(); //se borra el contenido anterior que está en .inner-content
   //MenuPrincipal(); //3. crea estructura del menú (provisorio)
+
   const innerContentSection = document.querySelector(".inner-content");
   const sectionTitle = document.querySelector(".section-title");
   //Bienvenida a cada Casa
@@ -261,10 +264,11 @@ function showHouseMembers(houseMembers) {
   innerContentSection.appendChild(welcomeMembers);
 
   //Frase de Costado
-  const fraseMembers = document.createElement("p");
+  /*   const fraseMembers = document.createElement("p");
   fraseMembers.classList = "p";
   fraseMembers.textContent = "HOLA";
-  root.appendChild(fraseMembers);
+
+  sectionTitle.appendChild(fraseMembers); */
 
   //4. modifica el color del título según la casa del primer miembro del grupo
   const firstHouseMember = houseMembers[0];
@@ -272,7 +276,7 @@ function showHouseMembers(houseMembers) {
     sectionTitle.classList = "section-title gryffindor-color";
     sectionTitle.textContent = "GRYFFINDOR";
     welcomeMembers.textContent =
-      "Bienvenidos a Gryfindor , casa fundada por Grodic Gryffindor. Nuestros alummnos se caracterizan por su Valentia, Caballerosidad y Atrevimiento. El elemento de la casa es Fuego, los colores Rojo y Oro  y la reliquia es la Espada.";
+      "Bienvenidos a Gryfindor , casa fundada por Godric Gryffindor. Nuestros alummnos se caracterizan por su Valentia, Caballerosidad y Atrevimiento. El elemento de la casa es Fuego, los colores Rojo y Oro  y la reliquia es la Espada.";
   } else if (firstHouseMember.house === "Hufflepuff") {
     sectionTitle.classList = "section-title hufflepuff-color";
     sectionTitle.textContent = "HUFFLEPUFF";
@@ -346,7 +350,7 @@ function showHouseMembers(houseMembers) {
       patronusLi.textContent = `Patronus: ${patronusNameOnly(character)}`;
     }
 
-    console.log(wandWood(character)[0][1]);
+    //console.log(wandWood(character)[0][1]);
     //por si el personaje 1) no tiene varita, 2) solo tiene madera 3) tiene madera y núcleo
     /* if (wandWood(character) === "" && wandCore(character) === "") {
       cardInfo.childNodes[4].textContent = `Varita: Información no disponible`;
@@ -397,6 +401,7 @@ function showWand() {
     <div class="card-box">
       <div class="card">
       <div class="card-front">
+        <p class="transparent-card-title wand-card-title">${wandName}</p>
         <img src="${wandImg}">
       </div>
       <div class="card-back">
@@ -439,6 +444,7 @@ function showWandsCore() {
     <div class="card-box">
       <div class="card">
       <div class="card-front">
+        <p class="transparent-card-title">${coreName}</p>
         <img src="${coreImg}">
       </div>
       <div class="card-back">
