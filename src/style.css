@@ -317,7 +317,7 @@ header {
 }
 
 .checkbox__hack {
-  display: inline;
+  display: none;
 }
 
 .checkbox__hack:checked ~ .nav--top {
