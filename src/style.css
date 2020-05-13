@@ -332,7 +332,7 @@ header {
   top: 0;
   left: 0;
   z-index: 100;
-  width: 15vw;
+  width: 5vw;
   height: 14vh;
   color: white;
   overflow: visible;
@@ -448,6 +448,11 @@ nav ul {
 /*TABLET - 2 columnas */
 
 @media screen and (max-width: 768px) {
+
+  .checkbox-hack__label {
+    width: 15vw;
+    height: 14vh;
+  }
   /*Pantalla de inicio*/
   .titulo-inicio {
     font-family: "Oswald", sans-serif;
