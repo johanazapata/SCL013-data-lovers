@@ -207,6 +207,7 @@ header {
   backface-visibility: hidden;
   overflow: hidden;
   border-radius: 15px;
+  z-index: 0;
 }
 
 .card-front > img {
@@ -228,6 +229,7 @@ header {
   text-align: center;
   padding-top: 1rem;
   font-weight: 900;
+  z-index: 1;
 }
 
 .wand-card-title {
@@ -473,6 +475,10 @@ nav ul {
     font-size: 3rem;
   }
 
+  .parrafo {
+    font-size: 2rem;
+  }
+
   .dynamic-content {
     margin-top: 0;
   }
@@ -561,6 +567,10 @@ nav ul {
   .section-title {
     font-size: 2rem;
     margin-top: 2rem;
+  }
+
+  .parrafo {
+    font-size: 1.5rem;
   }
 
   .small-logo-box {
