@@ -247,6 +247,7 @@ function Houses() {
 function showHouseMembers(houseMembers) {
   clearInnerContent(); //se borra el contenido anterior que está en .inner-content
   //MenuPrincipal(); //3. crea estructura del menú (provisorio)
+  
   const innerContentSection = document.querySelector(".inner-content");
   const sectionTitle = document.querySelector(".section-title");
   //Bienvenida a cada Casa
