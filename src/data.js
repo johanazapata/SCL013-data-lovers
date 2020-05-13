@@ -30,6 +30,36 @@ export function filterByWand(dataToFilter) {
 
 }
 
+export function filterByCore(dataToFilter) {
+  const hasCore = dataToFilter.filter((character) => character.core);
+  const coreAndInfo = hasCore.map((character) => {
+    const core = Object.entries(character.core)[0][1];
+    const owner = character.name;
+    const image = Object.entries(character.core)[2][1];
+    const description = Object.entries(character.core)[1][1];
+    const allCore = [owner, core, description, image];
+    return allCore;
+  });
+
+  const willHaveCard = coreAndInfo.filter(core => {
+    if (core[1] != "") {
+      return core;
+    }
+  });
+
+  return willHaveCard;
+}
+
+
+
+
+
+
+
+
+
+
+
 //Por si el personaje 1) no tiene varita, 2) solo tiene madera 3) tiene madera y núcleo
 export function whoHasWandInfo(character) {
   let wandWood = Object.entries(character.wand)[0][1];
@@ -48,19 +78,7 @@ export function whoHasWandInfo(character) {
 
 
 
-export function filterByCore(dataToFilter) {
-  const hasCore = dataToFilter.filter((character) => character.core);
-  const coreAndInfo = hasCore.map((character) => {
-    const core = Object.entries(character.core)[0][1];
-    const owner = character.name;
-    const image = Object.entries(character.core)[2][1];
-    const description = Object.entries(character.core)[1][1];
-    const allCore = [owner, core, description, image];
-    return allCore;
-  });
 
-  return coreAndInfo;
-}
 
 //Filtrar por el patronus. El resultado es un array con muchos array [nombre, patronus, descripción] - onlyPatronus(character); (después de un forEach)
 export function showPatronusNameOnly(dataToFilter) {
