@@ -255,7 +255,7 @@ header {
   font-size: 2rem;
   padding-left: 2rem;
   padding-right: 2rem;
-  padding-top: 4rem;
+  padding-top: 5rem;
   /* text-align: center; */
   font-size: small;
 }
@@ -293,7 +293,6 @@ header {
 .nav--top:after {
   content: "☰";
   font-size: 2em;
-  width: 1em;
   line-height: 1;
   text-align: center;
   position: absolute;
@@ -332,8 +331,8 @@ header {
   top: 0;
   left: 0;
   z-index: 100;
-  width: 100%;
-  height: 52.8px;
+  width: 5vw;
+  height: 14vh;
   color: white;
   overflow: visible;
   cursor: pointer;
@@ -453,6 +452,11 @@ nav ul {
 /*TABLET - 2 columnas */
 
 @media screen and (max-width: 768px) {
+
+  .checkbox-hack__label {
+    width: 15vw;
+    height: 14vh;
+  }
   /*Pantalla de inicio*/
   .titulo-inicio {
     font-family: "Oswald", sans-serif;
@@ -507,6 +511,10 @@ nav ul {
 
   ul {
     font-size: 1.5rem;
+  }
+
+  .transparent-card-title {
+    margin-top: -2rem;
   }
 }
 
@@ -623,7 +631,7 @@ nav ul {
   }
 
   ul {
-    font-size: inherit;
+    font-size: small;
   }
 }
 

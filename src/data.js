@@ -1,4 +1,4 @@
-//DATA MINPULATION (OBJECTS, ARRAYS, ETC.) - TESTs ARE RUN ON THIS FILE
+//DATA MINPULATION (OBJECTS, ARRAYS, ETC.) - TESTS ARE RUN ON THIS FILE
 
 //Filtrar por casa (membersByHouse: arreglo de personajes de una casa en particular)
 export function filterByHouse(dataToFilter, condition) {
@@ -8,19 +8,7 @@ export function filterByHouse(dataToFilter, condition) {
   return membersByHouse;
 }
 
-//funciones para conocer la madera y el núcleo de cada varita (se interpola en un condicional con opciones "Información no disponible" o mostrar info)
- export function wandWood(characterToFilter) {
-   return Object.entries(characterToFilter.wand);
-
-} 
-
-//return Object.entries(character.wand)[0][1];
-
-export function wandCore(characterToFilter) {
-  return Object.entries(characterToFilter.core);
-} 
-
-
+//Filtrar según la madera de la varita (wand es el objeto)
 export function filterByWand(dataToFilter) {
   const hasWand = dataToFilter.filter((character) => character.wand);
   const wandAndInfo = hasWand.map((character) => {
@@ -41,10 +29,23 @@ export function filterByWand(dataToFilter) {
   return willHaveCard;
 
 }
-//Filtrar por el núcleo de la varita
-export function coreNameOnly(dataToFilter) {
-  return Object.entries(dataToFilter.core)[0][1];
+
+//Por si el personaje 1) no tiene varita, 2) solo tiene madera 3) tiene madera y núcleo
+export function whoHasWandInfo(character) {
+  let wandWood = Object.entries(character.wand)[0][1];
+  let wandCore = Object.entries(character.core)[0][1];
+  let wandInfo = [wandWood, wandCore];
+  
+  if (wandInfo[0] === "" && wandInfo[1] === "") {
+    return "Información no disponible";
+  } else if (wandInfo[0] && wandInfo[1] === "") {
+    return wandInfo[0];
+  } else {
+    return `${wandInfo[0]} con núcleo de ${wandInfo[1]}`;
+  }
+
 }
+
 
 
 export function filterByCore(dataToFilter) {
@@ -62,8 +63,13 @@ export function filterByCore(dataToFilter) {
 }
 
 //Filtrar por el patronus. El resultado es un array con muchos array [nombre, patronus, descripción] - onlyPatronus(character); (después de un forEach)
-export function patronusNameOnly(dataToFilter) {
-  return Object.entries(dataToFilter.patronus)[0][1];
+export function showPatronusNameOnly(dataToFilter) {
+  if (dataToFilter.patronus != "") {
+    return Object.entries(dataToFilter.patronus)[0][1];
+  } else {
+    return "Información no disponible";
+  }
+  
 }
 
 //Filtrar por el patronus (pero sin forEach previo) - filterByPatronus(charactersData);
@@ -80,3 +86,18 @@ export function filterByPatronus(dataToFilter) {
 
   return patronusAndInfo;
 }
+
+//Ordenar personajes por su nombre de A > Z
+export function sortByName(sortingData) {
+  sortingData.sort((a, b) => {
+    if (a.name > b.name) {
+      return 1;
+    } else if (a.name < b.name) {
+      return -1;
+    } else {
+      return 0;
+    }
+  })
+  return sortingData;
+}
+
