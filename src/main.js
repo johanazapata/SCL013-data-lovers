@@ -112,10 +112,12 @@ function mainMenu() {
       </div> 
 
       <div class="item">
-        <input type="checkbox" id="check6"/>
-        <label for="check6">NOTICIAS</label>
-      </div> 
-    </ul>
+      <input type="checkbox" id="check8"/>
+      <label for="check8">PRENSA</label>
+      <ul>
+        <li id="check6"><a href="">Noticias</a></li>
+        <li id="check9"><a href="">Comunicados</a></li>
+      </ul>
  
 `;
 
@@ -180,16 +182,17 @@ function mainMenu() {
     window.scrollTo(0, 0);
     noticiasHarry();
   });
-
+  //Lleva a Comunicados
   const comunicados = document.querySelector("#check9");
   comunicados.addEventListener("click", () => {
     event.preventDefault();
+    window.scrollTo(0, 0);
     comunicadosHarry();
   });
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////* BIENVENIDA SEGÚN PANTALLA */////////////////////////////////
+////////////////////////* MSJE. BIENVENIDA SEGÚN PANTALLA *////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////
 const welcomeMessages = [
   "El Colegio Hogwarts de Magia y Hechiceria utiliza el sistema de Casas. Los estudiantes de Hogwarts se divide en cuatro Casas, las cuales son: Gryffindor, Hufflepuff, Ravenclaw y Slytherin. El que elige a que casa van a ir cada estudiante es el Sombrero Seleccionador.",
@@ -206,7 +209,11 @@ const welcomeMessages = [
 
   "El núcleo de una varita es una sustancia mágica colocada dentro de la longitud de la madera, generalmente extraída de una criatura mágica.",
 
-  "Patronus, es un encantamiento utilizado para repeler a los Dementores. Debe ser conjurado mediante la pronunciación del encantamiento Expecto Patronum (del latín Expecto/Esperar y Patronum/Protector), el cual creará una barrera entre el mago y el Dementor."
+  "Patronus, es un encantamiento utilizado para repeler a los Dementores. Debe ser conjurado mediante la pronunciación del encantamiento Expecto Patronum (del latín Expecto/Esperar y Patronum/Protector), el cual creará una barrera entre el mago y el Dementor.",
+
+  "Bienvenidos a El Profeta  un periódico mágico, escrito y editado por la compañía del “Profeta” de Europa. Actualmente somos de las compañías más famosas y ricas de esa zona, pues todos los magos lo compran, a excepción de los fanáticos de El Quisquilloso.",
+
+  "El Ministerio está buscando brujas y magos dispuestos a remangarse, esforzarse y ofrecerse a salvar el mundo mágico.Tenemos como máxima prioridad controlar la magia que ha invadido el mundo de los muggles. Necesitamos a magizoologistas, profesores y aurores para evitar que se produzca una tragedia en el mundo mágico."
 
 ];
 
@@ -219,6 +226,8 @@ const woodsWelcome = welcomeMessages[5];
 const coresWelcome = welcomeMessages[6];
 const patronusWelcome = welcomeMessages[7];
 const newsWelcome = welcomeMessages[8];
+const extraNewsWelcome = welcomeMessages[9];
+
 
 
 ///////////////////////////////////////////////////////////////////////////////////////
@@ -470,7 +479,7 @@ function showPatronus() {
   });
 }
 
-//5. PANTALLA DE PATRONUS
+//5. PANTALLA DE NOTICIAS
 function noticiasHarry() {
   clearInnerContentSection(); //borra el contenido anterior
   const sectionTitle = document.querySelector(".section-title");
@@ -496,22 +505,22 @@ function noticiasHarry() {
 `;
 }
 
+//6. PANTALLA DE COMUNICADOS
 function comunicadosHarry() {
-  createBasicStructure(); //2. crea una sola vez la estructura básica que se repite en cada pantalla (esta estructura se mantiene en el resto de las pantallas)
-  MenuPrincipal(); //3. crea una sola vez la estructura del menú
-  clearInnerContent(); //se borra el contenido anterior que está en .inner-content
+  clearInnerContentSection(); //se borra el contenido anterior que está en .inner-content
   const sectionTitle = document.querySelector(".section-title");
   sectionTitle.classList += " titulo-dorado";
   sectionTitle.textContent = "COMUNICADOS";
 
-  //Bienvenida sección Noticias
-  const innerContent = document.querySelector(".inner-content");
-  const welcomeComunicados = document.createElement("parrafo");
-  welcomeComunicados.classList = "parrafo";
-  welcomeComunicados.textContent =
-    "El Ministerio está buscando brujas y magos dispuestos a remangarse, esforzarse y ofrecerse a salvar el mundo mágico.Tenemos como máxima prioridad controlar la magia que ha invadido el mundo de los muggles. Necesitamos a magizoologistas, profesores y aurores para evitar que se produzca una tragedia en el mundo mágico.";
-  innerContent.appendChild(welcomeComunicados);
-  innerContent.innerHTML += `
+  ///Bienvenida Pantalla Noticias
+  innerContentSection.innerHTML = `
+      <p class="parrafo"></p>
+  
+  `;
+  const welcomeParagraph = document.querySelector(".parrafo");
+  welcomeParagraph.textContent = extraNewsWelcome;
+  innerContentSection.appendChild(welcomeParagraph);
+  innerContentSection.innerHTML += `
   
 <div class="grill">
 <br>
