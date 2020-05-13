@@ -2,7 +2,7 @@
 
 # 1. Descripción del Proyecto
 
-![ENCABEZADO](./src/Imagenes/harry-unite.jpg)
+![ENCABEZADO](./src/Imagenes/wizards-unite-logo.png)
 
 "Harry Potter Magic" es una app que le permite adentrarse al mundo y las aventuras del joven aprendiz de magia y hechicería Harry Potter. A trevés de la aplicación podra conocer datos importantes que le ayudaran a jugar "Harry Potter: Wizards Unite" y a vencer cada uno de los obstaculos que se le presenten.
 
