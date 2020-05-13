@@ -86,7 +86,7 @@ export default [
     },
     core: {
       name: "Cola de Unicornio",
-      descripcion: "Magia consistente. Une fuertemente a su primer dueño.",
+      descripcion: "Magia consistente. Se une fuertemente a su primer dueño.",
       image: "./Imagenes/unicornio3.jpg",
     },
     patronus: {

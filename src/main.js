@@ -7,7 +7,7 @@ import { filterByWand } from "./data.js";
 import { filterByCore } from "./data.js";
 import { patronusNameOnly } from "./data.js";
 import { wandCore } from "./data.js";
-import { wandWood } from "./data.js";  
+import { wandWood } from "./data.js";
 
 //PANTALLA DE INICIO
 const root = document.getElementById("root");
@@ -346,7 +346,6 @@ function showHouseMembers(houseMembers) {
       patronusLi.textContent = `Patronus: ${patronusNameOnly(character)}`;
     }
 
-
     console.log(wandWood(character)[0][1]);
     //por si el personaje 1) no tiene varita, 2) solo tiene madera 3) tiene madera y núcleo
     /* if (wandWood(character) === "" && wandCore(character) === "") {
@@ -357,8 +356,7 @@ function showHouseMembers(houseMembers) {
       cardInfo.childNodes[4].textContent = `Varita: ${wandWood(
         character
       )} con núcleo de ${wandCore(character)}`;
-    }   */ 
-
+    }   */
 
     //Card elements are attached accordingly
     cardFront.appendChild(transparentCardTitle);
@@ -515,7 +513,7 @@ function noticiasHarry() {
   const welcomeNoticias = document.createElement("parrafo");
   welcomeNoticias.classList = "parrafo";
   welcomeNoticias.textContent =
-    "Bienvenidos a El Profeta  un periódico mágico, escrito y editado por la compañía del “Profeta” de Europa. Actualmente somos de las compañías más famosas y ricas de esa zona, pues todos los magos lo compran, a excepción de los fanáticos de El Quisquilloso.Estas son las nosticias destacadas de la semana.";
+    "Bienvenidos a El Profeta  un periódico mágico, escrito y editado por la compañía del “Profeta” de Europa. Actualmente somos de las compañías más famosas y ricas de esa zona, pues todos los magos lo compran, a excepción de los fanáticos de El Quisquilloso.";
   innerContent.appendChild(welcomeNoticias);
   innerContent.innerHTML += `
   
