@@ -134,7 +134,7 @@ Estas fueron algunas de las respuestas obtenidas durante este proceso:
 - Usuario: conoce de Harry Potter mas no ha jugado
 - Feedback: le gustaria tener un botón de regreso a la pagina anterior, considera que facilitaria la navegación.
 
-# Usuario
+# Usuario 5
 
 - Nombre: Kharla
 - Usuario: conoce las peliculas y libros de Harry Potter mas no ha jugado
