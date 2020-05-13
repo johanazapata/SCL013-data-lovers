@@ -263,6 +263,7 @@ function houses() {
   EscudoGry.addEventListener("click", (event) => {
     let gryffindorMembers = filterByHouse(charactersData, "Gryffindor");
     event.preventDefault();
+    window.scrollTo(0, 0);
     return showHouseMembers(gryffindorMembers);
   });
 
@@ -270,6 +271,7 @@ function houses() {
   EscudoRaven.addEventListener("click", (event) => {
     event.preventDefault();
     let ravenclawMembers = filterByHouse(charactersData, "Ravenclaw");
+    window.scrollTo(0, 0);
     return showHouseMembers(ravenclawMembers);
   });
 
@@ -277,6 +279,7 @@ function houses() {
   EscudoHuffle.addEventListener("click", (event) => {
     event.preventDefault();
     let hufflepuffMembers = filterByHouse(charactersData, "Hufflepuff");
+    window.scrollTo(0, 0);
     return showHouseMembers(hufflepuffMembers);
   });
 
@@ -284,6 +287,7 @@ function houses() {
   EscudoSly.addEventListener("click", (event) => {
     event.preventDefault();
     let slytherinMembers = filterByHouse(charactersData, "Slytherin");
+    window.scrollTo(0, 0);
     return showHouseMembers(slytherinMembers);
   });
 }
