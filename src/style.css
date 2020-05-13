@@ -256,13 +256,17 @@ header {
   font-size: 2rem;
   padding-left: 2rem;
   padding-right: 2rem;
-  padding-top: 4rem;
+  padding-top: 5rem;
   /* text-align: center; */
   font-size: medium;
 }
 
 .card-back > ul > li {
   margin: 0.2rem;
+}
+
+.card-title {
+  margin-bottom: 0.1rem;
 }
 
 /*PATRONUS*/
@@ -500,6 +504,10 @@ nav ul {
   ul {
     font-size: 1.5rem;
   }
+
+  .transparent-card-title {
+    margin-top: -2rem;
+  }
 }
 
 /*MOBILE - 1 columna */
@@ -620,7 +628,7 @@ nav ul {
   }
 
   ul {
-    font-size: inherit;
+    font-size: small;
   }
 }
 

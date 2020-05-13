@@ -208,6 +208,11 @@ export default [
       descripcion: "",
       image: "",
     },
+    core: {
+      name: "",
+      descripcion: "",
+      image: "",
+    },
     patronus: {
       name: "Cisne",
       descripcion:
@@ -270,6 +275,11 @@ export default [
         "Las varitas de roble requieren socios de fuerza, coraje y fidelidad.",
       image: "./Imagenes/varitahagrid.jpg",
     },
+    core: {
+      name: "",
+      descripcion: "",
+      image: "",
+    },
     patronus: "",
     hogwartsStudent: false,
     hogwartsStaff: true,
@@ -321,6 +331,11 @@ export default [
       descripcion: "",
       image: "",
     },
+    core: {
+      name: "",
+      descripcion: "",
+      image: "",
+    },
     patronus: {
       name: "Liebre",
       descripcion:
@@ -348,6 +363,11 @@ export default [
       descripcion:
         "Las varitas de tejo están entre las más raras, y sus compañeros ideales son igualmente inusuales y ocasionalmente notorios.",
       image: "./Imagenes/varitaginny.jpg",
+    },
+    core: {
+      name: "",
+      descripcion: "",
+      image: "",
     },
     patronus: {
       name: "Caballo",
@@ -441,6 +461,11 @@ export default [
     hairColour: "rojo",
     wand: {
       wood: "",
+      descripcion: "",
+      image: "",
+    },
+    core: {
+      name: "",
       descripcion: "",
       image: "",
     },
@@ -558,6 +583,11 @@ export default [
       descripcion: "",
       image: "",
     },
+    core: {
+      name: "",
+      descripcion: "",
+      image: "",
+    },
     patronus: {
       name: "Lince",
       descripcion:
@@ -648,6 +678,11 @@ export default [
       descripcion: "",
       image: "",
     },
+    core: {
+      name: "",
+      descripcion: "",
+      image: "",
+    },
     patronus: "",
     hogwartsStudent: true,
     hogwartsStaff: false,
@@ -667,6 +702,11 @@ export default [
     hairColour: "café",
     wand: {
       wood: "",
+      descripcion: "",
+      image: "",
+    },
+    core: {
+      name: "",
       descripcion: "",
       image: "",
     },
@@ -692,6 +732,11 @@ export default [
       descripcion: "",
       image: "",
     },
+    core: {
+      name: "",
+      descripcion: "",
+      image: "",
+    },
     patronus: "",
     hogwartsStudent: false,
     hogwartsStaff: true,
@@ -711,6 +756,11 @@ export default [
     hairColour: "gris",
     wand: {
       wood: "",
+      descripcion: "",
+      image: "",
+    },
+    core: {
+      name: "",
       descripcion: "",
       image: "",
     },

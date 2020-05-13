@@ -1,42 +1,85 @@
-import { filterByHouse } from "../src/data.js";
-import { filterByPatronus } from "../src/data.js";
-import { filterByWand } from '../src/data.js';
-import { filterByCore } from '../src/data.js';
+import { filterByHouse, filterByPatronus, filterByWand, filterByCore, sortByName } from "../src/data.js";
 
-/* 
-test("función que muestre los personajes de cada casa", () => {
-  const data = [
-    { name: "Harry Potter" },
-    { name: "Hermione Granger" },
-    { name: "Ron Weasly" },
-  ];
-
-  const showHouseMembers = ["Harry Potter", "Hermione Granger", "Ron Weasly"];
-  expect(houseMembers(data, "Gryffindor")).toEqual(showHouseMembers);
-
-});
-
-import { filterByHouse } from "../src/data.js";
-import { filterByPatronus } from "../src/data.js";
-=======
-}); */
-
-
-describe('filterByHouse', () => {
-  test('is a function', () => {
-    expect(typeof filterByHouse).toBe('function');
-  })
-})
-
-
-describe("filterByHouse", () => {
-  test("is a function", () => {
+describe("Filter by house function", () => {
+  test("Should return 'function'", () => {
     expect(typeof filterByHouse).toBe("function");
   });
 });
 
 
-describe("Patronus filter-function", () => {
+describe("Filter by house function", () => {
+  test("Shoulder return Ravenclaw members, Cho Chang and Luna Lovegood", () => {
+    const dataToFilter = [
+      {
+        name: "Cho Chang",
+        house: "Ravenclaw"
+      },
+      {
+        name: "Harry Potter",
+        house: "Gryffindor"
+      },
+      {
+        name: "Hermione Granger",
+        house: "Gryffindor"
+      },
+      {
+        name: "Draco Malfoy",
+        house: "Slytherin"
+      },
+      {
+        name: "Luna Lovegood",
+        house: "Ravenclaw"
+      },
+      {
+        name: "Cedric Diggory",
+        house: "Hufflepuff"
+      }
+    ];
+
+    const ravenclaw = [
+      {name: "Cho Chang", house: "Ravenclaw"},
+      {name: "Luna Lovegood", house: "Ravenclaw"}
+    ]
+    expect(filterByHouse(dataToFilter, "Ravenclaw")).toEqual(ravenclaw);
+  });
+
+  test("Shoulder return Gryffindor members, Harry Potter and Hermione Granger", () => {
+    const dataToFilter = [{
+        name: "Cho Chang",
+        house: "Ravenclaw"
+      },
+      {
+        name: "Harry Potter",
+        house: "Gryffindor"
+      },
+      {
+        name: "Hermione Granger",
+        house: "Gryffindor"
+      },
+      {
+        name: "Draco Malfoy",
+        house: "Slytherin"
+      },
+      {
+        name: "Luna Lovegood",
+        house: "Ravenclaw"
+      },
+      {
+        name: "Cedric Diggory",
+        house: "Hufflepuff"
+      }
+    ];
+
+    const gryffindor = [
+      {name: "Harry Potter", house: "Gryffindor"},
+      {name: "Hermione Granger",house: "Gryffindor"},
+    ]
+    expect(filterByHouse(dataToFilter, "Gryffindor")).toEqual(gryffindor);
+  });
+});
+
+
+describe("Filter by patronus function", () => {
   test("Should return patronus name, owner, description and image by data given", () => {
     const dataToFilter = [
       {
@@ -64,7 +107,7 @@ describe("Patronus filter-function", () => {
   });
 });
 
-describe('Wand filter function', () => {
+describe('Filter by wand (wood) function', () => {
   test('Should return wand owner, wood, description and image by data given', () => {
     const dataToFilter = [{
       name: "Harry Potter",
@@ -83,7 +126,7 @@ describe('Wand filter function', () => {
   });
 });
 
-describe('Core filter function', () => {
+describe('Filter by core function', () => {
   test('Should return wand owner, core, description and image by data given', () => {
     const dataToFilter = [{
       name: "Harry Potter",
@@ -104,3 +147,22 @@ describe('Core filter function', () => {
 
 
 
+describe("Sort by name function", () => {
+  test("Should return sorted array by name", () => {
+    let sortingData = [
+      {name: "Harry Potter"}, 
+      {name: "Arthur Weasley"},
+      {name: "Severus Snape"},
+      {name: "Ginny Weasley"}
+    ];
+
+    
+    expect(sortByName(sortingData)).toEqual([
+        {name: "Arthur Weasley"},
+        {name: "Ginny Weasley"},
+        {name: "Harry Potter"},
+        {name: "Severus Snape"}
+    ]);
+
+  });
+});
