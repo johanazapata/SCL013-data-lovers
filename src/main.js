@@ -205,7 +205,14 @@ function Houses() {
   const sectionTitle = document.querySelector(".section-title");
   sectionTitle.classList += " titulo-dorado";
   sectionTitle.textContent = "CASAS";
-  document.querySelector(".inner-content").innerHTML = `
+  //Bienvenida Casas Hogwarts
+  const innerContent = document.querySelector(".inner-content");
+  const welcomeNoticias = document.createElement("parrafo");
+  welcomeNoticias.classList = "parrafo";
+  welcomeNoticias.textContent =
+    "El Colegio Hogwarts de Magia y Hechiceria utiliza el sistema de Casas. Los estudiantes de Hogwarts se divide en cuatro Casas, las cuales son: Gryffindor, Hufflepuff, Ravenclaw y Slytherin. El que elige a que casa van a ir cada estudiante es el Sombrero Seleccionador.";
+  innerContent.appendChild(welcomeNoticias);
+  innerContent.innerHTML += `
 
   <div class="grilla">
     <img src = "./Imagenes/House Gry.jpg" class="grid-item" id="EscudoGry">
@@ -260,7 +267,9 @@ function showHouseMembers(houseMembers) {
 /*   const fraseMembers = document.createElement("p");
   fraseMembers.classList = "p";
   fraseMembers.textContent = "HOLA";
+
   sectionTitle.appendChild(fraseMembers); */
+
 
   //4. modifica el color del título según la casa del primer miembro del grupo
   const firstHouseMember = houseMembers[0];
@@ -503,17 +512,25 @@ function showPatronus() {
 function noticiasHarry() {
   createBasicStructure(); //2. crea una sola vez la estructura básica que se repite en cada pantalla (esta estructura se mantiene en el resto de las pantallas)
   MenuPrincipal(); //3. crea una sola vez la estructura del menú
-
+  clearInnerContent(); //se borra el contenido anterior que está en .inner-content
   const sectionTitle = document.querySelector(".section-title");
   sectionTitle.classList += " titulo-dorado";
   sectionTitle.textContent = "NOTICIAS";
 
-  document.querySelector(".inner-content").innerHTML = `
+  //Bienvenida sección Noticias
+  const innerContent = document.querySelector(".inner-content");
+  const welcomeNoticias = document.createElement("parrafo");
+  welcomeNoticias.classList = "parrafo";
+  welcomeNoticias.textContent =
+    "Bienvenidos a El Profeta  un periódico mágico, escrito y editado por la compañía del “Profeta” de Europa. Actualmente somos de las compañías más famosas y ricas de esa zona, pues todos los magos lo compran, a excepción de los fanáticos de El Quisquilloso.Estas son las nosticias destacadas de la semana.";
+  innerContent.appendChild(welcomeNoticias);
+  innerContent.innerHTML += `
   
-  <div class="contenedor">
-  <h1>"Daniel Radcliffe se reencuentra con Harry Potter públicamente tras casi una década"</h1>
-    <video src = "./Imagenes/noticiasHarry.mp4">
-   
-  </div>
+<div class="grid">
+<img style="-webkit-user-select: none;margin: auto;cursor: zoom-in;" src="https://i.gifer.com/Bmem.gif" width="394" height="625"></img>
+<img style="-webkit-user-select: none;margin: auto;cursor: zoom-in;" src="https://i.pinimg.com/originals/7e/7e/64/7e7e64774dfa76fa78c7ff9ec0e8c2be.gif" width="394" height="625">
+<img style="-webkit-user-select: none;margin: auto;cursor: zoom-in;" src="https://3.bp.blogspot.com/-6_b7S5eI9E8/W-2cfOWfrQI/AAAAAAAANsQ/MiNO-7GaJzUVzI570PNJ7cjl7AKd_QkFACK4BGAYYCw/s1600/tumblr_mwbw366JFJ1rrrafbo1_r1_500.gif" <img style="-webkit-user-select: none;margin: auto;cursor: zoom-in;" src="https://66.media.tumblr.com/ab5ac61ded6b74ac87096281783f3ba8/tumblr_oaycdg1N6c1v4x4oqo1_1280.gifv" width="394" height="625"></img>
+<img style="-webkit-user-select: none;margin: auto;cursor: zoom-in;" src="https://1.bp.blogspot.com/-vdV5enNSVc4/Vz20kYrJa0I/AAAAAAAAAgw/V8scCw7xMZQKJXnDdbFOijpD-Alf97RewCLcB/s1600/Daily-Prophet-Sports.gif" width="394" height="625">
+</div>
 `;
 }
