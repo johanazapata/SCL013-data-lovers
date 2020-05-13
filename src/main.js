@@ -77,11 +77,12 @@ function createBasicStructure() {
     
       <h1 class="section-title"></h1>
         <section class="inner-content">
+ 
 
         </section>
-      
+
     </section>
-  
+
   `;
   //función que nos devuelve a la pantalla de los escudos al hacer click en el logo
   const logoBox = document.querySelector(".small-logo-box");
@@ -109,7 +110,6 @@ function MenuPrincipal() {
 <label for="checkbox__hack" class="checkbox-hack__label"></label>
 <nav class="nav--top">
 <ul class="menu-lateral nav--top__list">
-
   <div class="item">
       <input type="checkbox" id="check2"/>
       <label for="check2" id="casas">CASAS</label>
@@ -257,18 +257,12 @@ function showHouseMembers(houseMembers) {
 
   const innerContentSection = document.querySelector(".inner-content");
   const sectionTitle = document.querySelector(".section-title");
+
   //Bienvenida a cada Casa
   const welcomeMembers = document.createElement("parrafo");
   welcomeMembers.classList = "parrafo";
   welcomeMembers.textContent = "";
   innerContentSection.appendChild(welcomeMembers);
-
-  //Frase de Costado
-  /*   const fraseMembers = document.createElement("p");
-  fraseMembers.classList = "p";
-  fraseMembers.textContent = "HOLA";
-
-  sectionTitle.appendChild(fraseMembers); */
 
   //4. modifica el color del título según la casa del primer miembro del grupo
   const firstHouseMember = houseMembers[0];
@@ -521,6 +515,11 @@ function noticiasHarry() {
   welcomeNoticias.textContent =
     "Bienvenidos a El Profeta  un periódico mágico, escrito y editado por la compañía del “Profeta” de Europa. Actualmente somos de las compañías más famosas y ricas de esa zona, pues todos los magos lo compran, a excepción de los fanáticos de El Quisquilloso.";
   innerContent.appendChild(welcomeNoticias);
+  //Bienvenida sección Noticias
+  const welcomeTitulo = document.createElement("parrafo");
+  welcomeTitulo.classList = "parrafo";
+  welcomeTitulo.textContent = "Estas son las noticias destacadas";
+  innerContent.appendChild(welcomeTitulo);
   innerContent.innerHTML += `
   
 <div class="grid">

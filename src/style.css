@@ -97,7 +97,6 @@ section.header {
 }
 
 header {
-  
   display: flex;
   justify-content: center;
   align-items: center;
@@ -120,7 +119,7 @@ header {
   text-align: center;
   font-size: 3rem;
   width: 100%;
-  margin-top: 5rem; 
+  margin-top: 5rem;
 
   /*color de borde cambia según sección*/
 }
@@ -258,11 +257,15 @@ header {
   padding-right: 2rem;
   padding-top: 4rem;
   /* text-align: center; */
-  font-size: medium;
+  font-size: small;
 }
 
 .card-back > ul > li {
   margin: 0.2rem;
+}
+
+.card-title {
+  margin-bottom: 2rem;
 }
 
 /*PATRONUS*/
@@ -400,7 +403,6 @@ nav ul {
   transform: all;
 }
 
-
 /*Sección Casas*/
 .grilla {
   grid-column-start: 1;
@@ -428,7 +430,6 @@ nav ul {
   margin-top: 6vh;
   column-gap: 20%;
 }
-
 
 /*PANTALLA DE VARITAS*/
 
@@ -598,12 +599,7 @@ nav ul {
   ul {
     font-size: inherit;
   }
-
 }
-
-
-
-
 
 @media screen and (max-width: 320px) {
   .nav--top__list {
@@ -627,4 +623,3 @@ nav ul {
 #toggle {
   display: none;
 }
-
