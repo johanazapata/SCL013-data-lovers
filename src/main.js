@@ -37,6 +37,7 @@ function createBasicStructure() {
         <section class="inner-content">
         </section>
     </section>
+
   `;
 
   innerContentSection = document.querySelector(".inner-content");
@@ -178,6 +179,12 @@ function mainMenu() {
     event.preventDefault();
     window.scrollTo(0, 0);
     noticiasHarry();
+  });
+
+  const comunicados = document.querySelector("#check9");
+  comunicados.addEventListener("click", () => {
+    event.preventDefault();
+    comunicadosHarry();
   });
 }
 
@@ -469,7 +476,6 @@ function noticiasHarry() {
   const sectionTitle = document.querySelector(".section-title");
   sectionTitle.classList += " titulo-dorado";
   sectionTitle.textContent = "NOTICIAS";
-
   ///Bienvenida Pantalla Noticias
   innerContentSection.innerHTML = `
       <p class="parrafo"></p>
@@ -479,12 +485,42 @@ function noticiasHarry() {
   welcomeParagraph.textContent = newsWelcome;
   innerContentSection.appendChild(welcomeParagraph);
   innerContentSection.innerHTML += `
+
   
 <div class="grid">
 <img style="-webkit-user-select: none;margin: auto;cursor: zoom-in;" src="https://i.gifer.com/Bmem.gif" width="394" height="625"></img>
 <img style="-webkit-user-select: none;margin: auto;cursor: zoom-in;" src="https://i.pinimg.com/originals/7e/7e/64/7e7e64774dfa76fa78c7ff9ec0e8c2be.gif" width="394" height="625">
 <img style="-webkit-user-select: none;margin: auto;cursor: zoom-in;" src="https://3.bp.blogspot.com/-6_b7S5eI9E8/W-2cfOWfrQI/AAAAAAAANsQ/MiNO-7GaJzUVzI570PNJ7cjl7AKd_QkFACK4BGAYYCw/s1600/tumblr_mwbw366JFJ1rrrafbo1_r1_500.gif" <img style="-webkit-user-select: none;margin: auto;cursor: zoom-in;" src="https://66.media.tumblr.com/ab5ac61ded6b74ac87096281783f3ba8/tumblr_oaycdg1N6c1v4x4oqo1_1280.gifv" width="394" height="625"></img>
 <img style="-webkit-user-select: none;margin: auto;cursor: zoom-in;" src="https://1.bp.blogspot.com/-vdV5enNSVc4/Vz20kYrJa0I/AAAAAAAAAgw/V8scCw7xMZQKJXnDdbFOijpD-Alf97RewCLcB/s1600/Daily-Prophet-Sports.gif" width="394" height="625">
+</div>
+`;
+}
+
+function comunicadosHarry() {
+  createBasicStructure(); //2. crea una sola vez la estructura básica que se repite en cada pantalla (esta estructura se mantiene en el resto de las pantallas)
+  MenuPrincipal(); //3. crea una sola vez la estructura del menú
+  clearInnerContent(); //se borra el contenido anterior que está en .inner-content
+  const sectionTitle = document.querySelector(".section-title");
+  sectionTitle.classList += " titulo-dorado";
+  sectionTitle.textContent = "COMUNICADOS";
+
+  //Bienvenida sección Noticias
+  const innerContent = document.querySelector(".inner-content");
+  const welcomeComunicados = document.createElement("parrafo");
+  welcomeComunicados.classList = "parrafo";
+  welcomeComunicados.textContent =
+    "El Ministerio está buscando brujas y magos dispuestos a remangarse, esforzarse y ofrecerse a salvar el mundo mágico.Tenemos como máxima prioridad controlar la magia que ha invadido el mundo de los muggles. Necesitamos a magizoologistas, profesores y aurores para evitar que se produzca una tragedia en el mundo mágico.";
+  innerContent.appendChild(welcomeComunicados);
+  innerContent.innerHTML += `
+  
+<div class="grill">
+<br>
+<p><strong>VIDEO: COMUNICACIÓN OFICIAL PARA TODOS LOS MAGOS</strong></p>
+<video class="youtube-fallback-video" width="600" height="500"playsinline="true" controls="true"><p>Tu navegador no implementa el elemento audio.</p><source src="https://storage.googleapis.com/nianticweb-hpwu-blog/video/teaser@es.mp4"></video>
+<br>
+<br>
+<p><strong>VIDEO: HIPOGRIFO AVISTADO MIENTRAS VOLABA CERCA DE UNA VÍA FÉRREA MUGGLE</strong></p>
+<video class="youtube-fallback-video" width="600" height="500"playsinline="true" controls="true"><source src="https://storage.googleapis.com/nianticweb-hpwu-blog/video/turbulenthippogriff/BBT_ES_24sec_1_WEB.mp4"></video>
 </div>
 `;
 }
