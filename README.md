@@ -140,4 +140,4 @@ Estas fueron algunas de las respuestas obtenidas durante este proceso:
 - Usuario: conoce las peliculas y libros de Harry Potter mas no ha jugado
 - Feedback: le agrado la forma en como se presento la información , le gusta que haya mensajes de bienvenida explicando cada pantalla y destaco la sección de "NOTICIAS" fue su favorita.
 
-Para ver la versión final de nuestro proyecto presione<A HREF=https://johanazapata.github.io/SCL013-data-lovers/src/index> AQUI </A>.
+Para ver la versión final de nuestro proyecto presione<A HREF=https://loretogutierrezh.github.io/SCL013-data-lovers/src/index.html> AQUI </A>.
