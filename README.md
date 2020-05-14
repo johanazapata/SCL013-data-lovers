@@ -4,7 +4,7 @@
 
 ![ENCABEZADO](./src/Imagenes/wizards-unite-logo.png)
 
-"Harry Potter: Wizards Unite" es una app que le permite adentrarse al mundo y las aventuras del joven aprendiz de magia y hechicería Harry Potter. A trevés de la aplicación podra conocer datos importantes que le ayudaran a jugar el támbien llamado "Harry Potter: Wizards Unite" y a vencer cada uno de los obstaculos que se le presenten.
+"Harry Potter: Wizards Unite" es una app que le permite adentrarse al mundo y las aventuras del joven aprendiz de magia y hechicería Harry Potter. A través de la aplicación podra conocer datos importantes que le ayudaran a jugar el támbien llamado "Harry Potter: Wizards Unite" y a vencer cada uno de los obstaculos que se le presenten.
 
 En ""Harry Potter: Wizards Unite" conocera todo acerca de:
 
@@ -49,7 +49,7 @@ Iniciamos la planificación del proyecto creando las historias de usuario, delim
 
 - Baja Fidelidad Desktop
 
-Nuestro prototipo de baja fidelidad partio de las bases establecidas en el proyecto, plasmamos solamente la idea de algunas pantallas que queriamos desarrollar y las cuale pensamos serian de utilidad al usuario.
+Nuestro prototipo de baja fidelidad partio de las bases establecidas en el proyecto, plasmamos solamente la idea de algunas pantallas que queriamos desarrollar y las cuales pensamos serian de utilidad al usuario.
 
 ![PROTOTIPO BAJA 1](./src/Imagenes/PrototipoUno.jpg)
 ![PROTOTIPO BAJA 2](./src/Imagenes/PrototipoDos.jpg)
